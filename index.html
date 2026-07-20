@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DELIXIR AI 프롬프트 복사 가이드</title>
+<style>
+:root{
+  --primary:#4f46e5;
+  --primary2:#06b6d4;
+  --primary-soft:#eef2ff;
+  --bg:#f6f8fc;
+  --card:#ffffff;
+  --text:#0f172a;
+  --muted:#64748b;
+  --line:#e2e8f0;
+  --success:#10b981;
+  --dark:#172033;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Pretendard,"Noto Sans KR",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+aside{
+  position:fixed;
+  left:0;top:0;bottom:0;
+  width:280px;
+  background:#fff;
+  border-right:1px solid var(--line);
+  padding:26px 20px;
+  z-index:50;
+  overflow:auto;
+}
+.logo{display:flex;gap:11px;align-items:center;margin-bottom:25px}
+.logo-mark{
+  width:38px;height:38px;border-radius:12px;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  display:grid;place-items:center;color:#fff;font-weight:900;
+}
+.logo strong{display:block;font-size:15px}
+.logo span{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.nav-group{margin-top:21px}
+.nav-label{
+  font-size:11px;font-weight:900;letter-spacing:.08em;
+  color:#94a3b8;margin:0 10px 8px;
+}
+nav a{
+  display:flex;gap:9px;align-items:center;
+  text-decoration:none;color:#475569;
+  padding:11px 12px;border-radius:10px;
+  font-weight:700;font-size:14px;margin:3px 0;
+}
+nav a:hover,nav a.active{background:var(--primary-soft);color:var(--primary)}
+.sidebar-help{
+  margin-top:24px;padding:15px;border-radius:14px;
+  background:#f8fafc;border:1px solid var(--line);
+  font-size:12px;line-height:1.6;color:var(--muted);
+}
+main{
+  margin-left:280px;
+  max-width:1180px;
+  padding:46px 48px 90px;
+}
+.hero{margin-bottom:32px}
+.eyebrow{
+  font-size:12px;font-weight:900;letter-spacing:.1em;
+  color:var(--primary);margin-bottom:8px;
+}
+h1{margin:0;font-size:36px;letter-spacing:-.045em}
+.hero p{margin:12px 0 0;color:var(--muted);line-height:1.7}
+.quick-nav{
+  position:sticky;top:10px;z-index:45;
+  display:flex;gap:8px;flex-wrap:wrap;
+  margin:0 0 24px;padding:10px;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(10px);
+  border:1px solid var(--line);border-radius:14px;
+  box-shadow:0 8px 24px rgba(15,23,42,.08);
+}
+.quick-nav a{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:42px;padding:10px 14px;border-radius:10px;
+  text-decoration:none;font-size:13px;font-weight:900;
+  background:var(--primary);color:#fff;
+}
+.quick-nav a.sub{background:#eef2ff;color:var(--primary)}
+.notice{
+  border:2px solid var(--primary);
+  background:linear-gradient(180deg,#f5f3ff,#fff);
+  border-radius:16px;padding:18px;margin-bottom:28px;
+}
+.notice strong{display:block;color:var(--primary);margin-bottom:6px}
+.notice p{margin:0;color:#475569;font-size:13px;line-height:1.7}
+.section{scroll-margin-top:90px;margin-bottom:56px}
+.section-head{margin-bottom:18px}
+.section-number{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border-radius:10px;
+  background:var(--primary);color:#fff;font-weight:900;margin-right:9px;
+}
+h2{display:inline;font-size:27px;letter-spacing:-.03em}
+.lead{margin:12px 0 0;color:var(--muted);line-height:1.7}
+.card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{
+  background:#fff;border:1px solid var(--line);
+  border-radius:18px;padding:22px;
+  box-shadow:0 2px 6px rgba(15,23,42,.035);
+  display:flex;flex-direction:column;min-height:210px;
+}
+.card-top{display:flex;gap:12px;align-items:flex-start}
+.icon{
+  width:44px;height:44px;border-radius:13px;
+  display:grid;place-items:center;background:var(--primary-soft);
+  font-size:21px;flex:0 0 auto;
+}
+.card h3{margin:0 0 6px;font-size:19px}
+.card p{color:var(--muted);line-height:1.65;margin:0;font-size:13px}
+.card-actions{margin-top:auto;padding-top:20px;display:flex;gap:9px}
+.copy-btn,.view-btn{
+  border:0;border-radius:10px;padding:11px 14px;
+  font-weight:900;cursor:pointer;font-size:13px;
+}
+.copy-btn{background:var(--primary);color:#fff;flex:1}
+.copy-btn.copied{background:var(--success)}
+.view-btn{background:#e2e8f0;color:#334155}
+.prompt-panel{
+  display:none;margin-top:14px;border-radius:13px;
+  background:var(--dark);color:#f8fafc;
+  padding:16px;font:12px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;
+  white-space:pre-wrap;max-height:300px;overflow:auto;
+}
+.prompt-panel.show{display:block}
+.footer{
+  margin-top:20px;padding-top:22px;border-top:1px solid var(--line);
+  color:var(--muted);font-size:12px;text-align:center;
+}
+.toast{
+  position:fixed;right:24px;bottom:24px;z-index:100;
+  background:#172033;color:#fff;padding:13px 17px;
+  border-radius:11px;box-shadow:0 12px 25px rgba(0,0,0,.2);
+  transform:translateY(150%);transition:.25s;
+}
+.toast.show{transform:translateY(0)}
+@media(max-width:950px){
+  aside{display:none}
+  main{margin-left:0;padding:28px 18px 70px}
+}
+@media(max-width:700px){
+  .card-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  h1{font-size:28px}
+  h2{font-size:23px}
+  .quick-nav{top:6px;gap:6px;padding:8px}
+  .quick-nav a{flex:1 1 calc(50% - 6px);padding:9px 8px;font-size:12px}
+  .card-actions{flex-direction:column}
+  .copy-btn,.view-btn{width:100%}
+}
+</style>
+</head>
+<body>
+<aside>
+  <div class="logo">
+    <div class="logo-mark">D</div>
+    <div>
+      <strong>DELIXIR AI GUIDE</strong>
+      <span>프롬프트 복사 전용 페이지</span>
+    </div>
+  </div>
+  <nav>
+    <div class="nav-group">
+      <div class="nav-label">제품 이미지</div>
+      <a href="#product">📦 통합 제품컷</a>
+      <a href="#detail">🔍 디테일컷</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-label">착용 이미지</div>
+      <a href="#wearing">🙋 통합 착용컷</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-label">부분 수정</div>
+      
+      
+    </div>
+  </nav>
+  <div class="sidebar-help">
+    <b>사용 방법</b><br/>
+    기준 사진과 원석 참고 사진을 AI 채팅에 첨부한 뒤 필요한 프롬프트를 복사해 붙여넣으세요.
+  </div>
+</aside>
+
+<main>
+  <section class="hero">
+    <div class="eyebrow">DELIXIR AI PROMPT COPY</div>
+    <h1>필요한 프롬프트만<br/>빠르게 복사하세요.</h1>
+    <p>제품컷, 디테일컷, 착용컷에 필요한 핵심 프롬프트 3개만 모은 간단한 제작 가이드입니다.</p>
+  </section>
+
+  <div class="quick-nav">
+    <a href="#product">제품컷</a>
+    <a href="#detail" class="sub">디테일컷</a>
+    <a href="#wearing" class="sub">착용컷</a>
+    
+    
+  </div>
+
+  <div class="notice">
+    <strong>📌 기본 작업 순서</strong>
+    <p>1번 기준 팔찌 사진 → 2번 원석 참고 사진 → 필요한 프롬프트 복사 → AI 채팅창에 붙여넣기</p>
+  </div>
+
+  <section class="section" id="product">
+    <div class="section-head">
+      <span class="section-number">1</span><h2>통합 제품컷</h2>
+      <p class="lead">기준 팔찌의 전체 구조를 유지하면서 원석 재질만 바꾸는 기본 제품컷입니다.</p>
+    </div>
+    <div class="card-grid">
+      <article class="card">
+        <div class="card-top">
+          <div class="icon">📦</div>
+          <div>
+            <h3>통합 제품컷 프롬프트</h3>
+            <p>비드 수, 배열, 팔찌 크기, 실버 비드 위치와 조명을 그대로 유지합니다.</p>
+          </div>
+        </div>
+        <div class="card-actions">
+          <button class="copy-btn" onclick="copyPrompt('product',this)">프롬프트 복사</button>
+          <button class="view-btn" onclick="togglePrompt('product-panel',this)">보기</button>
+        </div>
+        <div class="prompt-panel" id="product-panel"></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="detail">
+    <div class="section-head">
+      <span class="section-number">2</span><h2>디테일컷</h2>
+      <p class="lead">원석 내부 질감과 실버 홈 디테일을 가까이 보여주는 확대 이미지입니다.</p>
+    </div>
+    <div class="card-grid">
+      <article class="card">
+        <div class="card-top">
+          <div class="icon">🔍</div>
+          <div>
+            <h3>디테일컷 프롬프트</h3>
+            <p>원석의 투명도, 내포물, 광택과 실버 홈을 선명하게 강조합니다.</p>
+          </div>
+        </div>
+        <div class="card-actions">
+          <button class="copy-btn" onclick="copyPrompt('detail',this)">프롬프트 복사</button>
+          <button class="view-btn" onclick="togglePrompt('detail-panel',this)">보기</button>
+        </div>
+        <div class="prompt-panel" id="detail-panel"></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="wearing">
+    <div class="section-head">
+      <span class="section-number">3</span><h2>통합 착용컷</h2>
+      <p class="lead">20대 한국인 여성 손목에 자연스럽게 착용한 팔찌 중심 이미지입니다.</p>
+    </div>
+    <div class="card-grid">
+      <article class="card">
+        <div class="card-top">
+          <div class="icon">🙋</div>
+          <div>
+            <h3>착용컷 프롬프트</h3>
+            <p>다른 주얼리 없이 손목과 팔찌를 중심으로 자연스럽게 연출합니다.</p>
+          </div>
+        </div>
+        <div class="card-actions">
+          <button class="copy-btn" onclick="copyPrompt('wearing',this)">프롬프트 복사</button>
+          <button class="view-btn" onclick="togglePrompt('wearing-panel',this)">보기</button>
+        </div>
+        <div class="prompt-panel" id="wearing-panel"></div>
+      </article>
+    </div>
+  </section>
+
+  
+
+  
+
+  <div class="footer">DELIXIR AI · Prompt Copy Guide</div>
+</main>
+
+<div class="toast" id="toast">복사 완료</div>
+
+<script>
+const prompts = {
+product:`THIS IS AN IMAGE EDITING TASK.
+DO NOT GENERATE A NEW BRACELET.
+
+Reference image 1 is the MASTER image.
+Reference image 2 is ONLY the gemstone material reference.
+
+Keep the bracelet geometry from Reference image 1 exactly unchanged:
+- bracelet shape
+- bead count
+- bead positions
+- bead spacing
+- bracelet diameter
+- silver bead positions
+- silver bead size
+- engraved grooves
+- perspective
+- crop
+- lighting
+- reflections
+- shadows
+
+Use Reference image 2 only for:
+- gemstone color
+- translucency
+- opacity
+- mineral inclusions
+- internal pattern
+- polish
+
+Replace only the gemstone bead material.
+Keep every original gemstone bead boundary exactly unchanged.
+
+The bracelet contains exactly three silver accent beads:
+- one large fluted spherical silver bead at the center
+- two smaller olive-shaped fluted silver beads positioned symmetrically on both sides
+
+Keep all three silver beads exactly identical to Reference image 1.
+
+The bracelet contains exactly three silver accent beads.
+One large fluted spherical silver bead is located at the center.
+Two smaller olive-shaped fluted silver beads are positioned symmetrically on both sides.
+
+Never change:
+- quantity
+- position
+- size
+- proportions
+- engraved grooves
+- reflections
+- highlights
+- shadows
+- metal finish
+- rotation
+
+Only the gemstone beads may be changed.
+
+All beads must remain tightly connected with zero spacing.
+
+Create a clean e-commerce product image on a pure white #FFFFFF background.`,
+
+detail:`Create a high-resolution close-up detail image of the bracelet from Reference image 1.
+
+Reference image 1 is the MASTER image.
+Reference image 2 defines only the gemstone material.
+
+Preserve exactly:
+- bead count
+- bead diameter
+- bead positions
+- bracelet curvature
+- bead spacing
+- silver accent bead positions
+- silver bead size
+- silver groove structure
+- original lighting direction
+- original local geometry around every silver accent bead
+
+Focus on:
+- realistic gemstone transparency
+- natural mineral inclusions
+- polished smooth surfaces
+- internal gemstone depth
+- precise fluted silver details
+- clean metal reflections
+
+The bracelet contains exactly three silver accent beads:
+- one large fluted spherical silver bead at the center
+- two smaller olive-shaped fluted silver beads positioned symmetrically on both sides
+
+CRITICAL GEOMETRY REQUIREMENTS
+
+Do not enlarge, shrink, stretch, compress, flatten, or reshape any gemstone bead.
+
+The two gemstone beads immediately adjacent to the center silver bead must remain exactly the same diameter as every other gemstone bead.
+
+The gemstone beads immediately adjacent to each olive-shaped silver bead must also remain exactly the same diameter as every other gemstone bead.
+
+Every gemstone bead must remain perfectly spherical.
+
+Every bead must remain tangent to the neighboring bead with zero spacing and zero overlap.
+
+Do not allow any silver bead to sink into, intersect, cover, merge with, or deform the neighboring gemstone beads.
+
+Do not create enlarged transition beads around the center silver bead.
+
+Do not create smaller connector-like gemstone beads beside the olive-shaped silver beads.
+
+The boundaries between gemstone beads and silver beads must remain clean, separate, fully visible, and symmetrical.
+
+The bracelet geometry from Reference image 1 is locked.
+
+Only the gemstone material may change.
+
+Never modify bead diameter, bead proportions, bead spacing, bead sequence, or the local geometry around the silver accent beads.
+
+All beads must touch with zero spacing.`,
+
+wearing:`Create a realistic wrist-wearing image using the bracelet from Reference image 1.
+
+Reference image 1 defines the complete bracelet geometry and design.
+Reference image 2 defines only the gemstone material appearance.
+
+Preserve:
+- total bead count
+- gemstone bead count
+- silver bead count
+- bead diameter
+- bead sequence
+- bracelet proportions
+- silver accent bead positions
+- silver groove structure
+- gemstone material
+- symmetry
+
+Use a realistic Korean woman in her 20s.
+Natural skin texture.
+Clean commercial fashion photography.
+The bracelet must be the main focus.
+
+The bracelet must wrap naturally around the wrist using an elastic string.
+All beads must touch with zero spacing.
+
+Do not add watches, rings, necklaces, other bracelets, extra charms, or extra metal beads.`,
+
+material:`Replace only the material appearance of the gemstone beads using Reference image 2.
+
+Reference image 1 is the MASTER image.
+
+Keep exactly:
+- original bead count
+- original bead diameter
+- original bead positions
+- original bead spacing
+- bracelet curvature
+- bracelet diameter
+- silver accent beads
+- original camera angle
+- original crop
+- original lighting
+- original reflections
+
+Apply only:
+- gemstone color
+- translucency
+- opacity
+- natural mineral inclusions
+- internal depth
+- polished surface
+- natural bead-to-bead variation
+
+Do not change any geometry.`,
+
+silver:`The bracelet contains exactly three silver accent beads.
+
+One large fluted spherical silver bead is located at the center.
+
+Two smaller olive-shaped fluted silver beads are positioned symmetrically on both sides.
+
+Keep all three silver beads exactly identical to Reference image 1.
+
+Do not change:
+- quantity
+- position
+- size
+- proportions
+- engraved grooves
+- reflections
+- highlights
+- shadows
+- metal finish
+- rotation
+
+Only the gemstone beads may be changed.`
+};
+
+for(const [key,value] of Object.entries(prompts)){
+  const panel=document.getElementById(key+"-panel");
+  if(panel) panel.textContent=value;
+}
+
+function showToast(){
+  const toast=document.getElementById("toast");
+  toast.classList.add("show");
+  clearTimeout(window.toastTimer);
+  window.toastTimer=setTimeout(()=>toast.classList.remove("show"),1500);
+}
+
+async function copyPrompt(key,button){
+  const text=prompts[key];
+  try{
+    await navigator.clipboard.writeText(text);
+  }catch(e){
+    const temp=document.createElement("textarea");
+    temp.value=text;
+    document.body.appendChild(temp);
+    temp.select();
+    document.execCommand("copy");
+    temp.remove();
+  }
+  const old=button.textContent;
+  button.textContent="복사 완료";
+  button.classList.add("copied");
+  setTimeout(()=>{
+    button.textContent=old;
+    button.classList.remove("copied");
+  },1300);
+  showToast();
+}
+
+function togglePrompt(id,button){
+  const panel=document.getElementById(id);
+  panel.classList.toggle("show");
+  button.textContent=panel.classList.contains("show") ? "닫기" : "보기";
+}
+</script>
+</body>
+</html>
