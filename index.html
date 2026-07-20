@@ -161,6 +161,26 @@ h2{display:inline;font-size:27px;letter-spacing:-.03em}
   .card-actions{flex-direction:column}
   .copy-btn,.view-btn{width:100%}
 }
+
+.pose-tools{display:flex;gap:10px;margin-bottom:12px}
+.pose-tools input{flex:1;border:1px solid var(--line);border-radius:11px;padding:12px 13px;font-size:14px}
+.pose-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-height:520px;overflow:auto;padding-right:3px}
+.pose-card{text-align:left;border:1px solid var(--line);background:#fff;border-radius:13px;padding:13px;cursor:pointer;color:var(--text)}
+.pose-card:hover,.pose-card.selected{border-color:var(--primary);background:var(--primary-soft)}
+.pose-card strong{display:block;font-size:14px;margin:4px 0}
+.pose-card small{display:block;color:var(--muted);line-height:1.45}
+.pose-code{font-size:11px;color:var(--primary);font-weight:900}
+.selected-pose{margin-top:12px;padding:13px;border-radius:12px;background:#f8fafc;border:1px dashed #cbd5e1;font-size:13px;color:#475569}
+.builder-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field label{display:block;font-size:13px;font-weight:900;margin-bottom:7px}
+.field textarea{width:100%;min-height:170px;border:1px solid var(--line);border-radius:12px;padding:13px;font:13px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace}
+.field textarea.final-output{min-height:360px;background:var(--dark);color:#f8fafc;border-color:#263248}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.primary-btn,.secondary-btn{border:0;border-radius:10px;padding:11px 14px;font-weight:900;cursor:pointer}
+.primary-btn{background:var(--primary);color:#fff}
+.secondary-btn{background:#e2e8f0;color:#334155}
+@media(max-width:700px){.pose-grid,.builder-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -181,6 +201,8 @@ h2{display:inline;font-size:27px;letter-spacing:-.03em}
     <div class="nav-group">
       <div class="nav-label">착용 이미지</div>
       <a href="#wearing">🙋 통합 착용컷</a>
+      <a href="#pose">🧍 포즈 선택</a>
+      <a href="#builder">🧩 최종 조합기</a>
     </div>
     <div class="nav-group">
       <div class="nav-label">부분 수정</div>
@@ -205,6 +227,8 @@ h2{display:inline;font-size:27px;letter-spacing:-.03em}
     <a href="#product">제품컷</a>
     <a href="#detail" class="sub">디테일컷</a>
     <a href="#wearing" class="sub">착용컷</a>
+    <a href="#pose" class="sub">포즈</a>
+    <a href="#builder" class="sub">최종 조합</a>
     
     
   </div>
@@ -287,7 +311,102 @@ h2{display:inline;font-size:27px;letter-spacing:-.03em}
 
   
 
-  <div class="footer">DELIXIR AI · Prompt Copy Guide</div>
+  
+  <section class="section" id="pose">
+    <div class="section-head">
+      <span class="section-number">4</span><h2>착용컷 포즈 선택</h2>
+      <p class="lead">원하는 포즈 카드를 선택하면 최종 조합기에 자동으로 들어갑니다.</p>
+    </div>
+
+    <article class="card">
+      <div class="pose-tools">
+        <input id="poseSearch" type="search" placeholder="포즈 검색: 손목 / 주머니 / 앉기 / 클로즈업" oninput="filterPoses()"/>
+        <button class="secondary-btn" type="button" onclick="clearPoseSearch()">초기화</button>
+        <button class="secondary-btn" type="button" onclick="randomPose()">랜덤</button>
+      </div>
+
+      <div class="pose-grid" id="poseGrid">
+        <button class="pose-card" type="button" data-label="A01 — 허리 옆 자연스러운 손" data-prompt="Waist-to-fingertips crop. Bracelet arm relaxed beside the hip, wrist rotated slightly toward camera, fingers naturally curved. Asymmetrical composition with the bracelet placed off-center." data-search="a01 허리 옆 자연스러운 손 허리 손목" onclick="selectPose(this)">
+          <span class="pose-code">A01</span><strong>허리 옆 자연스러운 손</strong><small>팔을 골반 옆으로 자연스럽게 내리고 손목을 카메라 쪽으로 살짝 돌린 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="A02 — 주머니에 엄지만 걸치기" data-prompt="Three-quarter waist crop. Thumb hooked casually into the front pocket while the other fingers remain outside. Bracelet fully visible above the pocket edge, wrist angled diagonally." data-search="a02 주머니 엄지 청바지 손목" onclick="selectPose(this)">
+          <span class="pose-code">A02</span><strong>주머니에 엄지만 걸치기</strong><small>엄지만 앞주머니에 걸치고 팔찌가 주머니 위로 완전히 보이는 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="A03 — 주머니에 손 반쯤 넣기" data-prompt="Tight waist-to-hand crop. Fingers half inserted into a side pocket, bracelet visible and unobstructed above the pocket, body turned 30 degrees away from camera." data-search="a03 주머니 손 반쯤 청바지" onclick="selectPose(this)">
+          <span class="pose-code">A03</span><strong>주머니에 손 반쯤 넣기</strong><small>손가락 일부만 주머니에 넣고 손목과 팔찌를 노출한 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="A04 — 손을 허리에 가볍게 얹기" data-prompt="Mid-torso crop. Bracelet hand resting lightly on the side of the waist, elbow pointing outward, wrist facing camera, creating a clear triangular arm shape." data-search="a04 허리 손 얹기 팔꿈치" onclick="selectPose(this)">
+          <span class="pose-code">A04</span><strong>손을 허리에 가볍게 얹기</strong><small>손목을 카메라 쪽으로 보이게 하고 팔꿈치를 바깥으로 둔 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="A05 — 반대쪽 팔꿈치 잡기" data-prompt="Upper-body crop without face. Bracelet hand gently holding the opposite elbow, wrist close to the center of frame, relaxed fashion-editorial posture." data-search="a05 팔꿈치 잡기 팔짱 상반신" onclick="selectPose(this)">
+          <span class="pose-code">A05</span><strong>반대쪽 팔꿈치 잡기</strong><small>팔찌 착용 손으로 반대쪽 팔꿈치를 가볍게 잡는 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="A06 — 느슨한 팔짱" data-prompt="Loose crossed-arm pose below the chest. Bracelet wrist placed on top and fully visible, hands relaxed, no clenched fingers." data-search="a06 느슨한 팔짱 상반신" onclick="selectPose(this)">
+          <span class="pose-code">A06</span><strong>느슨한 팔짱</strong><small>팔찌 손목을 위쪽에 두어 완전히 보이게 한 느슨한 팔짱</small>
+        </button>
+        <button class="pose-card" type="button" data-label="B01 — 앉아서 무릎 위에 손" data-prompt="Seated crop from waist to knees. Bracelet hand resting on one knee, palm down, wrist elongated toward camera. Calm catalog mood." data-search="b01 앉기 무릎 손 카탈로그" onclick="selectPose(this)">
+          <span class="pose-code">B01</span><strong>앉아서 무릎 위에 손</strong><small>손바닥을 아래로 하여 무릎에 가볍게 올린 차분한 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="B02 — 손끝만 무릎에 닿기" data-prompt="Seated side view. Fingertips lightly touching the knee while the wrist floats slightly above it. Bracelet catches the light at a 45-degree angle." data-search="b02 앉기 무릎 손끝 측면" onclick="selectPose(this)">
+          <span class="pose-code">B02</span><strong>손끝만 무릎에 닿기</strong><small>손목은 띄우고 손끝만 무릎에 닿게 한 측면 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="B03 — 소파 팔걸이에 손목 얹기" data-prompt="Close crop of forearm resting along a sofa armrest. Hand falls naturally over the edge, bracelet centered, soft depth of field." data-search="b03 소파 팔걸이 손목 클로즈업" onclick="selectPose(this)">
+          <span class="pose-code">B03</span><strong>소파 팔걸이에 손목 얹기</strong><small>팔걸이 끝으로 손이 자연스럽게 떨어지고 팔찌가 중앙에 보이는 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="C01 — 양손을 가볍게 포개기" data-prompt="Close-up from forearms to fingertips. Bracelet wrist resting gently over the opposite hand, fingers relaxed and separated, bracelet unobstructed." data-search="c01 양손 포개기 손목 클로즈업" onclick="selectPose(this)">
+          <span class="pose-code">C01</span><strong>양손을 가볍게 포개기</strong><small>팔찌 손목을 반대 손 위에 올리고 손가락을 자연스럽게 펼친 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="C02 — 반대 손으로 손목 아래 받치기" data-prompt="Tight wrist close-up. The opposite hand lightly supports the underside of the bracelet wrist without covering any beads. Fingers elegant and relaxed." data-search="c02 손목 받치기 클로즈업 손" onclick="selectPose(this)">
+          <span class="pose-code">C02</span><strong>반대 손으로 손목 아래 받치기</strong><small>비드를 가리지 않도록 손목 아래만 가볍게 받치는 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="C03 — 손목을 세로로 들어 올리기" data-prompt="Vertical wrist close-up. Forearm raised gently, wrist angled toward camera, fingers softly bent, bracelet centered and fully visible." data-search="c03 손목 세로 들기 클로즈업" onclick="selectPose(this)">
+          <span class="pose-code">C03</span><strong>손목을 세로로 들어 올리기</strong><small>팔뚝을 세우고 손가락을 부드럽게 굽힌 팔찌 중심 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="C04 — 손등이 카메라를 향하는 포즈" data-prompt="Close-up of the back of the hand and wrist. Wrist slightly bent, fingers long and relaxed, bracelet positioned at the visual center." data-search="c04 손등 카메라 손목 클로즈업" onclick="selectPose(this)">
+          <span class="pose-code">C04</span><strong>손등이 카메라를 향하는 포즈</strong><small>손등과 손목이 정면으로 보이고 팔찌가 중앙에 배치되는 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="D01 — 테이블 위 손목" data-prompt="Minimal tabletop close-up. Forearm resting diagonally on a clean white table, hand relaxed, bracelet in sharp focus, no props." data-search="d01 테이블 손목 항공 미니멀" onclick="selectPose(this)">
+          <span class="pose-code">D01</span><strong>테이블 위 손목</strong><small>깨끗한 테이블 위에 팔을 대각선으로 둔 미니멀 클로즈업</small>
+        </button>
+        <button class="pose-card" type="button" data-label="D02 — 손바닥을 위로 편 포즈" data-prompt="Close-up with palm facing upward. Wrist gently extended, fingers naturally open, bracelet fully visible around the wrist with no bead obstruction." data-search="d02 손바닥 위로 손목 클로즈업" onclick="selectPose(this)">
+          <span class="pose-code">D02</span><strong>손바닥을 위로 편 포즈</strong><small>손바닥을 위로 향하고 손목을 길게 편 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="D03 — 셔츠 소매 끝을 잡기" data-prompt="Fashion close-up. Bracelet hand lightly pinching the edge of a clean white shirt cuff, bracelet fully outside the sleeve and unobstructed." data-search="d03 셔츠 소매 잡기 패션 손목" onclick="selectPose(this)">
+          <span class="pose-code">D03</span><strong>셔츠 소매 끝을 잡기</strong><small>팔찌를 소매 밖에 완전히 노출하고 소매 끝을 살짝 잡는 포즈</small>
+        </button>
+      </div>
+
+      <div class="selected-pose" id="selectedPoseText">선택된 포즈가 없습니다.</div>
+    </article>
+  </section>
+
+  <section class="section" id="builder">
+    <div class="section-head">
+      <span class="section-number">5</span><h2>최종 착용컷 조합기</h2>
+      <p class="lead">착용컷 기본 프롬프트와 선택한 포즈를 합쳐 최종 프롬프트를 만듭니다.</p>
+    </div>
+
+    <article class="card">
+      <div class="builder-grid">
+        <div class="field">
+          <label for="extraInstruction">추가 요청사항</label>
+          <textarea id="extraInstruction" placeholder="예: 흰 셔츠 착용, 얼굴 제외, 팔찌 위주 클로즈업"></textarea>
+        </div>
+        <div class="field">
+          <label for="finalPrompt">최종 조합 프롬프트</label>
+          <textarea class="final-output" id="finalPrompt" readonly placeholder="포즈를 선택하고 아래의 최종 조합 버튼을 누르세요."></textarea>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="primary-btn" type="button" onclick="buildFinalPrompt()">최종 프롬프트 조합</button>
+        <button class="secondary-btn" type="button" onclick="copyFinalPrompt()">최종 프롬프트 복사</button>
+        <button class="secondary-btn" type="button" onclick="resetBuilder()">초기화</button>
+      </div>
+    </article>
+  </section>
+
+<div class="footer">DELIXIR AI · Prompt Copy Guide</div>
 </main>
 
 <div class="toast" id="toast">복사 완료</div>
@@ -528,6 +647,105 @@ function togglePrompt(id,button){
   panel.classList.toggle("show");
   button.textContent=panel.classList.contains("show") ? "닫기" : "보기";
 }
+
+let selectedPosePrompt = "";
+let selectedPoseLabel = "";
+
+function selectPose(card){
+  document.querySelectorAll(".pose-card").forEach(el=>el.classList.remove("selected"));
+  card.classList.add("selected");
+  selectedPosePrompt = card.dataset.prompt || "";
+  selectedPoseLabel = card.dataset.label || "";
+  document.getElementById("selectedPoseText").innerHTML =
+    "<b>선택 포즈:</b> " + selectedPoseLabel;
+}
+
+function filterPoses(){
+  const keyword = document.getElementById("poseSearch").value.trim().toLowerCase();
+  document.querySelectorAll(".pose-card").forEach(card=>{
+    const haystack = ((card.dataset.search || "") + " " + (card.dataset.label || "")).toLowerCase();
+    card.style.display = haystack.includes(keyword) ? "" : "none";
+  });
+}
+
+function clearPoseSearch(){
+  document.getElementById("poseSearch").value = "";
+  filterPoses();
+}
+
+function randomPose(){
+  const visible = [...document.querySelectorAll(".pose-card")].filter(card=>card.style.display !== "none");
+  if(!visible.length) return;
+  selectPose(visible[Math.floor(Math.random()*visible.length)]);
+  visible.find(card=>card.classList.contains("selected"))?.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+function buildFinalPrompt(){
+  if(!selectedPosePrompt){
+    alert("먼저 포즈를 선택하세요.");
+    document.getElementById("pose").scrollIntoView({behavior:"smooth"});
+    return;
+  }
+
+  const extra = document.getElementById("extraInstruction").value.trim();
+  const base = prompts.wearing;
+
+  let finalText = base +
+    "\n\nSELECTED POSE — FOLLOW EXACTLY:\n" +
+    selectedPosePrompt +
+    "\n\nPOSE VISIBILITY REQUIREMENTS:\n" +
+    "- The bracelet must remain the primary visual focus.\n" +
+    "- The complete bracelet must be visible and unobstructed.\n" +
+    "- Do not cover the bracelet with clothing, fingers, hair, or props.\n" +
+    "- Preserve the exact bead sequence, bead count, bead size, silver accent positions, and gemstone material from the bracelet reference.\n" +
+    "- Keep all beads touching with zero spacing.\n" +
+    "- Natural wrist anatomy and realistic hand proportions.\n" +
+    "- No watch, rings, necklace, earrings, or additional bracelets.";
+
+  if(extra){
+    finalText += "\n\nADDITIONAL USER REQUEST:\n" + extra;
+  }
+
+  document.getElementById("finalPrompt").value = finalText;
+  showToastMessage("최종 프롬프트가 조합되었습니다.");
+}
+
+async function copyFinalPrompt(){
+  const output = document.getElementById("finalPrompt");
+  if(!output.value.trim()){
+    buildFinalPrompt();
+    if(!output.value.trim()) return;
+  }
+  try{
+    await navigator.clipboard.writeText(output.value);
+  }catch(e){
+    output.focus();
+    output.select();
+    document.execCommand("copy");
+  }
+  showToastMessage("최종 프롬프트 복사 완료");
+}
+
+function resetBuilder(){
+  selectedPosePrompt = "";
+  selectedPoseLabel = "";
+  document.querySelectorAll(".pose-card").forEach(el=>el.classList.remove("selected"));
+  document.getElementById("selectedPoseText").textContent = "선택된 포즈가 없습니다.";
+  document.getElementById("extraInstruction").value = "";
+  document.getElementById("finalPrompt").value = "";
+}
+
+function showToastMessage(message){
+  const toast=document.getElementById("toast");
+  toast.textContent=message;
+  toast.classList.add("show");
+  clearTimeout(window.toastTimer);
+  window.toastTimer=setTimeout(()=>{
+    toast.classList.remove("show");
+    toast.textContent="복사 완료";
+  },1600);
+}
+
 </script>
 </body>
 </html>
