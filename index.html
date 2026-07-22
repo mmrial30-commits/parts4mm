@@ -320,7 +320,7 @@ Create a clean e-commerce product image on a pure white #FFFFFF background.</div
   <section class="section" id="detail">
     <div class="section-head">
       <span class="section-number">2</span><h2>디테일컷</h2>
-      <p class="lead">원석 내부 질감과 실버 홈 디테일을 가까이 보여주는 확대 이미지입니다.</p>
+      <p class="lead">팔찌 전체가 아니라 하단 앞쪽 곡선만 대각선으로 잘라 보여주는 디테일 이미지입니다.</p>
     </div>
     <div class="card-grid">
       <article class="card">
@@ -328,114 +328,132 @@ Create a clean e-commerce product image on a pure white #FFFFFF background.</div
           <div class="icon">🔍</div>
           <div>
             <h3>디테일컷 프롬프트</h3>
-            <p>원석의 투명도, 내포물, 광택과 실버 홈을 선명하게 강조합니다.</p>
+            <p>전체 원형 구도를 버리고 하단 곡선만 비대칭 대각선 크롭으로 생성합니다.</p>
           </div>
         </div>
         <div class="card-actions">
           <button class="copy-btn" onclick="copyPrompt('detail',this)">프롬프트 복사</button>
           <button class="view-btn" onclick="togglePrompt('detail-panel',this)">보기</button>
         </div>
-        <div class="prompt-panel" id="detail-panel">Enhance the existing close-up crop from Reference image 1.
+        <div class="prompt-panel" id="detail-panel">Create a high-resolution close-up detail crop of the bracelet from Reference image 1.
 
-Do NOT create a new close-up composition.
-
-Increase only the optical detail while preserving the exact framing.
-
-Reference image 1 is the MASTER image.
+Reference image 1 is the MASTER bracelet.
 Reference image 2 defines only the gemstone material.
 
-CAMERA COMPOSITION — ABSOLUTE REQUIREMENT
+IMPORTANT: Reference image 1 may show the entire bracelet.
+Do NOT preserve the full-bracelet framing.
 
-This is NOT a new macro composition.
+Create a NEW detail crop using the exact composition described below.
 
-The camera framing must exactly match the composition of Reference image 1.
+TARGET DETAIL COMPOSITION — ABSOLUTE REQUIREMENT
 
-Create the output as if Reference image 1 were simply magnified and rendered at higher resolution.
+Show only the lower front section of the bracelet.
 
-Do NOT invent a new close-up angle.
+The bracelet must enter from the upper-left edge,
+curve diagonally downward through the left side,
+continue across the lower-middle area,
+and exit toward the lower-right edge.
 
-Do NOT move the camera.
+Use an oblique three-quarter top view,
+not a straight-on frontal view,
+not a centered symmetrical macro view,
+and not a full circular bracelet view.
 
-Do NOT rotate the bracelet.
+The composition must resemble a cropped lower arc:
+- only part of the bracelet is visible
+- the upper and rear half of the bracelet is outside the frame
+- the bracelet is intentionally off-center
+- large clean white negative space remains in the upper-right area
+- the lower arc runs diagonally through the frame
+- the center silver bead sits slightly right of center or near the lower-right quadrant
+- one olive-shaped silver bead is visible toward the upper-left side
+- the opposite olive-shaped silver bead may appear near the right edge depending on the crop
+- do not show the complete bracelet circle
+- do not center all three silver beads in a symmetrical horizontal row
 
-Do NOT re-center the silver beads.
+CAMERA AND CROP
 
-Do NOT create a front-facing macro shot.
+Use a close crop comparable to a product-detail reference photo.
 
-Do NOT convert the composition into a symmetrical centered product-detail shot.
+Crop through the bracelet strand so some gemstone beads continue beyond the image boundaries.
 
-Preserve exactly:
-- crop position
-- crop size
-- zoom ratio
-- camera angle
-- perspective
-- bracelet arc position
-- bracelet curvature inside the frame
-- visible bead sequence
-- amount of bracelet visible
-- location of all silver accent beads
-- original negative space
-- original off-center composition
-- original orientation of every visible bead
+Maintain:
+- natural diagonal bracelet flow
+- shallow three-quarter perspective
+- realistic depth
+- off-center asymmetric framing
+- generous white negative space
+- approximately 8 to 14 visible gemstone beads, depending on the crop
+- the visible silver accent bead sequence from Reference image 1
 
-The output must look like the exact same photograph as Reference image 1,
-only rendered with much higher optical detail.
+Do NOT create:
+- a complete overhead bracelet
+- a full circular or oval bracelet
+- a centered catalog packshot
+- a perfectly symmetrical front-facing close-up
+- a composition where all three silver beads are aligned across the center
+- excessive zoom that shows only three to five beads
 
-If the framing differs from Reference image 1,
-discard the result and recreate it.
+BRACELET GEOMETRY — LOCKED
 
-Preserve exactly:
-- bead count
-- bead diameter
-- bead positions
-- bracelet curvature
-- bead spacing
-- silver accent bead positions
-- silver bead size
-- silver groove structure
-- original lighting direction
-- original local geometry around every silver accent bead
-
-Focus on:
-- realistic gemstone transparency
-- natural mineral inclusions
-- polished smooth surfaces
-- internal gemstone depth
-- precise fluted silver details
-- clean metal reflections
+Preserve from Reference image 1:
+- exact gemstone bead diameter
+- exact silver bead shapes
+- exact silver groove structure
+- exact bead sequence
+- exact relative spacing
+- exact local curvature
+- exact proportions
+- exact contact between neighboring beads
 
 The bracelet contains exactly three silver accent beads:
 - one large fluted spherical silver bead at the center
 - two smaller olive-shaped fluted silver beads positioned symmetrically on both sides
 
-CRITICAL GEOMETRY REQUIREMENTS
+CRITICAL LOCAL GEOMETRY
 
 Do not enlarge, shrink, stretch, compress, flatten, or reshape any gemstone bead.
 
-The two gemstone beads immediately adjacent to the center silver bead must remain exactly the same diameter as every other gemstone bead.
+The gemstone beads immediately adjacent to the center silver bead must remain exactly the same diameter as every other gemstone bead.
 
 The gemstone beads immediately adjacent to each olive-shaped silver bead must also remain exactly the same diameter as every other gemstone bead.
 
 Every gemstone bead must remain perfectly spherical.
 
-Every bead must remain tangent to the neighboring bead with zero spacing and zero overlap.
+Every bead must touch the neighboring bead with zero spacing and zero overlap.
 
-Do not allow any silver bead to sink into, intersect, cover, merge with, or deform the neighboring gemstone beads.
+Do not allow any silver bead to sink into, intersect, cover, merge with, or deform neighboring gemstone beads.
 
 Do not create enlarged transition beads around the center silver bead.
 
-Do not create smaller connector-like gemstone beads beside the olive-shaped silver beads.
+Do not create tiny connector-like gemstone beads beside the olive-shaped silver beads.
 
-The boundaries between gemstone beads and silver beads must remain clean, separate, fully visible, and symmetrical.
+MATERIAL AND DETAIL
 
-The bracelet geometry from Reference image 1 is locked.
+Apply Reference image 2 only to the gemstone material:
+- gemstone color
+- translucency or opacity
+- natural mineral inclusions
+- internal pattern
+- internal depth
+- polished glossy surface
 
-Only the gemstone material may change.
+Focus on:
+- high optical detail
+- realistic gemstone depth
+- clean polished surfaces
+- precise fluted silver details
+- clean metal reflections
+- pure white background
 
-Never modify bead diameter, bead proportions, bead spacing, bead sequence, camera framing, crop, zoom ratio, perspective, or the local geometry around the silver accent beads.
+FINAL COMPOSITION CHECK
 
-All beads must touch with zero spacing.</div>
+The result must be a cropped diagonal detail view of only the lower front arc of the bracelet.
+
+If the complete bracelet is visible,
+if the image becomes a full overhead circle,
+or if the silver beads are centered symmetrically,
+reject the result and recreate the detail crop.</div>
       </article>
     </div>
   </section>
@@ -654,107 +672,125 @@ All beads must remain tightly connected with zero spacing.
 
 Create a clean e-commerce product image on a pure white #FFFFFF background.`,
 
-detail:`Enhance the existing close-up crop from Reference image 1.
+detail:`Create a high-resolution close-up detail crop of the bracelet from Reference image 1.
 
-Do NOT create a new close-up composition.
-
-Increase only the optical detail while preserving the exact framing.
-
-Reference image 1 is the MASTER image.
+Reference image 1 is the MASTER bracelet.
 Reference image 2 defines only the gemstone material.
 
-CAMERA COMPOSITION — ABSOLUTE REQUIREMENT
+IMPORTANT: Reference image 1 may show the entire bracelet.
+Do NOT preserve the full-bracelet framing.
 
-This is NOT a new macro composition.
+Create a NEW detail crop using the exact composition described below.
 
-The camera framing must exactly match the composition of Reference image 1.
+TARGET DETAIL COMPOSITION — ABSOLUTE REQUIREMENT
 
-Create the output as if Reference image 1 were simply magnified and rendered at higher resolution.
+Show only the lower front section of the bracelet.
 
-Do NOT invent a new close-up angle.
+The bracelet must enter from the upper-left edge,
+curve diagonally downward through the left side,
+continue across the lower-middle area,
+and exit toward the lower-right edge.
 
-Do NOT move the camera.
+Use an oblique three-quarter top view,
+not a straight-on frontal view,
+not a centered symmetrical macro view,
+and not a full circular bracelet view.
 
-Do NOT rotate the bracelet.
+The composition must resemble a cropped lower arc:
+- only part of the bracelet is visible
+- the upper and rear half of the bracelet is outside the frame
+- the bracelet is intentionally off-center
+- large clean white negative space remains in the upper-right area
+- the lower arc runs diagonally through the frame
+- the center silver bead sits slightly right of center or near the lower-right quadrant
+- one olive-shaped silver bead is visible toward the upper-left side
+- the opposite olive-shaped silver bead may appear near the right edge depending on the crop
+- do not show the complete bracelet circle
+- do not center all three silver beads in a symmetrical horizontal row
 
-Do NOT re-center the silver beads.
+CAMERA AND CROP
 
-Do NOT create a front-facing macro shot.
+Use a close crop comparable to a product-detail reference photo.
 
-Do NOT convert the composition into a symmetrical centered product-detail shot.
+Crop through the bracelet strand so some gemstone beads continue beyond the image boundaries.
 
-Preserve exactly:
-- crop position
-- crop size
-- zoom ratio
-- camera angle
-- perspective
-- bracelet arc position
-- bracelet curvature inside the frame
-- visible bead sequence
-- amount of bracelet visible
-- location of all silver accent beads
-- original negative space
-- original off-center composition
-- original orientation of every visible bead
+Maintain:
+- natural diagonal bracelet flow
+- shallow three-quarter perspective
+- realistic depth
+- off-center asymmetric framing
+- generous white negative space
+- approximately 8 to 14 visible gemstone beads, depending on the crop
+- the visible silver accent bead sequence from Reference image 1
 
-The output must look like the exact same photograph as Reference image 1,
-only rendered with much higher optical detail.
+Do NOT create:
+- a complete overhead bracelet
+- a full circular or oval bracelet
+- a centered catalog packshot
+- a perfectly symmetrical front-facing close-up
+- a composition where all three silver beads are aligned across the center
+- excessive zoom that shows only three to five beads
 
-If the framing differs from Reference image 1,
-discard the result and recreate it.
+BRACELET GEOMETRY — LOCKED
 
-Preserve exactly:
-- bead count
-- bead diameter
-- bead positions
-- bracelet curvature
-- bead spacing
-- silver accent bead positions
-- silver bead size
-- silver groove structure
-- original lighting direction
-- original local geometry around every silver accent bead
-
-Focus on:
-- realistic gemstone transparency
-- natural mineral inclusions
-- polished smooth surfaces
-- internal gemstone depth
-- precise fluted silver details
-- clean metal reflections
+Preserve from Reference image 1:
+- exact gemstone bead diameter
+- exact silver bead shapes
+- exact silver groove structure
+- exact bead sequence
+- exact relative spacing
+- exact local curvature
+- exact proportions
+- exact contact between neighboring beads
 
 The bracelet contains exactly three silver accent beads:
 - one large fluted spherical silver bead at the center
 - two smaller olive-shaped fluted silver beads positioned symmetrically on both sides
 
-CRITICAL GEOMETRY REQUIREMENTS
+CRITICAL LOCAL GEOMETRY
 
 Do not enlarge, shrink, stretch, compress, flatten, or reshape any gemstone bead.
 
-The two gemstone beads immediately adjacent to the center silver bead must remain exactly the same diameter as every other gemstone bead.
+The gemstone beads immediately adjacent to the center silver bead must remain exactly the same diameter as every other gemstone bead.
 
 The gemstone beads immediately adjacent to each olive-shaped silver bead must also remain exactly the same diameter as every other gemstone bead.
 
 Every gemstone bead must remain perfectly spherical.
 
-Every bead must remain tangent to the neighboring bead with zero spacing and zero overlap.
+Every bead must touch the neighboring bead with zero spacing and zero overlap.
 
-Do not allow any silver bead to sink into, intersect, cover, merge with, or deform the neighboring gemstone beads.
+Do not allow any silver bead to sink into, intersect, cover, merge with, or deform neighboring gemstone beads.
 
 Do not create enlarged transition beads around the center silver bead.
 
-Do not create smaller connector-like gemstone beads beside the olive-shaped silver beads.
+Do not create tiny connector-like gemstone beads beside the olive-shaped silver beads.
 
-The boundaries between gemstone beads and silver beads must remain clean, separate, fully visible, and symmetrical.
+MATERIAL AND DETAIL
 
-The bracelet geometry from Reference image 1 is locked.
+Apply Reference image 2 only to the gemstone material:
+- gemstone color
+- translucency or opacity
+- natural mineral inclusions
+- internal pattern
+- internal depth
+- polished glossy surface
 
-Only the gemstone material may change.
+Focus on:
+- high optical detail
+- realistic gemstone depth
+- clean polished surfaces
+- precise fluted silver details
+- clean metal reflections
+- pure white background
 
-Never modify bead diameter, bead proportions, bead spacing, bead sequence, camera framing, crop, zoom ratio, perspective, or the local geometry around the silver accent beads.
+FINAL COMPOSITION CHECK
 
-All beads must touch with zero spacing.`,
+The result must be a cropped diagonal detail view of only the lower front arc of the bracelet.
+
+If the complete bracelet is visible,
+if the image becomes a full overhead circle,
+or if the silver beads are centered symmetrically,
+reject the result and recreate the detail crop.`,
 
 wearing:`Create a realistic wrist-wearing image using the bracelet from Reference image 1.
 
