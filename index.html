@@ -1,314 +1,527 @@
 <html lang="ko"><head>
 <meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1" name="viewport">
-<title>DELIXIR AI 이미지 제작 가이드</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DELIXIR AI 프롬프트 복사 가이드</title>
 <style>
-:root {
-  --primary:#4f46e5; --primary2:#06b6d4; --primary-soft:#eef2ff;
-  --bg:#f6f8fc; --card:#fff; --text:#0f172a; --muted:#64748b;
-  --line:#e2e8f0; --success:#10b981; --warn:#f59e0b; --dark:#172033;
+:root{
+  --primary:#4f46e5;
+  --primary2:#06b6d4;
+  --primary-soft:#eef2ff;
+  --bg:#f6f8fc;
+  --card:#ffffff;
+  --text:#0f172a;
+  --muted:#64748b;
+  --line:#e2e8f0;
+  --success:#10b981;
+  --dark:#172033;
 }
 *{box-sizing:border-box}
-button,.copy-btn,.primary-btn,.secondary-btn{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Pretendard,"Noto Sans KR",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-aside{position:fixed;left:0;top:0;bottom:0;width:280px;background:#fff;border-right:1px solid var(--line);padding:26px 20px;z-index:50;overflow:auto}
-.logo{display:flex;gap:11px;align-items:center;margin-bottom:25px}
-.logo-mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--primary2));display:grid;place-items:center;color:#fff;font-weight:900}
-.logo strong{display:block;font-size:15px} .logo span{font-size:12px;color:var(--muted)}
-.nav-group{margin-top:21px} .nav-label{font-size:11px;font-weight:900;letter-spacing:.08em;color:#94a3b8;margin:0 10px 8px}
-nav a{display:flex;gap:9px;align-items:center;text-decoration:none;color:#475569;padding:11px 12px;border-radius:10px;font-weight:700;font-size:14px;margin:3px 0}
-nav a:hover,nav a.active{background:var(--primary-soft);color:var(--primary)}
-.sidebar-help{margin-top:24px;padding:15px;border-radius:14px;background:#f8fafc;border:1px solid var(--line);font-size:12px;line-height:1.6;color:var(--muted)}
-main{margin-left:280px;max-width:1180px;padding:46px 48px 90px}
-
-.mobile-open-note{
-  margin-bottom:18px;padding:14px 16px;border:1px solid #fbbf24;
-  background:#fffbeb;border-radius:13px;color:#854d0e;font-size:13px;line-height:1.65
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Pretendard,"Noto Sans KR",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
-
-.hero{margin-bottom:38px}
-.eyebrow{font-size:12px;font-weight:900;letter-spacing:.1em;color:var(--primary);margin-bottom:8px}
-h1{margin:0;font-size:34px;letter-spacing:-.04em}
-.hero p{margin:10px 0 0;color:var(--muted);line-height:1.7}
-.section{scroll-margin-top:24px;margin-bottom:70px}
-.section-head{margin-bottom:20px}
-.section-number{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:var(--primary);color:#fff;font-weight:900;margin-right:9px}
+button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+aside{
+  position:fixed;
+  left:0;top:0;bottom:0;
+  width:280px;
+  background:#fff;
+  border-right:1px solid var(--line);
+  padding:26px 20px;
+  z-index:50;
+  overflow:auto;
+}
+.logo{display:flex;gap:11px;align-items:center;margin-bottom:25px}
+.logo-mark{
+  width:38px;height:38px;border-radius:12px;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  display:grid;place-items:center;color:#fff;font-weight:900;
+}
+.logo strong{display:block;font-size:15px}
+.logo span{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.nav-group{margin-top:21px}
+.nav-label{
+  font-size:11px;font-weight:900;letter-spacing:.08em;
+  color:#94a3b8;margin:0 10px 8px;
+}
+nav a{
+  display:flex;gap:9px;align-items:center;
+  text-decoration:none;color:#475569;
+  padding:11px 12px;border-radius:10px;
+  font-weight:700;font-size:14px;margin:3px 0;
+}
+nav a:hover,nav a.active{background:var(--primary-soft);color:var(--primary)}
+.sidebar-help{
+  margin-top:24px;padding:15px;border-radius:14px;
+  background:#f8fafc;border:1px solid var(--line);
+  font-size:12px;line-height:1.6;color:var(--muted);
+}
+main{
+  margin-left:280px;
+  max-width:1180px;
+  padding:46px 48px 90px;
+}
+.hero{margin-bottom:32px}
+.eyebrow{
+  font-size:12px;font-weight:900;letter-spacing:.1em;
+  color:var(--primary);margin-bottom:8px;
+}
+h1{margin:0;font-size:36px;letter-spacing:-.045em}
+.hero p{margin:12px 0 0;color:var(--muted);line-height:1.7}
+.quick-nav{
+  position:sticky;top:10px;z-index:45;
+  display:flex;gap:8px;flex-wrap:wrap;
+  margin:0 0 24px;padding:10px;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(10px);
+  border:1px solid var(--line);border-radius:14px;
+  box-shadow:0 8px 24px rgba(15,23,42,.08);
+}
+.quick-nav a{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:42px;padding:10px 14px;border-radius:10px;
+  text-decoration:none;font-size:13px;font-weight:900;
+  background:var(--primary);color:#fff;
+}
+.quick-nav a.sub{background:#eef2ff;color:var(--primary)}
+.notice{
+  border:2px solid var(--primary);
+  background:linear-gradient(180deg,#f5f3ff,#fff);
+  border-radius:16px;padding:18px;margin-bottom:28px;
+}
+.notice strong{display:block;color:var(--primary);margin-bottom:6px}
+.notice p{margin:0;color:#475569;font-size:13px;line-height:1.7}
+.section{scroll-margin-top:90px;margin-bottom:56px}
+.section-head{margin-bottom:18px}
+.section-number{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border-radius:10px;
+  background:var(--primary);color:#fff;font-weight:900;margin-right:9px;
+}
 h2{display:inline;font-size:27px;letter-spacing:-.03em}
 .lead{margin:12px 0 0;color:var(--muted);line-height:1.7}
-.workflow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0 24px}
-.workflow div{background:#fff;border:1px solid var(--line);border-radius:13px;padding:14px;font-size:13px;line-height:1.55}
-.workflow b{display:block;color:var(--primary);margin-bottom:3px}
-.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;margin:16px 0;box-shadow:0 2px 6px rgba(15,23,42,.035)}
-.card h3{margin:0 0 7px;font-size:19px} .card p{color:var(--muted);line-height:1.65;margin:5px 0 12px}
-.step-badge{display:inline-flex;background:var(--primary-soft);color:var(--primary);border-radius:999px;padding:5px 9px;font-size:11px;font-weight:900;margin-bottom:9px}
-.example{border:1px solid var(--line);border-radius:15px;overflow:hidden;background:#fff;margin:14px 0}
-.example img{display:block;width:100%;height:auto}
-.example figcaption{padding:12px 14px;font-size:13px;color:var(--muted);line-height:1.6;background:#f8fafc}
-.prompt-wrap{position:relative;margin-top:12px}
-.prompt{width:100%;min-height:150px;resize:vertical;border:1px solid #263248;background:var(--dark);color:#f8fafc;border-radius:13px;padding:18px;font:13px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace}
-.prompt.tall{min-height:250px}
-.copy-btn,.primary-btn,.secondary-btn{border:0;border-radius:10px;padding:10px 14px;font-weight:900;cursor:pointer}
-.copy-btn{position:absolute;right:10px;top:10px;z-index:20;min-width:118px;min-height:44px;pointer-events:auto;background:#fff;color:var(--primary);box-shadow:0 2px 7px rgba(0,0,0,.12)}
-.copy-btn.copied{background:var(--success);color:#fff}
-.primary-btn{background:var(--primary);color:#fff} .secondary-btn{background:#e2e8f0;color:#334155}
-.tip{border-left:4px solid var(--warn);background:#fffbeb;border-radius:10px;padding:13px 14px;font-size:13px;line-height:1.65;color:#7c5c15}
-.checklist{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0 20px}
-.check{background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px;display:flex;gap:9px;align-items:flex-start;font-size:13px;color:#475569}
-.check.done{border-color:#86efac;background:#f0fdf4;color:#166534} .check i{font-style:normal;font-weight:900}
+.card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{
+  background:#fff;border:1px solid var(--line);
+  border-radius:18px;padding:22px;
+  box-shadow:0 2px 6px rgba(15,23,42,.035);
+  display:flex;flex-direction:column;min-height:210px;
+}
+.card-top{display:flex;gap:12px;align-items:flex-start}
+.icon{
+  width:44px;height:44px;border-radius:13px;
+  display:grid;place-items:center;background:var(--primary-soft);
+  font-size:21px;flex:0 0 auto;
+}
+.card h3{margin:0 0 6px;font-size:19px}
+.card p{color:var(--muted);line-height:1.65;margin:0;font-size:13px}
+.card-actions{margin-top:auto;padding-top:20px;display:flex;gap:9px}
+.copy-btn,.view-btn{
+  border:0;border-radius:10px;padding:11px 14px;
+  font-weight:900;cursor:pointer;font-size:13px;
+}
+.copy-btn{background:var(--primary);color:#fff;flex:1}
+.copy-btn.copied{background:var(--success)}
+.view-btn{background:#e2e8f0;color:#334155}
+.prompt-panel{
+  display:none;margin-top:14px;border-radius:13px;
+  background:var(--dark);color:#f8fafc;
+  padding:16px;font:12px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;
+  white-space:pre-wrap;max-height:300px;overflow:auto;
+}
+.prompt-panel.show{display:block}
+.footer{
+  margin-top:20px;padding-top:22px;border-top:1px solid var(--line);
+  color:var(--muted);font-size:12px;text-align:center;
+}
+.toast{
+  position:fixed;right:24px;bottom:24px;z-index:100;
+  background:#172033;color:#fff;padding:13px 17px;
+  border-radius:11px;box-shadow:0 12px 25px rgba(0,0,0,.2);
+  transform:translateY(150%);transition:.25s;
+}
+.toast.show{transform:translateY(0)}
+@media(max-width:950px){
+  aside{display:none}
+  main{margin-left:0;padding:28px 18px 70px}
+}
+@media(max-width:700px){
+  .card-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  h1{font-size:28px}
+  h2{font-size:23px}
+  .quick-nav{top:6px;gap:6px;padding:8px}
+  .quick-nav a{flex:1 1 calc(50% - 6px);padding:9px 8px;font-size:12px}
+  .card-actions{flex-direction:column}
+  .copy-btn,.view-btn{width:100%}
+}
+
 .pose-tools{display:flex;gap:10px;margin-bottom:12px}
 .pose-tools input{flex:1;border:1px solid var(--line);border-radius:11px;padding:12px 13px;font-size:14px}
-.pose-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-height:470px;overflow:auto;padding-right:3px}
+.pose-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-height:520px;overflow:auto;padding-right:3px}
 .pose-card{text-align:left;border:1px solid var(--line);background:#fff;border-radius:13px;padding:13px;cursor:pointer;color:var(--text)}
 .pose-card:hover,.pose-card.selected{border-color:var(--primary);background:var(--primary-soft)}
-.pose-card strong{display:block;font-size:14px;margin:4px 0} .pose-card small{display:block;color:var(--muted);line-height:1.45;max-height:42px;overflow:hidden}
+.pose-card strong{display:block;font-size:14px;margin:4px 0}
+.pose-card small{display:block;color:var(--muted);line-height:1.45}
 .pose-code{font-size:11px;color:var(--primary);font-weight:900}
 .selected-pose{margin-top:12px;padding:13px;border-radius:12px;background:#f8fafc;border:1px dashed #cbd5e1;font-size:13px;color:#475569}
 .builder-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .field label{display:block;font-size:13px;font-weight:900;margin-bottom:7px}
-.field textarea{width:100%;min-height:150px;border:1px solid var(--line);border-radius:12px;padding:13px;font:13px/1.55 inherit}
+.field textarea{width:100%;min-height:170px;border:1px solid var(--line);border-radius:12px;padding:13px;font:13px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace}
+.field textarea.final-output{min-height:360px;background:var(--dark);color:#f8fafc;border-color:#263248}
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-details{border:1px solid var(--line);border-radius:13px;background:#fff;margin-top:12px}
-summary{cursor:pointer;padding:14px 16px;font-weight:900}
-details .inside{padding:0 16px 16px}
-.toast{position:fixed;right:24px;bottom:24px;z-index:100;background:#172033;color:#fff;padding:13px 17px;border-radius:11px;box-shadow:0 12px 25px rgba(0,0,0,.2);transform:translateY(150%);transition:.25s}
-.toast.show{transform:translateY(0)}
-.zoomable{cursor:zoom-in}
-.image-modal{display:none;position:fixed;inset:0;background:rgba(15,23,42,.88);z-index:200;padding:24px;align-items:center;justify-content:center}
-.image-modal.show{display:flex} .image-modal img{max-width:95vw;max-height:92vh;border-radius:12px;box-shadow:0 20px 50px rgba(0,0,0,.45)}
-.image-modal button{position:absolute;right:24px;top:20px;border:0;background:#fff;border-radius:999px;width:42px;height:42px;font-size:22px;cursor:pointer}
+.primary-btn,.secondary-btn{border:0;border-radius:10px;padding:11px 14px;font-weight:900;cursor:pointer}
+.primary-btn{background:var(--primary);color:#fff}
+.secondary-btn{background:#e2e8f0;color:#334155}
+@media(max-width:700px){.pose-grid,.builder-grid{grid-template-columns:1fr}}
 
-.copy-fallback{position:fixed;inset:0;z-index:300;background:rgba(15,23,42,.72);display:flex;align-items:center;justify-content:center;padding:18px}
-.copy-fallback-box{width:min(720px,100%);max-height:88vh;background:#fff;border-radius:16px;padding:18px;box-shadow:0 24px 60px rgba(0,0,0,.35);overflow:auto}
-.copy-fallback-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.copy-fallback-head button{border:0;background:#e2e8f0;border-radius:999px;width:34px;height:34px;font-size:20px;cursor:pointer}
-.copy-fallback-box p{font-size:13px;color:var(--muted);line-height:1.6}
-.copy-fallback-box textarea{width:100%;min-height:48vh;border:1px solid var(--line);border-radius:12px;padding:14px;font:13px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;-webkit-user-select:text;user-select:text;font-size:16px}
-
-@media(max-width:950px){aside{display:none}main{margin-left:0;padding:28px 18px 70px}.workflow,.checklist{grid-template-columns:1fr 1fr}.builder-grid,.pose-grid{grid-template-columns:1fr}}
-@media(max-width:560px){h1{font-size:27px}h2{font-size:23px}.workflow,.checklist{grid-template-columns:1fr}}
-
-.mode-choice{border:2px solid var(--line);border-radius:13px;padding:14px;background:#fff;text-align:left;cursor:pointer;color:var(--text)}
-.mode-choice.active{border-color:var(--primary);background:var(--primary-soft)}
-.mode-choice b{display:block;font-size:14px;margin-bottom:4px}.mode-choice small{display:block;color:var(--muted);line-height:1.45}
-@media(max-width:560px){.mode-row{grid-template-columns:1fr!important}}
-
-.quick-nav{position:sticky;top:10px;z-index:45;display:flex;gap:8px;flex-wrap:wrap;margin:0 0 24px;padding:10px;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 24px rgba(15,23,42,.08)}
-.quick-nav a,.jump-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 14px;border-radius:10px;text-decoration:none;font-size:13px;font-weight:900}
-.quick-nav a{background:var(--primary);color:#fff}.quick-nav a.sub{background:#eef2ff;color:var(--primary)}
-.jump-actions{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 4px}.jump-actions a{background:#172033;color:#fff}.jump-actions a.alt{background:#e2e8f0;color:#334155}
-.execution-box{border:2px solid var(--primary);background:linear-gradient(180deg,#f5f3ff,#fff);border-radius:15px;padding:15px;margin:14px 0}.execution-box strong{display:block;color:var(--primary);margin-bottom:5px}
-.example.compact-example{max-width:760px;margin:14px auto}.example.compact-example img{max-height:720px;object-fit:contain;background:#fff}
-details.compact-example-block>summary{background:#eef2ff;color:var(--primary);border-radius:12px;font-size:15px}
-details.compact-example-block[open]>summary{border-bottom:1px solid var(--line);border-radius:12px 12px 0 0}
-details>summary{position:relative;padding-right:42px}details>summary::after{content:'＋';position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:20px;color:var(--primary)}details[open]>summary::after{content:'－'}
-.prompt-focus{scroll-margin-top:90px;border:2px solid #818cf8!important;box-shadow:0 0 0 4px rgba(99,102,241,.08)}
-.claude-link{display:inline-flex;align-items:center;gap:7px;background:#111827;color:white!important;text-decoration:none;padding:11px 14px;border-radius:10px;font-weight:900;margin-top:8px}
-@media(max-width:560px){.quick-nav{top:6px;gap:6px;padding:8px}.quick-nav a{flex:1 1 calc(50% - 6px);padding:9px 8px;font-size:12px}.example.compact-example img{max-height:520px}}
-
-/* v17: Claude B 입력칸 강조 */
-.gem-result-box{margin-top:18px;padding:20px;border:3px solid var(--primary);border-radius:16px;background:#f5f3ff;box-shadow:0 8px 24px rgba(79,70,229,.14)}
-.gem-result-box label{font-size:17px!important;color:var(--primary);margin-bottom:8px!important}
-.gem-paste-note{margin:0 0 12px;padding:10px 12px;border-radius:10px;background:#fff;color:#4338ca;font-size:13px;font-weight:800;line-height:1.55;border:1px solid #c7d2fe}
-.gem-result-box textarea{min-height:260px!important;border:2px solid #818cf8!important;background:#fff!important;box-shadow:inset 0 0 0 1px rgba(99,102,241,.08);font-size:14px!important;line-height:1.65!important}
-.gem-result-box textarea:focus{outline:none;border-color:#4f46e5!important;box-shadow:0 0 0 4px rgba(79,70,229,.15)!important}
 </style>
 </head>
 <body>
 <aside>
-<div class="logo"><div class="logo-mark">D</div><div><strong>DELIXIR AI GUIDE</strong><span>신입용 이미지 제작 매뉴얼</span></div></div>
-<nav>
-<div class="nav-group">
-<div class="nav-label">제품컷</div>
-<a href="#product">① 제품컷 만드는 방법</a>
-<a href="#product-main">② 정면·항공컷 프롬프트</a>
-<a href="#product-detail">③ 디테일컷 프롬프트</a>
-</div>
-<div class="nav-group">
-<div class="nav-label">착용컷</div>
-<a href="#wear">① 착용컷 만드는 방법</a>
-<a href="#gem-analysis">② Claude로 B 만들기</a>
-<a href="#pose">③ 포즈 선택</a>
-<a href="#builder">④ 최종 조합기</a>
-</div>
-</nav>
-<div class="sidebar-help"><b>처음이라면 위에서부터 순서대로 진행하세요.</b><br>각 단계의 사진 → 설명 → 프롬프트 버튼 순서로 따라가면 됩니다.</div>
+  <div class="logo">
+    <div class="logo-mark">D</div>
+    <div>
+      <strong>DELIXIR AI GUIDE</strong>
+      <span>프롬프트 복사 전용 페이지</span>
+    </div>
+  </div>
+  <nav>
+    <div class="nav-group">
+      <div class="nav-label">제품 이미지</div>
+      <a href="#product">📦 통합 제품컷</a>
+      <a href="#detail">🔍 디테일컷</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-label">착용 이미지</div>
+      <a href="#wearing">🙋 통합 착용컷</a>
+      <a href="#pose">🧍 포즈 선택</a>
+      <a href="#builder">🧩 최종 조합기</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-label">부분 수정</div>
+      
+      
+    </div>
+  </nav>
+  <div class="sidebar-help">
+    <b>사용 방법</b><br>
+    기준 사진과 원석 참고 사진을 AI 채팅에 첨부한 뒤 필요한 프롬프트를 복사해 붙여넣으세요.
+  </div>
 </aside>
+
 <main>
-<div class="card" style="margin-bottom:24px;border:2px solid #4f46e5">
-<h3>📥 다운로드</h3>
-<p><b>가이드컷 JPG 다운로드</b><br>
-<a href="https://drive.google.com/drive/folders/1B9CmKqeQnqTl322A9Qf1WeW_eVXYaabZ?usp=drive_link" target="_blank">가이드컷 JPG 다운로드</a></p>
-<p><b>네모 펜던트 PSD 다운로드</b><br>
-<a href="https://drive.google.com/file/d/1U6TaGo0EUSzw7SsAhxBrSjmhXLysRsfW/view?usp=drive_link" target="_blank">네모 펜던트 PSD 다운로드</a></p>
-</div>
-<header class="hero">
-<div class="eyebrow">DELIXIR WORKFLOW</div>
-<h1>원석 팔찌 AI 이미지 제작 가이드</h1>
-<p>제품컷과 착용컷을 섞지 않고 각각 독립된 순서로 구성했습니다. AI를 처음 쓰는 사람도 예시 이미지를 보며 그대로 따라 할 수 있습니다.</p>
-</header><div class="quick-nav"><a href="#product-main">제품컷 프롬프트</a><a href="#product-detail">디테일컷 프롬프트</a><a class="sub" href="#gem-analysis">Claude 분석</a><a href="#builder">최종 조합기</a></div>
-<section class="section" id="product">
-<div class="section-head">
-<span class="section-number">1</span><h2>제품컷 만드는 방법</h2>
-<p class="lead">기존 팔찌 사진의 구도와 배열은 그대로 유지하고, 원석 사진의 색상과 질감만 교체하는 작업입니다.</p>
-</div>
-<div class="workflow">
-<div><b>STEP 1</b>기준이 되는 팔찌 사진 준비</div>
-<div><b>STEP 2</b>바꿀 원석 사진 준비</div>
-<div><b>STEP 3</b>예시에 맞는 프롬프트 복사</div>
-<div><b>STEP 4</b>이미지 2장과 함께 AI에 입력</div>
-</div><div class="execution-box"><strong>바로 실행하기</strong><p>설명을 확인한 뒤 필요한 프롬프트로 바로 이동하세요.</p><div class="jump-actions"><a href="#productCommon">항공컷·정면컷 프롬프트로 이동</a><a class="alt" href="#productDetail">디테일컷 프롬프트로 이동</a></div></div>
+  <section class="hero">
+    <div class="eyebrow">DELIXIR AI PROMPT COPY</div>
+    <h1>필요한 프롬프트만<br>빠르게 복사하세요.</h1>
+    <p>제품컷, 디테일컷, 착용컷에 필요한 핵심 프롬프트 3개만 모은 간단한 제작 가이드입니다.</p>
+  </section>
 
-<article class="card" id="product-main">
-<div class="step-badge">제품컷 STEP 1</div>
-<h3>항공컷·정면컷 만들기</h3><div class="jump-actions"><a href="#productCommon">항공컷·정면컷 프롬프트 바로가기</a></div>
-<p>1번에는 <b>형태를 절대 바꾸면 안 되는 기준 팔찌 사진</b>, 2번에는 적용할 원석 사진을 넣습니다. 아래 프롬프트는 새 팔찌를 생성하는 방식이 아니라 <b>1번 사진의 기존 비즈 안에 원석 재질만 덮어씌우는 편집 방식</b>으로 강화했습니다.</p>
+  <div class="quick-nav">
+    <a href="#product">제품컷</a>
+    <a href="#detail" class="sub">디테일컷</a>
+    <a href="#wearing" class="sub">착용컷</a>
+    <a href="#pose" class="sub">포즈</a>
+    <a href="#builder" class="sub">최종 조합</a>
+    
+    
+  </div>
 
-<div class="prompt-wrap">
-<textarea class="prompt prompt-focus" id="productCommon" readonly="">IMAGE EDITING TASK — STRICT MATERIAL REPLACEMENT ONLY.
-THIS IS NOT A NEW IMAGE GENERATION TASK.
+  <div class="notice">
+    <strong>📌 기본 작업 순서</strong>
+    <p>1번 기준 팔찌 사진 → 2번 원석 참고 사진 → 필요한 프롬프트 복사 → AI 채팅창에 붙여넣기</p>
+  </div>
 
-ABSOLUTE REFERENCE HIERARCHY:
-- Reference image 1 is the ONLY source for geometry, composition, scale, object placement, bead count, bead diameter, silhouette, camera, crop, pendant, and lighting layout.
-- Reference image 2 is ONLY a flat gemstone material swatch: color, translucency/opacity, internal inclusions, mineral pattern, and polish.
-- IGNORE ALL geometry visible in Reference image 2, including its bead size, bead shape, bead count, strand curvature, spacing, crop, perspective, lighting, and magnification.
-- Never average, blend, interpolate, or compromise between the two references. Reference image 1 always wins for every spatial property.
+  <section class="section" id="product">
+    <div class="section-head">
+      <span class="section-number">1</span><h2>통합 제품컷</h2>
+      <p class="lead">기준 팔찌의 전체 구조를 유지하면서 원석 재질만 바꾸는 기본 제품컷입니다.</p>
+    </div>
+    <div class="card-grid">
+      <article class="card">
+        <div class="card-top">
+          <div class="icon">📦</div>
+          <div>
+            <h3>통합 제품컷 프롬프트</h3>
+            <p>비드 수, 배열, 팔찌 크기, 실버 비드 위치와 조명을 그대로 유지합니다.</p>
+          </div>
+        </div>
+        <div class="card-actions">
+          <button class="copy-btn" onclick="copyPrompt('product',this)">프롬프트 복사</button>
+          <button class="view-btn" onclick="togglePrompt('product-panel',this)">보기</button>
+        </div>
+        <div class="prompt-panel" id="product-panel"></div>
+      </article>
+    </div>
+  </section>
 
-EDITING METHOD — MASKED IN-PLACE REPLACEMENT:
-Treat Reference image 1 as the finished master photograph.
-Create an exact mask from the visible gemstone bead pixels in Reference image 1.
-Edit ONLY the interior pixels of those existing bead masks.
-Do not alter the mask boundaries.
-Do not redraw the bracelet.
-Do not generate replacement beads.
-Do not reconstruct the strand.
-Do not resample, enlarge, shrink, warp, smooth, normalize, or re-space any bead.
-Imagine Photoshop with every layer locked except the gemstone material inside each existing bead silhouette.
+  <section class="section" id="detail">
+    <div class="section-head">
+      <span class="section-number">2</span><h2>디테일컷</h2>
+      <p class="lead">원석 내부 질감과 실버 홈 디테일을 가까이 보여주는 확대 이미지입니다.</p>
+    </div>
+    <div class="card-grid">
+      <article class="card">
+        <div class="card-top">
+          <div class="icon">🔍</div>
+          <div>
+            <h3>디테일컷 프롬프트</h3>
+            <p>원석의 투명도, 내포물, 광택과 실버 홈을 선명하게 강조합니다.</p>
+          </div>
+        </div>
+        <div class="card-actions">
+          <button class="copy-btn" onclick="copyPrompt('detail',this)">프롬프트 복사</button>
+          <button class="view-btn" onclick="togglePrompt('detail-panel',this)">보기</button>
+        </div>
+        <div class="prompt-panel" id="detail-panel"></div>
+      </article>
+    </div>
+  </section>
 
-ZERO-TOLERANCE GEOMETRY LOCK:
-The following values must be pixel-aligned with Reference image 1 and may not change by even one bead or by any visible amount:
-- exact total bead count
-- exact diameter of every individual bead
-- exact apparent bead size in pixels
-- exact silhouette and circular edge of every bead
-- exact center coordinate of every bead
-- exact bead-to-bead contact point
-- exact spacing, overlap, and occlusion between neighboring beads
-- exact front-row and rear-row layering
-- exact bracelet circumference
-- exact outer contour and inner contour
-- exact ellipse width-to-height ratio
-- exact curvature at every point around the strand
-- exact left/right symmetry or intentional asymmetry
-- exact bracelet width and height in the canvas
-- exact object scale relative to the canvas
-- exact empty space inside the bracelet
-- exact margins above, below, left, and right
-- exact camera angle, perspective, focal length appearance, crop, framing, and zoom
-- exact pendant dimensions, silhouette, thickness, orientation, engraving placement, and metal finish
-- exact jump-ring dimensions, position, attachment point, and 6 o'clock alignment
-- exact pendant-to-bead distance
-- exact background boundary and canvas dimensions
+  <section class="section" id="wearing">
+    <div class="section-head">
+      <span class="section-number">3</span><h2>통합 착용컷</h2>
+      <p class="lead">20대 한국인 여성 손목에 자연스럽게 착용한 팔찌 중심 이미지입니다.</p>
+    </div>
+    <div class="card-grid">
+      <article class="card">
+        <div class="card-top">
+          <div class="icon">🙋</div>
+          <div>
+            <h3>착용컷 프롬프트</h3>
+            <p>다른 주얼리 없이 손목과 팔찌를 중심으로 자연스럽게 연출합니다.</p>
+          </div>
+        </div>
+        <div class="card-actions">
+          <button class="copy-btn" onclick="copyPrompt('wearing',this)">프롬프트 복사</button>
+          <button class="view-btn" onclick="togglePrompt('wearing-panel',this)">보기</button>
+        </div>
+        <div class="prompt-panel" id="wearing-panel"></div>
+      </article>
+    </div>
+  </section>
 
-BEAD SIZE PROTECTION — CRITICAL:
-- The output beads must NOT become larger, fuller, puffier, rounder, more inflated, or more prominent.
-- The output beads must NOT become smaller or thinner.
-- Do not infer bead diameter from Reference image 2.
-- Do not use the apparent scale of the gemstone sample in Reference image 2.
-- Preserve each bead's original pixel width and pixel height from Reference image 1.
-- Preserve the same number of beads visible along the top arc, side arcs, and bottom arc.
-- Preserve the same amount of white space between the inner edge of the bracelet and the pendant.
+  
 
-ONLY PERMITTED CHANGE:
-Inside each already-existing bead silhouette from Reference image 1, replace only the gemstone appearance using Reference image 2:
-- gemstone hue and saturation
-- opacity or translucency
-- internal mineral inclusions and veining
-- internal light scattering
-- polished surface character
-Apply these properties at the existing scale of each bead. Do not scale the source texture in a way that changes perceived bead size.
+  
 
-PRESERVE FROM REFERENCE IMAGE 1:
-- original bead highlights and highlight size as closely as possible
-- original shadow footprint and contact shadow
-- original depth cues and perspective
-- original pendant and jump ring without redesign
-- official DELIXIR logo and engraving exactly as shown; do not redraw, restyle, substitute, simplify, or invent the symbol or lettering
+  
+  <section class="section" id="pose">
+    <div class="section-head">
+      <span class="section-number">4</span><h2>착용컷 포즈 선택</h2>
+      <p class="lead">원하는 포즈 카드를 선택하면 최종 조합기에 자동으로 들어갑니다.</p>
+    </div>
 
-PROHIBITED ACTIONS:
-- no new bracelet
-- no similar bracelet recreation
-- no beautification
-- no symmetry correction
-- no cleaner arrangement
-- no bead-count correction
-- no larger luxury-looking beads
-- no thicker strand
-- no tighter or looser ellipse
-- no altered pendant scale
-- no recentering
-- no automatic reframing
-- no zooming in or out
-- no rotation
-- no perspective correction
-- no macro reinterpretation
-- no cropping change
-- no added or removed shadows
-- no geometry copied from Reference image 2
+    <article class="card">
+      <div class="pose-tools">
+        <input id="poseSearch" type="search" placeholder="포즈 검색: 손목 / 주머니 / 앉기 / 클로즈업" oninput="filterPoses()">
+        <button class="secondary-btn" type="button" onclick="clearPoseSearch()">초기화</button>
+        <button class="secondary-btn" type="button" onclick="randomPose()">랜덤</button>
+      </div>
 
-BACKGROUND — ABSOLUTE REQUIREMENT:
-- Pure solid white only, exact RGB 255,255,255 / HEX #FFFFFF.
-- Every pixel outside the bracelet and pendant must remain uniform #FFFFFF.
-- No off-white, gray, cream, color cast, gradient, vignette, horizon, floor, studio sweep, glow, reflection, haze, bloom, or background texture.
+      <div class="pose-grid" id="poseGrid">
+        <button class="pose-card" type="button" data-label="A01 — 허리 옆 자연스러운 손" data-prompt="Waist-to-fingertips crop. Bracelet arm relaxed beside the hip, wrist rotated slightly toward camera, fingers naturally curved. Asymmetrical composition with the bracelet placed off-center." data-search="a01 허리 옆 자연스러운 손 허리 손목" onclick="selectPose(this)">
+          <span class="pose-code">A01</span><strong>허리 옆 자연스러운 손</strong><small>팔을 골반 옆으로 자연스럽게 내리고 손목을 카메라 쪽으로 살짝 돌린 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="A02 — 주머니에 엄지만 걸치기" data-prompt="Three-quarter waist crop. Thumb hooked casually into the front pocket while the other fingers remain outside. Bracelet fully visible above the pocket edge, wrist angled diagonally." data-search="a02 주머니 엄지 청바지 손목" onclick="selectPose(this)">
+          <span class="pose-code">A02</span><strong>주머니에 엄지만 걸치기</strong><small>엄지만 앞주머니에 걸치고 팔찌가 주머니 위로 완전히 보이는 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="A03 — 주머니에 손 반쯤 넣기" data-prompt="Tight waist-to-hand crop. Fingers half inserted into a side pocket, bracelet visible and unobstructed above the pocket, body turned 30 degrees away from camera." data-search="a03 주머니 손 반쯤 청바지" onclick="selectPose(this)">
+          <span class="pose-code">A03</span><strong>주머니에 손 반쯤 넣기</strong><small>손가락 일부만 주머니에 넣고 손목과 팔찌를 노출한 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="A04 — 손을 허리에 가볍게 얹기" data-prompt="Mid-torso crop. Bracelet hand resting lightly on the side of the waist, elbow pointing outward, wrist facing camera, creating a clear triangular arm shape." data-search="a04 허리 손 얹기 팔꿈치" onclick="selectPose(this)">
+          <span class="pose-code">A04</span><strong>손을 허리에 가볍게 얹기</strong><small>손목을 카메라 쪽으로 보이게 하고 팔꿈치를 바깥으로 둔 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="A05 — 반대쪽 팔꿈치 잡기" data-prompt="Upper-body crop without face. Bracelet hand gently holding the opposite elbow, wrist close to the center of frame, relaxed fashion-editorial posture." data-search="a05 팔꿈치 잡기 팔짱 상반신" onclick="selectPose(this)">
+          <span class="pose-code">A05</span><strong>반대쪽 팔꿈치 잡기</strong><small>팔찌 착용 손으로 반대쪽 팔꿈치를 가볍게 잡는 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="A06 — 느슨한 팔짱" data-prompt="Loose crossed-arm pose below the chest. Bracelet wrist placed on top and fully visible, hands relaxed, no clenched fingers." data-search="a06 느슨한 팔짱 상반신" onclick="selectPose(this)">
+          <span class="pose-code">A06</span><strong>느슨한 팔짱</strong><small>팔찌 손목을 위쪽에 두어 완전히 보이게 한 느슨한 팔짱</small>
+        </button>
+        <button class="pose-card" type="button" data-label="B01 — 앉아서 무릎 위에 손" data-prompt="Seated crop from waist to knees. Bracelet hand resting on one knee, palm down, wrist elongated toward camera. Calm catalog mood." data-search="b01 앉기 무릎 손 카탈로그" onclick="selectPose(this)">
+          <span class="pose-code">B01</span><strong>앉아서 무릎 위에 손</strong><small>손바닥을 아래로 하여 무릎에 가볍게 올린 차분한 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="B02 — 손끝만 무릎에 닿기" data-prompt="Seated side view. Fingertips lightly touching the knee while the wrist floats slightly above it. Bracelet catches the light at a 45-degree angle." data-search="b02 앉기 무릎 손끝 측면" onclick="selectPose(this)">
+          <span class="pose-code">B02</span><strong>손끝만 무릎에 닿기</strong><small>손목은 띄우고 손끝만 무릎에 닿게 한 측면 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="B03 — 소파 팔걸이에 손목 얹기" data-prompt="Close crop of forearm resting along a sofa armrest. Hand falls naturally over the edge, bracelet centered, soft depth of field." data-search="b03 소파 팔걸이 손목 클로즈업" onclick="selectPose(this)">
+          <span class="pose-code">B03</span><strong>소파 팔걸이에 손목 얹기</strong><small>팔걸이 끝으로 손이 자연스럽게 떨어지고 팔찌가 중앙에 보이는 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="C01 — 양손을 가볍게 포개기" data-prompt="Close-up from forearms to fingertips. Bracelet wrist resting gently over the opposite hand, fingers relaxed and separated, bracelet unobstructed." data-search="c01 양손 포개기 손목 클로즈업" onclick="selectPose(this)">
+          <span class="pose-code">C01</span><strong>양손을 가볍게 포개기</strong><small>팔찌 손목을 반대 손 위에 올리고 손가락을 자연스럽게 펼친 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="C02 — 반대 손으로 손목 아래 받치기" data-prompt="Tight wrist close-up. The opposite hand lightly supports the underside of the bracelet wrist without covering any beads. Fingers elegant and relaxed." data-search="c02 손목 받치기 클로즈업 손" onclick="selectPose(this)">
+          <span class="pose-code">C02</span><strong>반대 손으로 손목 아래 받치기</strong><small>비드를 가리지 않도록 손목 아래만 가볍게 받치는 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="C03 — 손목을 세로로 들어 올리기" data-prompt="Vertical wrist close-up. Forearm raised gently, wrist angled toward camera, fingers softly bent, bracelet centered and fully visible." data-search="c03 손목 세로 들기 클로즈업" onclick="selectPose(this)">
+          <span class="pose-code">C03</span><strong>손목을 세로로 들어 올리기</strong><small>팔뚝을 세우고 손가락을 부드럽게 굽힌 팔찌 중심 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="C04 — 손등이 카메라를 향하는 포즈" data-prompt="Close-up of the back of the hand and wrist. Wrist slightly bent, fingers long and relaxed, bracelet positioned at the visual center." data-search="c04 손등 카메라 손목 클로즈업" onclick="selectPose(this)">
+          <span class="pose-code">C04</span><strong>손등이 카메라를 향하는 포즈</strong><small>손등과 손목이 정면으로 보이고 팔찌가 중앙에 배치되는 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="D01 — 테이블 위 손목" data-prompt="Minimal tabletop close-up. Forearm resting diagonally on a clean white table, hand relaxed, bracelet in sharp focus, no props." data-search="d01 테이블 손목 항공 미니멀" onclick="selectPose(this)">
+          <span class="pose-code">D01</span><strong>테이블 위 손목</strong><small>깨끗한 테이블 위에 팔을 대각선으로 둔 미니멀 클로즈업</small>
+        </button>
+        <button class="pose-card" type="button" data-label="D02 — 손바닥을 위로 편 포즈" data-prompt="Close-up with palm facing upward. Wrist gently extended, fingers naturally open, bracelet fully visible around the wrist with no bead obstruction." data-search="d02 손바닥 위로 손목 클로즈업" onclick="selectPose(this)">
+          <span class="pose-code">D02</span><strong>손바닥을 위로 편 포즈</strong><small>손바닥을 위로 향하고 손목을 길게 편 포즈</small>
+        </button>
+        <button class="pose-card" type="button" data-label="D03 — 셔츠 소매 끝을 잡기" data-prompt="Fashion close-up. Bracelet hand lightly pinching the edge of a clean white shirt cuff, bracelet fully outside the sleeve and unobstructed." data-search="d03 셔츠 소매 잡기 패션 손목" onclick="selectPose(this)">
+          <span class="pose-code">D03</span><strong>셔츠 소매 끝을 잡기</strong><small>팔찌를 소매 밖에 완전히 노출하고 소매 끝을 살짝 잡는 포즈</small>
+        </button>
+      </div>
 
-IMAGE CLEANLINESS — ABSOLUTE REQUIREMENT:
-- Zero film grain, photographic grain, digital noise, sensor noise, texture overlay, dust, speckles, scratches, mottling, compression artifacts, vintage treatment, analog treatment, cinematic grain, or editorial grain.
-- Only intentional natural inclusions inside the gemstone may be visible.
-- Ultra-clean e-commerce jewelry packshot.
+      <div class="selected-pose" id="selectedPoseText">선택된 포즈가 없습니다.</div>
+    </article>
+  </section>
 
-FINAL PIXEL-ALIGNMENT TEST:
-Before output, mentally place the result directly over Reference image 1 at 50% opacity.
-All bead edges, bead centers, contact points, strand contours, pendant edges, jump ring, crop, margins, and overall silhouette must overlap exactly.
-The only visible difference should be the gemstone material inside the pre-existing bead boundaries.
-If any bead becomes visibly larger or smaller, if the bead count changes, if the ellipse changes, or if any object shifts, reject that result and redo the edit without changing geometry.
+  <section class="section" id="builder">
+    <div class="section-head">
+      <span class="section-number">5</span><h2>최종 착용컷 조합기</h2>
+      <p class="lead">착용컷 기본 프롬프트와 선택한 포즈를 합쳐 최종 프롬프트를 만듭니다.</p>
+    </div>
 
-한국어 최종 명령:
-1번 사진은 완성된 원본이므로 팔찌를 새로 그리지 마. 1번 사진의 각 비즈 외곽선을 마스크처럼 그대로 잠그고 그 내부 픽셀에만 2번 사진의 원석 색·투명도·내포물·광택을 입혀. 2번 사진의 비즈 크기·형태·배열·확대비는 전부 무시해. 비즈 개수, 각 비즈의 픽셀 크기, 중심 위치, 접점, 타원 비율, 팔찌 전체 크기, 여백, 크롭, 펜던트와 오링은 1번과 단 1픽셀도 다르게 바꾸지 마. 원석 재질 외에는 아무것도 수정하지 마.</textarea>
-<button class="copy-btn" data-copy-target="productCommon" data-copy-type="product" type="button">📋 전체 복사</button>
-</div><div class="jump-actions"><a class="alt" href="#product">↑ 단계 안내로 돌아가기</a></div>
-</article>
-<article class="card" id="product-detail">
-<div class="step-badge">제품컷 STEP 2</div>
-<h3>디테일컷 만들기</h3><div class="jump-actions"><a href="#productDetail">디테일컷 프롬프트 바로가기</a></div>
-<p>비즈 배열, 곡률, 확대 비율과 크롭 각도를 바꾸지 않고 원석만 교체할 때 사용합니다.</p>
+    <article class="card">
+      <div class="builder-grid">
+        <div class="field">
+          <label for="extraInstruction">추가 요청사항</label>
+          <textarea id="extraInstruction" placeholder="예: 흰 셔츠 착용, 얼굴 제외, 팔찌 위주 클로즈업"></textarea>
+        </div>
+        <div class="field">
+          <label for="finalPrompt">최종 조합 프롬프트</label>
+          <textarea class="final-output" id="finalPrompt" readonly="" placeholder="포즈를 선택하고 아래의 최종 조합 버튼을 누르세요."></textarea>
+        </div>
+      </div>
 
-<div class="prompt-wrap">
-<textarea class="prompt prompt-focus" id="productDetail" readonly="">CAMERA COMPOSITION — ABSOLUTE REQUIREMENT:
-- Reference image 1 defines the exact camera angle, crop, framing, bracelet arc position, and negative-space balance.
-- Preserve that composition exactly.
-- Create ONLY a partial bracelet segment near the outer edge of the frame.
-- Show approximately 20–30% of the bracelet circumference.
-- The bracelet must enter from the upper-left edge and continue in a curved diagonal direction toward the lower-right edge.
-- Keep the bracelet arc close to the left and lower image borders.
-- Leave a large, clean pure-white negative space across the center and upper-right area.
-- Use a straight top-down product-photography angle with no perspective distortion.
-- The result must look like a luxury jewelry e-commerce detail crop, not a centered macro shot.
+      <div class="actions">
+        <button class="primary-btn" type="button" onclick="buildFinalPrompt()">최종 프롬프트 조합</button>
+        <button class="secondary-btn" type="button" onclick="copyFinalPrompt()">최종 프롬프트 복사</button>
+        <button class="secondary-btn" type="button" onclick="resetBuilder()">초기화</button>
+      </div>
+    </article>
+  </section>
 
-DO NOT:
-- do not center the bracelet
-- do not center the large spherical silver bead
-- do not show the full bracelet
-- do not show a symmetrical U-shaped front section
-- do not create a frontal necklace-like composition
-- do not place the bracelet across the entire top edge
-- do not zoom in so closely that the beads fill the frame
-- do not invent a new crop, angle, curvature, or bead arrangement
+<div class="footer">DELIXIR AI · Prompt Copy Guide</div>
+</main>
 
-REFERENCE CONTROL:
-Reference image 1 is the MASTER image for geometry and composition.
-Reference image 2 defines ONLY the gemstone material.
+<div class="toast" id="toast">복사 완료</div>
 
-Preserve exactly from Reference image 1:
+<script>
+const prompts = {
+product:`THIS IS AN IMAGE EDITING TASK.
+DO NOT GENERATE A NEW BRACELET.
+
+Reference image 1 is the MASTER image.
+Reference image 2 is ONLY the gemstone material reference.
+
+Keep the bracelet geometry from Reference image 1 exactly unchanged:
+- bracelet shape
+- bead count
+- bead positions
+- bead spacing
+- bracelet diameter
+- silver bead positions
+- silver bead size
+- engraved grooves
+- perspective
+- crop
+- lighting
+- reflections
+- shadows
+
+Use Reference image 2 only for:
+- gemstone color
+- translucency
+- opacity
+- mineral inclusions
+- internal pattern
+- polish
+
+Replace only the gemstone bead material.
+Keep every original gemstone bead boundary exactly unchanged.
+
+The bracelet contains exactly three silver accent beads:
+- one large fluted spherical silver bead at the center
+- two smaller olive-shaped fluted silver beads positioned symmetrically on both sides
+
+Keep all three silver beads exactly identical to Reference image 1.
+
+The bracelet contains exactly three silver accent beads.
+One large fluted spherical silver bead is located at the center.
+Two smaller olive-shaped fluted silver beads are positioned symmetrically on both sides.
+
+Never change:
+- quantity
+- position
+- size
+- proportions
+- engraved grooves
+- reflections
+- highlights
+- shadows
+- metal finish
+- rotation
+
+Only the gemstone beads may be changed.
+
+All beads must remain tightly connected with zero spacing.
+
+Create a clean e-commerce product image on a pure white #FFFFFF background.`,
+
+detail:`Enhance the existing close-up crop from Reference image 1.
+
+Do NOT create a new close-up composition.
+
+Increase only the optical detail while preserving the exact framing.
+
+Reference image 1 is the MASTER image.
+Reference image 2 defines only the gemstone material.
+
+CAMERA COMPOSITION — ABSOLUTE REQUIREMENT
+
+This is NOT a new macro composition.
+
+The camera framing must exactly match the composition of Reference image 1.
+
+Create the output as if Reference image 1 were simply magnified and rendered at higher resolution.
+
+Do NOT invent a new close-up angle.
+
+Do NOT move the camera.
+
+Do NOT rotate the bracelet.
+
+Do NOT re-center the silver beads.
+
+Do NOT create a front-facing macro shot.
+
+Do NOT convert the composition into a symmetrical centered product-detail shot.
+
+Preserve exactly:
+- crop position
+- crop size
+- zoom ratio
+- camera angle
+- perspective
+- bracelet arc position
+- bracelet curvature inside the frame
+- visible bead sequence
+- amount of bracelet visible
+- location of all silver accent beads
+- original negative space
+- original off-center composition
+- original orientation of every visible bead
+
+The output must look like the exact same photograph as Reference image 1,
+only rendered with much higher optical detail.
+
+If the framing differs from Reference image 1,
+discard the result and recreate it.
+
+Preserve exactly:
 - bead count
 - bead diameter
 - bead positions
@@ -317,8 +530,6 @@ Preserve exactly from Reference image 1:
 - silver accent bead positions
 - silver bead size
 - silver groove structure
-- original camera angle
-- original crop and framing
 - original lighting direction
 - original local geometry around every silver accent bead
 
@@ -334,441 +545,250 @@ The bracelet contains exactly three silver accent beads:
 - one large fluted spherical silver bead at the center
 - two smaller olive-shaped fluted silver beads positioned symmetrically on both sides
 
-CRITICAL GEOMETRY REQUIREMENTS:
-- Do not enlarge, shrink, stretch, compress, flatten, or reshape any gemstone bead.
-- Every gemstone bead must remain perfectly spherical and the same diameter.
-- The two gemstone beads immediately adjacent to the center silver bead must remain exactly the same diameter as every other gemstone bead.
-- The gemstone beads immediately adjacent to each olive-shaped silver bead must remain exactly the same diameter as every other gemstone bead.
-- Every bead must remain tangent to the neighboring bead with zero spacing and zero overlap.
-- Do not allow any silver bead to sink into, intersect, cover, merge with, or deform neighboring gemstone beads.
-- Do not create enlarged transition beads around the center silver bead.
-- Do not create smaller connector-like gemstone beads beside the olive-shaped silver beads.
-- The boundaries between gemstone beads and silver beads must remain clean, separate, fully visible, and symmetrical.
+CRITICAL GEOMETRY REQUIREMENTS
 
-The bracelet geometry and composition from Reference image 1 are locked.
+Do not enlarge, shrink, stretch, compress, flatten, or reshape any gemstone bead.
+
+The two gemstone beads immediately adjacent to the center silver bead must remain exactly the same diameter as every other gemstone bead.
+
+The gemstone beads immediately adjacent to each olive-shaped silver bead must also remain exactly the same diameter as every other gemstone bead.
+
+Every gemstone bead must remain perfectly spherical.
+
+Every bead must remain tangent to the neighboring bead with zero spacing and zero overlap.
+
+Do not allow any silver bead to sink into, intersect, cover, merge with, or deform the neighboring gemstone beads.
+
+Do not create enlarged transition beads around the center silver bead.
+
+Do not create smaller connector-like gemstone beads beside the olive-shaped silver beads.
+
+The boundaries between gemstone beads and silver beads must remain clean, separate, fully visible, and symmetrical.
+
+The bracelet geometry from Reference image 1 is locked.
+
 Only the gemstone material may change.
+
+Never modify bead diameter, bead proportions, bead spacing, bead sequence, camera framing, crop, zoom ratio, perspective, or the local geometry around the silver accent beads.
+
+All beads must touch with zero spacing.`
+
+wearing:`Create a realistic wrist-wearing image using the bracelet from Reference image 1.
+
+Reference image 1 defines the complete bracelet geometry and design.
+Reference image 2 defines only the gemstone material appearance.
+
+Preserve:
+- total bead count
+- gemstone bead count
+- silver bead count
+- bead diameter
+- bead sequence
+- bracelet proportions
+- silver accent bead positions
+- silver groove structure
+- gemstone material
+- symmetry
+
+Use a realistic Korean woman in her 20s.
+Natural skin texture.
+Clean commercial fashion photography.
+The bracelet must be the main focus.
+
+The bracelet must wrap naturally around the wrist using an elastic string.
 All beads must touch with zero spacing.
 
-BACKGROUND — ABSOLUTE REQUIREMENT:
-- Pure solid white background only, exact RGB 255,255,255 / HEX #FFFFFF.
-- No off-white, gray, gradient, vignette, horizon line, reflection, floor line, shadow, haze, bloom, or texture.
-- Keep the large empty white area clean and uninterrupted.</textarea>
-<button class="copy-btn" data-copy-target="productDetail" data-copy-type="product" type="button">📋 전체 복사</button>
-</div><div class="jump-actions"><a class="alt" href="#product">↑ 단계 안내로 돌아가기</a></div>
-</article>
-</section>
-<section class="section" id="wear">
-<div class="section-head">
-<span class="section-number">2</span><h2>착용컷 만드는 방법</h2>
-<p class="lead">원석 분석 결과를 붙여넣고 포즈를 선택하면 최종 착용컷 프롬프트가 자동으로 완성됩니다.</p>
-</div>
-<div class="checklist">
-<div class="check" id="check1"><i>○</i><span><b>STEP 1</b><br>원석 분석</span></div><div class="check" id="check2"><i>○</i><span><b>STEP 2</b><br>포즈 선택</span></div><div class="check" id="check3"><i>○</i><span><b>STEP 3</b><br>최종 프롬프트 복사</span></div></div>
-<article class="card" id="gem-analysis">
-<div class="step-badge">착용컷 STEP 1 · B 만들기</div>
-<h3>원석 사진을 Claude로 분석해 ‘B 원석 설명’을 만들기</h3>
-<p><b>중요:</b> 아래의 긴 문장은 착용컷 생성용 B 프롬프트 자체가 아닙니다. 
-      <b>Claude에게 원석 사진을 분석시키기 위한 분석 명령문</b>입니다.</p>
-<div class="tip">
-<b>전체 흐름</b><br>
-        ① Claude에 원석 사진 첨부 → ② 아래 분석 명령문 복사·전송 → 
-        ③ Claude가 출력한 영어 분석 결과 복사 → ④ 그 결과를 아래의 
-        <b>‘B 원석에 대한 설명’ 입력칸</b>에 붙여넣기
-      </div>
-<div class="workflow" style="grid-template-columns:repeat(4,1fr);margin-top:16px">
-<div><b>1</b><a class="claude-link" href="https://claude.ai/new" rel="noopener" target="_blank">Claude 새 채팅 열기 ↗</a></div>
-<div><b>2</b>분석할 원석 사진 첨부</div>
-<div><b>3</b>분석 명령문 붙여넣기</div>
-<div><b>4</b>출력된 영어 결과 복사</div>
-</div>
-<h3 style="font-size:16px;margin-top:22px">B-1. Claude에 넣는 원석 분석 명령문</h3>
-<p>원석 사진과 함께 Claude에 넣습니다. Claude가 사진의 색상, 광택, 투명도, 내포물과 광학 효과를 영어로 정리해 줍니다.</p>
-<div class="prompt-wrap">
-<textarea class="prompt tall prompt-focus" id="promptB" readonly="">You are a gemstone bead photo analyzer for a bracelet AI-image-generation prompt system.
-Your output will be used directly as a fixed reference block in image generation prompts, so it must be precise, concrete, and specific enough that no visual detail gets lost or generalized away.
+Do not add watches, rings, necklaces, other bracelets, extra charms, or extra metal beads.`,
 
-Whenever a gemstone/bead photo is provided, output ONLY the structured description below — no greetings, no preamble, no closing remarks. Base every line strictly on what is visually observable in THIS specific photo. Never default to generic textbook descriptions of the gemstone type — describe what these exact beads actually look like, including irregularities, bead-to-bead variation, and imperfections.
+material:`Replace only the material appearance of the gemstone beads using Reference image 2.
 
-RULES FOR SPECIFICITY:
-- Never use vague filler like "fine inclusions" or "some variation" alone — always specify: shape (needle-like / thread-like / spot-like / cloud-like / crystal-like), color, density, and distribution pattern (scattered / banded / clustered / veined / uniform).
-- Always state bead-to-bead variation if present (e.g. some beads clearer, some heavily included, some darker/lighter).
-- Always clarify what the color/finish is NOT, using the closest plausible confusable tone — this prevents the generation model from drifting to a nearby wrong shade.
-- If an optical effect (chatoyancy, aventurescence, labradorescence, adularescence, iridescence, silk effect) is visible, describe exactly which colors flash, at what strength, and whether it's angle-dependent. If no optical effect is visible, explicitly state "none distinct" rather than omitting the section.
-- If internal texture/inclusions are a defining visual feature (not just surface color), state this explicitly so it doesn't get simplified away later.
+Reference image 1 is the MASTER image.
 
-OUTPUT FORMAT (keep labels exactly as shown; omit OPTICAL EFFECT section entirely only if truly no light-play exists, not just because it's subtle):
+Keep exactly:
+- original bead count
+- original bead diameter
+- original bead positions
+- original bead spacing
+- bracelet curvature
+- bracelet diameter
+- silver accent beads
+- original camera angle
+- original crop
+- original lighting
+- original reflections
 
-[BRACELET — DO NOT MODIFY] Natural [gemstone name] gemstone bracelet. All beads are uniform [gemstone name]:
+Apply only:
+- gemstone color
+- translucency
+- opacity
+- natural mineral inclusions
+- internal depth
+- polished surface
+- natural bead-to-bead variation
 
-COLOR:
-- [precise base tone] — not [closest confusable tone A], not [closest confusable tone B]
-- [undertone/nuance: cloudy, fog-like, creamy, earthy, translucent-glassy, etc.]
-- [bead-to-bead color variation if present]
+Do not change any geometry.`,
 
-FINISH:
-- [surface finish and gloss level: matte / semi-glassy / high-gloss mirror — with degree, e.g. "medium gloss, semi-glassy, not fully mirror"]
+silver:`The bracelet contains exactly three silver accent beads.
 
-OPTICAL EFFECT: (state "none distinct" if not visible — do not omit silently)
-- [effect type, exact colors it flashes, how it appears]
-- [strength: strong/subtle, and whether angle-dependent]
-- [whether this is the defining feature of the stone, or secondary to color/texture]
+One large fluted spherical silver bead is located at the center.
 
-INTERNAL TEXTURE:
-- [inclusion/pattern shape, color, density, distribution — be specific, not generic]
-- [bead-to-bead density variation if present]
-- [resulting sense of depth/haze/layering]
+Two smaller olive-shaped fluted silver beads are positioned symmetrically on both sides.
 
-OPACITY:
-- [transparent / semi-transparent / semi-opaque / opaque]
-- [how inner depth or inclusions read when light passes through]
+Keep all three silver beads exactly identical to Reference image 1.
 
-FINAL REMINDER LINE (always include at the very end of your output):
-CRITICAL — DO NOT SIMPLIFY: the features above (especially internal texture and optical effect) must be visibly preserved in any generated image. Plain, clean, or featureless beads that omit these characteristics are INCORRECT.
+Do not change:
+- quantity
+- position
+- size
+- proportions
+- engraved grooves
+- reflections
+- highlights
+- shadows
+- metal finish
+- rotation
 
-Respond in English only, in this exact structure, based solely on the uploaded image.</textarea>
-<button class="copy-btn" data-copy-target="promptB" data-copy-type="" type="button">📋 Claude 분석 명령문 복사</button>
-</div>
-<h3 style="font-size:16px;margin-top:22px">B-2. Claude가 만든 결과를 여기에 붙여넣기</h3>
-<p>아래 입력칸에는 <b>분석 명령문을 넣는 것이 아니라 Claude의 영어 출력 결과</b>를 붙여넣습니다. 
-      이 내용이 A 공통 프롬프트와 C 포즈 프롬프트 사이에 자동으로 들어갑니다.</p>
-<div class="field gem-result-box">
-<label for="gemResult">B 원석 설명 붙여넣기 · Claude 출력 결과</label><div class="gem-paste-note">👇 Claude가 출력한 영어 분석 결과 전체를 아래 칸에 그대로 붙여넣으세요.</div>
-<textarea id="gemResult" oninput="syncProgress()" placeholder="여기에 Claude의 영어 분석 결과 전체를 붙여넣으세요."></textarea>
-</div>
-</article>
-<textarea aria-hidden="true" id="promptA" style="display:none">A Korean woman in her 20s. REFERENCE IMAGES:
-- Reference image 1: wrist pose and hand angle
-- Reference image 2: overall bracelet design and detail
-- Reference image 3: gemstone color, texture, and finish
-- Reference image 4: outfit and styling — replicate the clothing, fit, and styling precisely, do not invent or change any part of the outfit
+Only the gemstone beads may be changed.`
+};
 
-No rings on any fingers. No necklace. No other jewelry except the bracelet AND its attached pendant tag charm on her wrist.
+for(const [key,value] of Object.entries(prompts)){
+  const panel=document.getElementById(key+"-panel");
+  if(panel) panel.textContent=value;
+}
 
-BRACELET STRUCTURE — CRITICAL, MATCH REFERENCE IMAGE 2 EXACTLY:
-- Bead diameter: 4mm, perfectly spherical, round, and smooth
-- Beads strung with zero gap, touching each other with absolutely no spacing anywhere around the entire circumference, INCLUDING the two beads adjacent to the pendant's jump ring — do not skip, shrink, or remove any bead to make room for the pendant
-- The pendant tag and its jump ring form ONE CONTINUOUS ATTACHED UNIT with the bead strand — the jump ring is threaded directly onto the elastic cord between two touching beads. The pendant must NEVER appear detached, floating, or separated from the bracelet body. It must always read as physically connected to the bead line at a single fixed point, flush against the strand — not dangling away from it, not positioned elsewhere on the wrist, not drifting off the bracelet's own line.
-- Elastic band, sits naturally on wrist
+function showToast(){
+  const toast=document.getElementById("toast");
+  toast.classList.add("show");
+  clearTimeout(window.toastTimer);
+  window.toastTimer=setTimeout(()=>toast.classList.remove("show"),1500);
+}
 
-PENDANT ATTACHMENT — DO NOT MODIFY:
-- The pendant is a small rectangular metal tag attached via a single small jump ring/loop to ONE fixed bead connection point on the bracelet strand. The jump ring is the only connector between the tag and the bracelet. The tag itself must NOT be threaded between beads, wedged into the bead line, clipped onto the band, or fused directly to any bead.
-- The pendant MUST hang freely by gravity from the jump ring, with its long axis pointing straight down, perpendicular to the wrist, like a dangling charm.
-- The pendant body must remain flat, rigid, and rectangular at all times. It must NEVER appear twisted, folded, bent sideways, curled, pinched, flattened against the wrist, or deformed.
-- The broad flat face of the tag should face the camera or face naturally outward as gravity allows. Do not show only a razor-thin side edge unless the pose absolutely requires it.
-- The jump ring attachment point stays fixed at one bead connection point in the strand. The beads on both sides remain full-size, round, touching, evenly spaced, and visually uninterrupted. The pendant must NOT displace, separate, shrink, distort, or create an artificial gap between adjacent beads.
-- If the wrist bends or the hand moves, only the jump ring and pendant may swing naturally with gravity. The tag must keep its flat rectangular form fully readable and must not become hidden, crumpled, or trapped between the beads and wrist.
+async function copyPrompt(key,button){
+  const text=prompts[key];
+  try{
+    await navigator.clipboard.writeText(text);
+  }catch(e){
+    const temp=document.createElement("textarea");
+    temp.value=text;
+    document.body.appendChild(temp);
+    temp.select();
+    document.execCommand("copy");
+    temp.remove();
+  }
+  const old=button.textContent;
+  button.textContent="복사 완료";
+  button.classList.add("copied");
+  setTimeout(()=>{
+    button.textContent=old;
+    button.classList.remove("copied");
+  },1300);
+  showToast();
+}
 
-CRITICAL — DO NOT SIMPLIFY: A pendant that appears threaded between beads, wedged into the strand, fused to a bead, bent at an angle, twisted, flattened against the wrist, or deformed out of its flat rectangular shape is INCORRECT and unacceptable.
+function togglePrompt(id,button){
+  const panel=document.getElementById(id);
+  panel.classList.toggle("show");
+  button.textContent=panel.classList.contains("show") ? "닫기" : "보기";
+}
 
-PENDANT — MUST BE CLEARLY VISIBLE AND SHARP, NOT OPTIONAL:
-- Tag charm dimensions: approx. 4.3mm width x 6mm height — a small, compact, slightly short rectangle, NOT elongated or stretched vertically
-- CRITICAL WIDTH RULE: the tag's width (4.3mm) must stay very close to the bead diameter (4mm) — only marginally wider, never dramatically wider. The tag and bead should read as similarly scaled at a glance. If the tag starts looking noticeably broader than the beads next to it, that is an error — scale it back down.
-- JUMP RING — MUST STAY RIGID AND PERFECTLY ROUND: the jump ring is a small, rigid, perfectly circular/oval loop of polished silver metal. It must NEVER appear bent, warped, pinched, flattened, or deformed under any circumstance — there is no wind, tension, or force acting on it in this shot. Its shape stays constant regardless of wrist angle or pose.
-- Tag material and finish: solid polished silver metal, HIGH-GLOSS MIRROR FINISH — bright, clean, UNIFORM reflective shine across the entire surface, no blotchy patches, no mottled or discolored spots, no uneven shading, no smudges, no texture noise — reads as one smooth continuous piece of polished silver, like a small mirror
-- TAG SHAPE MUST STAY FLAT AND RIGID: the tag is a thin flat rigid rectangle that hangs straight down with gravity — it must NOT appear bent, twisted, warped, curled, or folded at any angle; only the jump ring pivots, the tag body itself stays perfectly flat and straight
-- TAG ORIENTATION MUST BE VERTICAL, NOT ROTATED SIDEWAYS: the tag's long axis (6mm side) must point straight down/up, hanging like a pendant — the tag must NEVER be rotated 90 degrees to lie flat/horizontal against the wrist, and must NEVER appear tilted sideways, laid flat on the skin, or oriented so its long edge runs parallel to the arm/wrist
-- TAG POSITION MUST MATCH THE BRACELET'S BEAD LINE: the tag hangs from the single point where the jump ring threads onto the cord — this point sits directly on the visible bead strand in every frame. It must never be rendered as if attached to a different part of the bracelet, floating apart from the strand, or positioned inconsistently between generations.
-- ENGRAVING MUST BE SHARP, LEGIBLE, AND IN FOCUS: a small four-petal flower/star symbol engraved above the word "DELIXIR" in clean capital letters — the letters must be readable, not blurred, not smoothed away, not simplified into a plain blank tag
-- This pendant tag with its visible engraving, correct proportions, and correct rigid jump ring must appear in every generated image exactly as described — treat it as a permanent structural part of the bracelet, on the same priority level as the beads themselves
-
-Single photo only. No collage. Natural light, cool-neutral tone, no warm filter. Candid Pinterest aesthetic. High resolution, no CGI look. No yellow tint, no warm color cast — the final image must not look hot, sunny, or warm-toned in any way.
-
-NON-NEGOTIABLE ACROSS ALL SHOT DISTANCES:
-Regardless of framing, camera distance, or how small the bracelet appears in the shot, the pendant tag must render with the EXACT SAME proportions, shape, jump ring rigidity, and legible "DELIXIR" engraving as described above. Distance from camera, tight crop, or wide/full-body framing is NEVER an acceptable reason to simplify, blur, shrink out of proportion, or omit the engraving detail. If the shot is far or the bracelet is small in frame, render the pendant as if photographed with a macro/close-focus lens on that specific area — sharp and true to the reference, not softened or approximated just because it's a smaller element in a larger scene.</textarea>
-<article class="card" id="pose">
-<div class="step-badge">착용컷 STEP 2</div>
-<h3>포즈 선택하기</h3>
-<p>코드나 한글 키워드로 검색한 뒤 원하는 카드를 클릭하세요. 예: 손목, 주머니, 청바지, 항공, 클로즈업.</p>
-<div class="pose-tools">
-<input id="poseSearch" oninput="filterPoses()" placeholder="포즈 검색: 주머니 / 손목 / 항공 / ER..." type="search">
-<button class="secondary-btn" onclick="clearPoseSearch()" type="button">초기화</button>
-<button class="secondary-btn" id="randomPoseBtn" onclick="randomPose()" type="button">랜덤 포즈</button></div>
-<div class="pose-grid" id="poseGrid"><button class="pose-card" data-label="A01 — 허리 옆 자연스러운 손" data-prompt="Waist-to-fingertips crop. Bracelet arm relaxed beside the hip, wrist rotated slightly toward camera, fingers naturally curved. Asymmetrical composition with the bracelet placed off-center." data-search="a01 허리 옆 자연스러운 손 waist waist-to-fingertips crop. bracelet arm relaxed beside the hip, wrist rotated slightly toward camera, fingers naturally curved. asymmetrical composition with the bracelet placed off-center." onclick="selectPose(this)" type="button"><span class="pose-code">A01</span><strong>허리 옆 자연스러운 손</strong><small>Waist-to-fingertips crop. Bracelet arm relaxed beside the hip, wrist rotated slightly toward camera, fingers naturally curved. Asymmetrical composition with the bracelet placed off-center.</small></button><button class="pose-card" data-label="A02 — 주머니에 엄지만 걸치기" data-prompt="Three-quarter waist crop. Thumb hooked casually into the front pocket while the other fingers remain outside. Bracelet fully visible above the pocket edge, wrist angled diagonally." data-search="a02 주머니에 엄지만 걸치기 주머니 pocket three-quarter waist crop. thumb hooked casually into the front pocket while the other fingers remain outside. bracelet fully visible above the pocket edge, wrist angled diagonally." onclick="selectPose(this)" type="button"><span class="pose-code">A02</span><strong>주머니에 엄지만 걸치기</strong><small>Three-quarter waist crop. Thumb hooked casually into the front pocket while the other fingers remain outside. Bracelet fully visible above the pocket edge, wrist angled diagonally.</small></button><button class="pose-card" data-label="A03 — 주머니에 손 반쯤 넣기" data-prompt="Tight waist-to-hand crop. Fingers half inserted into a side pocket, bracelet visible and unobstructed above the pocket, body turned 30 degrees away from camera." data-search="a03 주머니에 손 반쯤 넣기 주머니 pocket tight waist-to-hand crop. fingers half inserted into a side pocket, bracelet visible and unobstructed above the pocket, body turned 30 degrees away from camera." onclick="selectPose(this)" type="button"><span class="pose-code">A03</span><strong>주머니에 손 반쯤 넣기</strong><small>Tight waist-to-hand crop. Fingers half inserted into a side pocket, bracelet visible and unobstructed above the pocket, body turned 30 degrees away from camera.</small></button><button class="pose-card" data-label="A04 — 손을 허리에 가볍게 얹기" data-prompt="Mid-torso crop. Bracelet hand resting lightly on the side of the waist, elbow pointing outward, wrist facing camera, creating a clear triangular arm shape." data-search="a04 손을 허리에 가볍게 얹기 허리 hip mid-torso crop. bracelet hand resting lightly on the side of the waist, elbow pointing outward, wrist facing camera, creating a clear triangular arm shape." onclick="selectPose(this)" type="button"><span class="pose-code">A04</span><strong>손을 허리에 가볍게 얹기</strong><small>Mid-torso crop. Bracelet hand resting lightly on the side of the waist, elbow pointing outward, wrist facing camera, creating a clear triangular arm shape.</small></button><button class="pose-card" data-label="A05 — 반대쪽 팔꿈치 잡기" data-prompt="Upper-body crop without face. Bracelet hand gently holding the opposite elbow, wrist close to the center of frame, relaxed fashion-editorial posture." data-search="a05 반대쪽 팔꿈치 잡기 팔짱 crossed arm upper-body crop without face. bracelet hand gently holding the opposite elbow, wrist close to the center of frame, relaxed fashion-editorial posture." onclick="selectPose(this)" type="button"><span class="pose-code">A05</span><strong>반대쪽 팔꿈치 잡기</strong><small>Upper-body crop without face. Bracelet hand gently holding the opposite elbow, wrist close to the center of frame, relaxed fashion-editorial posture.</small></button><button class="pose-card" data-label="A06 — 느슨한 팔짱" data-prompt="Loose crossed-arm pose below the chest. Bracelet wrist placed on top and fully visible, hands relaxed, no clenched fingers." data-search="a06 느슨한 팔짱 팔짱 crossed arms loose crossed-arm pose below the chest. bracelet wrist placed on top and fully visible, hands relaxed, no clenched fingers." onclick="selectPose(this)" type="button"><span class="pose-code">A06</span><strong>느슨한 팔짱</strong><small>Loose crossed-arm pose below the chest. Bracelet wrist placed on top and fully visible, hands relaxed, no clenched fingers.</small></button><button class="pose-card" data-label="B01 — 의자에 앉아 무릎 위 손" data-prompt="Seated crop from waist to knees. Bracelet hand resting on one knee, palm down, wrist elongated toward camera. Calm catalog mood." data-search="b01 의자에 앉아 무릎 위 손 앉기 seated knee seated crop from waist to knees. bracelet hand resting on one knee, palm down, wrist elongated toward camera. calm catalog mood." onclick="selectPose(this)" type="button"><span class="pose-code">B01</span><strong>의자에 앉아 무릎 위 손</strong><small>Seated crop from waist to knees. Bracelet hand resting on one knee, palm down, wrist elongated toward camera. Calm catalog mood.</small></button><button class="pose-card" data-label="B02 — 앉아서 손끝만 무릎에" data-prompt="Seated side view. Fingertips lightly touching the knee while the wrist floats slightly above it. Bracelet catches the light at a 45-degree angle." data-search="b02 앉아서 손끝만 무릎에 앉기 seated seated side view. fingertips lightly touching the knee while the wrist floats slightly above it. bracelet catches the light at a 45-degree angle." onclick="selectPose(this)" type="button"><span class="pose-code">B02</span><strong>앉아서 손끝만 무릎에</strong><small>Seated side view. Fingertips lightly touching the knee while the wrist floats slightly above it. Bracelet catches the light at a 45-degree angle.</small></button><button class="pose-card" data-label="B03 — 소파 팔걸이에 손목 얹기" data-prompt="Close crop of forearm resting along a sofa armrest. Hand falls naturally over the edge, bracelet centered, soft depth of field." data-search="b03 소파 팔걸이에 손목 얹기 앉기 sofa armrest close crop of forearm resting along a sofa armrest. hand falls naturally over the edge, bracelet centered, soft depth of field." onclick="selectPose(this)" type="button"><span class="pose-code">B03</span><strong>소파 팔걸이에 손목 얹기</strong><small>Close crop of forearm resting along a sofa armrest. Hand falls naturally over the edge, bracelet centered, soft depth of field.</small></button><button class="pose-card" data-label="B04 — 계단에 앉아 손 내리기" data-prompt="Seated on a step, cropped from waist to hand. Bracelet arm hangs loosely between the knees, wrist visible from a slight low angle." data-search="b04 계단에 앉아 손 내리기 앉기 stairs seated on a step, cropped from waist to hand. bracelet arm hangs loosely between the knees, wrist visible from a slight low angle." onclick="selectPose(this)" type="button"><span class="pose-code">B04</span><strong>계단에 앉아 손 내리기</strong><small>Seated on a step, cropped from waist to hand. Bracelet arm hangs loosely between the knees, wrist visible from a slight low angle.</small></button><button class="pose-card" data-label="C01 — 컵을 아래쪽에서 잡기" data-prompt="Close waist crop. Bracelet hand holding a simple takeaway cup near hip level, fingers wrapped lightly, bracelet fully visible above the hand. No logo on cup." data-search="c01 컵을 아래쪽에서 잡기 컵 coffee close waist crop. bracelet hand holding a simple takeaway cup near hip level, fingers wrapped lightly, bracelet fully visible above the hand. no logo on cup." onclick="selectPose(this)" type="button"><span class="pose-code">C01</span><strong>컵을 아래쪽에서 잡기</strong><small>Close waist crop. Bracelet hand holding a simple takeaway cup near hip level, fingers wrapped lightly, bracelet fully visible above the hand. No logo on cup.</small></button><button class="pose-card" data-label="C02 — 투명 유리잔 들기" data-prompt="Mid-torso crop. Bracelet hand holding a clear water glass at lower chest level, wrist turned outward, minimal clean styling." data-search="c02 투명 유리잔 들기 컵 glass mid-torso crop. bracelet hand holding a clear water glass at lower chest level, wrist turned outward, minimal clean styling." onclick="selectPose(this)" type="button"><span class="pose-code">C02</span><strong>투명 유리잔 들기</strong><small>Mid-torso crop. Bracelet hand holding a clear water glass at lower chest level, wrist turned outward, minimal clean styling.</small></button><button class="pose-card" data-label="C03 — 책 모서리 잡기" data-prompt="Waist-level crop. Bracelet hand holding the lower corner of a closed book against the body, wrist and bracelet clearly exposed." data-search="c03 책 모서리 잡기 책 book waist-level crop. bracelet hand holding the lower corner of a closed book against the body, wrist and bracelet clearly exposed." onclick="selectPose(this)" type="button"><span class="pose-code">C03</span><strong>책 모서리 잡기</strong><small>Waist-level crop. Bracelet hand holding the lower corner of a closed book against the body, wrist and bracelet clearly exposed.</small></button><button class="pose-card" data-label="C04 — 종이 쇼핑백 손잡이 잡기" data-prompt="Close crop from elbow to mid-thigh. Bracelet hand holding thin paper-bag handles loosely, wrist straight and fully visible. Plain unbranded bag." data-search="c04 종이 쇼핑백 손잡이 잡기 가방 shopping bag close crop from elbow to mid-thigh. bracelet hand holding thin paper-bag handles loosely, wrist straight and fully visible. plain unbranded bag." onclick="selectPose(this)" type="button"><span class="pose-code">C04</span><strong>종이 쇼핑백 손잡이 잡기</strong><small>Close crop from elbow to mid-thigh. Bracelet hand holding thin paper-bag handles loosely, wrist straight and fully visible. Plain unbranded bag.</small></button><button class="pose-card" data-label="C05 — 에코백 스트랩 잡기" data-prompt="Upper-waist crop. Bracelet hand lightly pinching a tote-bag strap near the hip, wrist angled toward camera." data-search="c05 에코백 스트랩 잡기 가방 tote upper-waist crop. bracelet hand lightly pinching a tote-bag strap near the hip, wrist angled toward camera." onclick="selectPose(this)" type="button"><span class="pose-code">C05</span><strong>에코백 스트랩 잡기</strong><small>Upper-waist crop. Bracelet hand lightly pinching a tote-bag strap near the hip, wrist angled toward camera.</small></button><button class="pose-card" data-label="C06 — 선글라스 한쪽 다리 잡기" data-prompt="Tight hand-and-wrist crop. Bracelet hand holding folded sunglasses by one temple near the waist. Bracelet remains the visual focus." data-search="c06 선글라스 한쪽 다리 잡기 선글라스 accessory tight hand-and-wrist crop. bracelet hand holding folded sunglasses by one temple near the waist. bracelet remains the visual focus." onclick="selectPose(this)" type="button"><span class="pose-code">C06</span><strong>선글라스 한쪽 다리 잡기</strong><small>Tight hand-and-wrist crop. Bracelet hand holding folded sunglasses by one temple near the waist. Bracelet remains the visual focus.</small></button><button class="pose-card" data-label="D01 — 테이블 위 손목" data-prompt="Top-down close-up. Forearm resting diagonally on a clean tabletop, palm down, bracelet centered. Only wrist, hand, and a small area of clothing visible." data-search="d01 테이블 위 손목 테이블 tabletop top-down close-up. forearm resting diagonally on a clean tabletop, palm down, bracelet centered. only wrist, hand, and a small area of clothing visible." onclick="selectPose(this)" type="button"><span class="pose-code">D01</span><strong>테이블 위 손목</strong><small>Top-down close-up. Forearm resting diagonally on a clean tabletop, palm down, bracelet centered. Only wrist, hand, and a small area of clothing visible.</small></button><button class="pose-card" data-label="D02 — 테이블 가장자리 손 내리기" data-prompt="Side close-up. Forearm rests on a table while the hand hangs gently over the edge. Bracelet visible in profile around the wrist." data-search="d02 테이블 가장자리 손 내리기 테이블 edge side close-up. forearm rests on a table while the hand hangs gently over the edge. bracelet visible in profile around the wrist." onclick="selectPose(this)" type="button"><span class="pose-code">D02</span><strong>테이블 가장자리 손 내리기</strong><small>Side close-up. Forearm rests on a table while the hand hangs gently over the edge. Bracelet visible in profile around the wrist.</small></button><button class="pose-card" data-label="D03 — 책상 위 손가락 펼치기" data-prompt="Overhead shot of one hand resting naturally on a plain surface with fingers slightly separated. Bracelet forms a clean arc around the wrist." data-search="d03 책상 위 손가락 펼치기 항공 top down overhead shot of one hand resting naturally on a plain surface with fingers slightly separated. bracelet forms a clean arc around the wrist." onclick="selectPose(this)" type="button"><span class="pose-code">D03</span><strong>책상 위 손가락 펼치기</strong><small>Overhead shot of one hand resting naturally on a plain surface with fingers slightly separated. Bracelet forms a clean arc around the wrist.</small></button><button class="pose-card" data-label="D04 — 창가에 손끝 대기" data-prompt="Close side crop. Fingertips lightly touch a bright window frame, wrist vertical, bracelet shown from the side with soft natural daylight." data-search="d04 창가에 손끝 대기 창문 window close side crop. fingertips lightly touch a bright window frame, wrist vertical, bracelet shown from the side with soft natural daylight." onclick="selectPose(this)" type="button"><span class="pose-code">D04</span><strong>창가에 손끝 대기</strong><small>Close side crop. Fingertips lightly touch a bright window frame, wrist vertical, bracelet shown from the side with soft natural daylight.</small></button><button class="pose-card" data-label="E01 — 걷는 순간 팔 스윙" data-prompt="Candid waist-to-hand crop captured mid-step. Bracelet arm swings slightly forward, subtle natural motion in clothing only, bracelet remains sharp and readable." data-search="e01 걷는 순간 팔 스윙 걷기 movement candid waist-to-hand crop captured mid-step. bracelet arm swings slightly forward, subtle natural motion in clothing only, bracelet remains sharp and readable." onclick="selectPose(this)" type="button"><span class="pose-code">E01</span><strong>걷는 순간 팔 스윙</strong><small>Candid waist-to-hand crop captured mid-step. Bracelet arm swings slightly forward, subtle natural motion in clothing only, bracelet remains sharp and readable.</small></button><button class="pose-card" data-label="E02 — 치마자락 살짝 잡기" data-prompt="Mid-thigh crop. Bracelet hand lightly pinches the side of a long skirt while walking, wrist visible, gentle fabric movement." data-search="e02 치마자락 살짝 잡기 치마 skirt movement mid-thigh crop. bracelet hand lightly pinches the side of a long skirt while walking, wrist visible, gentle fabric movement." onclick="selectPose(this)" type="button"><span class="pose-code">E02</span><strong>치마자락 살짝 잡기</strong><small>Mid-thigh crop. Bracelet hand lightly pinches the side of a long skirt while walking, wrist visible, gentle fabric movement.</small></button><button class="pose-card" data-label="E03 — 재킷 밑단 정리하기" data-prompt="Torso crop. Bracelet hand adjusting the lower edge of a jacket or blouse, wrist bent naturally toward camera." data-search="e03 재킷 밑단 정리하기 재킷 jacket torso crop. bracelet hand adjusting the lower edge of a jacket or blouse, wrist bent naturally toward camera." onclick="selectPose(this)" type="button"><span class="pose-code">E03</span><strong>재킷 밑단 정리하기</strong><small>Torso crop. Bracelet hand adjusting the lower edge of a jacket or blouse, wrist bent naturally toward camera.</small></button><button class="pose-card" data-label="E04 — 소매를 살짝 걷는 순간" data-prompt="Close-up from elbow to wrist. Opposite hand gently pulls back the sleeve to reveal the bracelet. Bracelet hand remains relaxed." data-search="e04 소매를 살짝 걷는 순간 소매 sleeve close-up from elbow to wrist. opposite hand gently pulls back the sleeve to reveal the bracelet. bracelet hand remains relaxed." onclick="selectPose(this)" type="button"><span class="pose-code">E04</span><strong>소매를 살짝 걷는 순간</strong><small>Close-up from elbow to wrist. Opposite hand gently pulls back the sleeve to reveal the bracelet. Bracelet hand remains relaxed.</small></button><button class="pose-card" data-label="E05 — 가방 안에서 물건 꺼내기" data-prompt="Waist crop. Bracelet hand reaching into an open tote bag while the wrist and bracelet remain fully visible above the bag opening." data-search="e05 가방 안에서 물건 꺼내기 가방 movement waist crop. bracelet hand reaching into an open tote bag while the wrist and bracelet remain fully visible above the bag opening." onclick="selectPose(this)" type="button"><span class="pose-code">E05</span><strong>가방 안에서 물건 꺼내기</strong><small>Waist crop. Bracelet hand reaching into an open tote bag while the wrist and bracelet remain fully visible above the bag opening.</small></button><button class="pose-card" data-label="F01 — 손등 정면 초근접" data-prompt="Macro fashion crop from mid-forearm to fingertips. Back of hand faces camera, wrist centered, bracelet occupying the upper third of frame." data-search="f01 손등 정면 초근접 클로즈업 closeup macro fashion crop from mid-forearm to fingertips. back of hand faces camera, wrist centered, bracelet occupying the upper third of frame." onclick="selectPose(this)" type="button"><span class="pose-code">F01</span><strong>손등 정면 초근접</strong><small>Macro fashion crop from mid-forearm to fingertips. Back of hand faces camera, wrist centered, bracelet occupying the upper third of frame.</small></button><button class="pose-card" data-label="F02 — 손바닥 측면 초근접" data-prompt="Tight side close-up from wrist to fingertips. Thumb side faces camera, showing the bracelet circumference and bead scale clearly." data-search="f02 손바닥 측면 초근접 클로즈업 side tight side close-up from wrist to fingertips. thumb side faces camera, showing the bracelet circumference and bead scale clearly." onclick="selectPose(this)" type="button"><span class="pose-code">F02</span><strong>손바닥 측면 초근접</strong><small>Tight side close-up from wrist to fingertips. Thumb side faces camera, showing the bracelet circumference and bead scale clearly.</small></button><button class="pose-card" data-label="F03 — 45도 손목 회전" data-prompt="Close-up of the wrist rotated 45 degrees outward. Bracelet shown in three-quarter view with natural hand anatomy and relaxed fingers." data-search="f03 45도 손목 회전 클로즈업 45 close-up of the wrist rotated 45 degrees outward. bracelet shown in three-quarter view with natural hand anatomy and relaxed fingers." onclick="selectPose(this)" type="button"><span class="pose-code">F03</span><strong>45도 손목 회전</strong><small>Close-up of the wrist rotated 45 degrees outward. Bracelet shown in three-quarter view with natural hand anatomy and relaxed fingers.</small></button><button class="pose-card" data-label="F04 — 팔꿈치부터 손끝 사선" data-prompt="Diagonal crop from elbow at upper left to fingertips at lower right. Bracelet sits near frame center, creating a dynamic editorial line." data-search="f04 팔꿈치부터 손끝 사선 사선 diagonal diagonal crop from elbow at upper left to fingertips at lower right. bracelet sits near frame center, creating a dynamic editorial line." onclick="selectPose(this)" type="button"><span class="pose-code">F04</span><strong>팔꿈치부터 손끝 사선</strong><small>Diagonal crop from elbow at upper left to fingertips at lower right. Bracelet sits near frame center, creating a dynamic editorial line.</small></button><button class="pose-card" data-label="F05 — 낮은 시점 손목 컷" data-prompt="Slight low-angle crop looking upward along the hand toward the wrist. Bracelet is prominent against softly blurred clothing." data-search="f05 낮은 시점 손목 컷 로우앵글 low angle slight low-angle crop looking upward along the hand toward the wrist. bracelet is prominent against softly blurred clothing." onclick="selectPose(this)" type="button"><span class="pose-code">F05</span><strong>낮은 시점 손목 컷</strong><small>Slight low-angle crop looking upward along the hand toward the wrist. Bracelet is prominent against softly blurred clothing.</small></button><button class="pose-card" data-label="F06 — 위에서 내려다본 손목" data-prompt="High-angle shot looking down at the wrist beside the body. Bracelet forms a clear circular line, hand relaxed and slightly away from the hip." data-search="f06 위에서 내려다본 손목 항공 overhead high-angle shot looking down at the wrist beside the body. bracelet forms a clear circular line, hand relaxed and slightly away from the hip." onclick="selectPose(this)" type="button"><span class="pose-code">F06</span><strong>위에서 내려다본 손목</strong><small>High-angle shot looking down at the wrist beside the body. Bracelet forms a clear circular line, hand relaxed and slightly away from the hip.</small></button><button class="pose-card" data-label="G01 — 두 손 겹치되 팔찌 손 위" data-prompt="Close torso crop. Both hands overlap loosely at waist level, bracelet hand placed on top, no rings, bracelet fully unobstructed." data-search="g01 두 손 겹치되 팔찌 손 위 두손 hands close torso crop. both hands overlap loosely at waist level, bracelet hand placed on top, no rings, bracelet fully unobstructed." onclick="selectPose(this)" type="button"><span class="pose-code">G01</span><strong>두 손 겹치되 팔찌 손 위</strong><small>Close torso crop. Both hands overlap loosely at waist level, bracelet hand placed on top, no rings, bracelet fully unobstructed.</small></button><button class="pose-card" data-label="G02 — 한 손으로 다른 손목 받치기" data-prompt="Mid-torso crop. Non-bracelet hand gently supports the underside of the bracelet wrist without covering any beads." data-search="g02 한 손으로 다른 손목 받치기 두손 wrist mid-torso crop. non-bracelet hand gently supports the underside of the bracelet wrist without covering any beads." onclick="selectPose(this)" type="button"><span class="pose-code">G02</span><strong>한 손으로 다른 손목 받치기</strong><small>Mid-torso crop. Non-bracelet hand gently supports the underside of the bracelet wrist without covering any beads.</small></button><button class="pose-card" data-label="G03 — 손가락 끝끼리 가볍게 닿기" data-prompt="Waist-level crop. Both hands meet lightly at the fingertips, creating negative space; bracelet wrist angled outward." data-search="g03 손가락 끝끼리 가볍게 닿기 두손 fingertips waist-level crop. both hands meet lightly at the fingertips, creating negative space; bracelet wrist angled outward." onclick="selectPose(this)" type="button"><span class="pose-code">G03</span><strong>손가락 끝끼리 가볍게 닿기</strong><small>Waist-level crop. Both hands meet lightly at the fingertips, creating negative space; bracelet wrist angled outward.</small></button><button class="pose-card" data-label="H01 — 벽에 손끝만 대기" data-prompt="Graphic side composition. Bracelet arm extended diagonally, fingertips lightly touching a plain wall, wrist centered and fully visible." data-search="h01 벽에 손끝만 대기 벽 wall graphic side composition. bracelet arm extended diagonally, fingertips lightly touching a plain wall, wrist centered and fully visible." onclick="selectPose(this)" type="button"><span class="pose-code">H01</span><strong>벽에 손끝만 대기</strong><small>Graphic side composition. Bracelet arm extended diagonally, fingertips lightly touching a plain wall, wrist centered and fully visible.</small></button><button class="pose-card" data-label="H02 — 난간 위 손 얹기" data-prompt="Close side crop. Bracelet hand rests lightly on a simple railing, fingers relaxed over the edge, bracelet shown clearly from above." data-search="h02 난간 위 손 얹기 난간 railing close side crop. bracelet hand rests lightly on a simple railing, fingers relaxed over the edge, bracelet shown clearly from above." onclick="selectPose(this)" type="button"><span class="pose-code">H02</span><strong>난간 위 손 얹기</strong><small>Close side crop. Bracelet hand rests lightly on a simple railing, fingers relaxed over the edge, bracelet shown clearly from above.</small></button><button class="pose-card" data-label="H03 — 문손잡이 잡기 직전" data-prompt="Candid close crop. Bracelet hand reaching toward a minimal door handle without gripping it yet, wrist extended and visible." data-search="h03 문손잡이 잡기 직전 문 handle candid close crop. bracelet hand reaching toward a minimal door handle without gripping it yet, wrist extended and visible." onclick="selectPose(this)" type="button"><span class="pose-code">H03</span><strong>문손잡이 잡기 직전</strong><small>Candid close crop. Bracelet hand reaching toward a minimal door handle without gripping it yet, wrist extended and visible.</small></button><button class="pose-card" data-label="H04 — 휴대폰을 아래로 느슨하게 들기" data-prompt="Waist-to-hand crop. Bracelet hand loosely holding a plain smartphone at the side, screen turned inward, wrist unobstructed." data-search="h04 휴대폰을 아래로 느슨하게 들기 휴대폰 phone waist-to-hand crop. bracelet hand loosely holding a plain smartphone at the side, screen turned inward, wrist unobstructed." onclick="selectPose(this)" type="button"><span class="pose-code">H04</span><strong>휴대폰을 아래로 느슨하게 들기</strong><small>Waist-to-hand crop. Bracelet hand loosely holding a plain smartphone at the side, screen turned inward, wrist unobstructed.</small></button><button class="pose-card" data-label="H05 — 거울 셀피지만 얼굴 제외" data-prompt="Mirror-style torso crop with face completely outside frame. Bracelet hand holds the phone near chest height; opposite arm relaxed. Bracelet visible and sharp." data-search="h05 거울 셀피지만 얼굴 제외 거울 mirror selfie mirror-style torso crop with face completely outside frame. bracelet hand holds the phone near chest height; opposite arm relaxed. bracelet visible and sharp." onclick="selectPose(this)" type="button"><span class="pose-code">H05</span><strong>거울 셀피지만 얼굴 제외</strong><small>Mirror-style torso crop with face completely outside frame. Bracelet hand holds the phone near chest height; opposite arm relaxed. Bracelet visible and sharp.</small></button><button class="pose-card" data-label="ER — 손 주머니에 반쯤 넣은 타이트 컷" data-prompt="Tight shot from wrist to mid-thigh. She stands with her bracelet hand half-inserted into a front pants pocket, fingers inside, wrist and bracelet fully visible above the pocket edge. Wrist faces slightly outward toward camera. Outfit fabric in background softly blurred. Bracelet centered and prominent in frame." data-search="er 손 주머니에 반쯤 넣은 타이트 컷 tight shot from wrist to mid-thigh. she stands with her bracelet hand half-inserted into a front pants pocket, fingers inside, wrist and bracelet fully visible above the pocket edge. wrist faces slightly outward toward camera. outfit fabric in background softly blurred. bracelet centered and prominent in frame." onclick="selectPose(this)" type="button"><span class="pose-code">ER</span><strong>손 주머니에 반쯤 넣은 타이트 컷</strong><small>Tight shot from wrist to mid-thigh. She stands with her bracelet hand half-inserted into a front pants pocket, fingers inside, wrist and bracelet fully visible above the pocket edge. Wrist faces slightly outward toward camera. Outfit fabric in background softly blurred. Bracelet centered and prominent in frame.</small></button><button class="pose-card" data-label="ES — 팔 자연스럽게 내린 허리~손목 컷" data-prompt="Shot from waist to fingertips only. Bracelet arm hanging naturally at her side. Wrist relaxed, bracelet sitting at its natural position. No forced gesture. Outfit visible at top edge of frame, blurred softly. Bracelet occupies the natural center of the frame." data-search="es 팔 자연스럽게 내린 허리~손목 컷 shot from waist to fingertips only. bracelet arm hanging naturally at her side. wrist relaxed, bracelet sitting at its natural position. no forced gesture. outfit visible at top edge of frame, blurred softly. bracelet occupies the natural center of the frame." onclick="selectPose(this)" type="button"><span class="pose-code">ES</span><strong>팔 자연스럽게 내린 허리~손목 컷</strong><small>Shot from waist to fingertips only. Bracelet arm hanging naturally at her side. Wrist relaxed, bracelet sitting at its natural position. No forced gesture. Outfit visible at top edge of frame, blurred softly. Bracelet occupies the natural center of the frame.</small></button><button class="pose-card" data-label="ET — 손목 클로즈업, 옷 배경으로만" data-prompt="Tight close-up shot of wrist only. Bracelet filling most of the frame. Outfit fabric visible softly out of focus behind the wrist — just enough to show clothing context. Wrist relaxed, natural angle. No face, no full arm visible." data-search="et 손목 클로즈업, 옷 배경으로만 tight close-up shot of wrist only. bracelet filling most of the frame. outfit fabric visible softly out of focus behind the wrist — just enough to show clothing context. wrist relaxed, natural angle. no face, no full arm visible." onclick="selectPose(this)" type="button"><span class="pose-code">ET</span><strong>손목 클로즈업, 옷 배경으로만</strong><small>Tight close-up shot of wrist only. Bracelet filling most of the frame. Outfit fabric visible softly out of focus behind the wrist — just enough to show clothing context. Wrist relaxed, natural angle. No face, no full arm visible.</small></button><button class="pose-card" data-label="EU — 팔꿈치~손끝 사이드 앵글 컷" data-prompt="Shot from elbow to fingertips, slightly from the side. Bracelet arm hanging naturally, captured from a 45-degree side angle showing the bracelet wrapping around the full wrist circumference. Outfit softly blurred behind. Bracelet clearly visible wrapping the wrist." data-search="eu 팔꿈치~손끝 사이드 앵글 컷 shot from elbow to fingertips, slightly from the side. bracelet arm hanging naturally, captured from a 45-degree side angle showing the bracelet wrapping around the full wrist circumference. outfit softly blurred behind. bracelet clearly visible wrapping the wrist." onclick="selectPose(this)" type="button"><span class="pose-code">EU</span><strong>팔꿈치~손끝 사이드 앵글 컷</strong><small>Shot from elbow to fingertips, slightly from the side. Bracelet arm hanging naturally, captured from a 45-degree side angle showing the bracelet wrapping around the full wrist circumference. Outfit softly blurred behind. Bracelet clearly visible wrapping the wrist.</small></button><button class="pose-card" data-label="EV — 손 청바지/옷 위에 살짝 얹은 컷" data-prompt="Tight shot from wrist to upper thigh. She rests her bracelet hand loosely against her thigh or hip, fingers slightly curled. Bracelet sitting naturally on wrist, facing camera. Denim or fabric texture visible as background. Bracelet prominent in center frame." data-search="ev 손 청바지/옷 위에 살짝 얹은 컷 tight shot from wrist to upper thigh. she rests her bracelet hand loosely against her thigh or hip, fingers slightly curled. bracelet sitting naturally on wrist, facing camera. denim or fabric texture visible as background. bracelet prominent in center frame." onclick="selectPose(this)" type="button"><span class="pose-code">EV</span><strong>손 청바지/옷 위에 살짝 얹은 컷</strong><small>Tight shot from wrist to upper thigh. She rests her bracelet hand loosely against her thigh or hip, fingers slightly curled. Bracelet sitting naturally on wrist, facing camera. Denim or fabric texture visible as background. Bracelet prominent in center frame.</small></button><button class="pose-card" data-label="EW — 손 주머니 입구에 걸친 클로즈업 컷" data-prompt="Close-up shot from wrist to mid-thigh. Her bracelet hand loosely grips the edge of a pocket or waistband from the outside. Wrist angled naturally toward camera. Bracelet sitting prominently in frame. Outfit fabric and pocket stitching visible as texture in background." data-search="ew 손 주머니 입구에 걸친 클로즈업 컷 close-up shot from wrist to mid-thigh. her bracelet hand loosely grips the edge of a pocket or waistband from the outside. wrist angled naturally toward camera. bracelet sitting prominently in frame. outfit fabric and pocket stitching visible as texture in background." onclick="selectPose(this)" type="button"><span class="pose-code">EW</span><strong>손 주머니 입구에 걸친 클로즈업 컷</strong><small>Close-up shot from wrist to mid-thigh. Her bracelet hand loosely grips the edge of a pocket or waistband from the outside. Wrist angled naturally toward camera. Bracelet sitting prominently in frame. Outfit fabric and pocket stitching visible as texture in background.</small></button><button class="pose-card" data-label="EX — 팔뚝~손목 세로 구도 컷" data-prompt="Vertical close-up shot. Forearm filling the frame vertically from mid-forearm to fingertips. Bracelet sitting at the lower third of the frame. Arm angled slightly, wrist relaxed. Outfit sleeve or collar softly visible at very top edge. Clean, minimal composition." data-search="ex 팔뚝~손목 세로 구도 컷 vertical close-up shot. forearm filling the frame vertically from mid-forearm to fingertips. bracelet sitting at the lower third of the frame. arm angled slightly, wrist relaxed. outfit sleeve or collar softly visible at very top edge. clean, minimal composition." onclick="selectPose(this)" type="button"><span class="pose-code">EX</span><strong>팔뚝~손목 세로 구도 컷</strong><small>Vertical close-up shot. Forearm filling the frame vertically from mid-forearm to fingertips. Bracelet sitting at the lower third of the frame. Arm angled slightly, wrist relaxed. Outfit sleeve or collar softly visible at very top edge. Clean, minimal composition.</small></button><button class="pose-card" data-label="EY — 손 살짝 쥔 클로즈업 컷" data-prompt="Close-up shot of wrist and hand only. Her fingers loosely curled inward, hand softly half-fisted, relaxed. Bracelet sitting on wrist, centered in frame. No full arm visible. Background is outfit fabric, softly out of focus. Intimate, still mood." data-search="ey 손 살짝 쥔 클로즈업 컷 close-up shot of wrist and hand only. her fingers loosely curled inward, hand softly half-fisted, relaxed. bracelet sitting on wrist, centered in frame. no full arm visible. background is outfit fabric, softly out of focus. intimate, still mood." onclick="selectPose(this)" type="button"><span class="pose-code">EY</span><strong>손 살짝 쥔 클로즈업 컷</strong><small>Close-up shot of wrist and hand only. Her fingers loosely curled inward, hand softly half-fisted, relaxed. Bracelet sitting on wrist, centered in frame. No full arm visible. Background is outfit fabric, softly out of focus. Intimate, still mood.</small></button><button class="pose-card" data-label="EZ — 팔 비스듬히 내려다보는 항공 클로즈업 컷" data-prompt="Shot from slightly above looking down at a 30-degree angle onto the wrist and hand. Bracelet fully visible from above, all beads visible. Hand and fingers loosely relaxed below. Outfit visible at the very edge of frame. Top-down editorial close-up mood." data-search="ez 팔 비스듬히 내려다보는 항공 클로즈업 컷 shot from slightly above looking down at a 30-degree angle onto the wrist and hand. bracelet fully visible from above, all beads visible. hand and fingers loosely relaxed below. outfit visible at the very edge of frame. top-down editorial close-up mood." onclick="selectPose(this)" type="button"><span class="pose-code">EZ</span><strong>팔 비스듬히 내려다보는 항공 클로즈업 컷</strong><small>Shot from slightly above looking down at a 30-degree angle onto the wrist and hand. Bracelet fully visible from above, all beads visible. Hand and fingers loosely relaxed below. Outfit visible at the very edge of frame. Top-down editorial close-up mood.</small></button><button class="pose-card" data-label="FA — 손가락 살짝 벌린 자연스러운 손 클로즈업 컷" data-prompt="Close-up of hand and wrist only. Fingers naturally spread and relaxed, palm facing down or slightly angled. Bracelet sitting on wrist above the hand. Background is outfit fabric, blurred. Bracelet centered in upper portion of frame. Candid, unstaged hand mood." data-search="fa 손가락 살짝 벌린 자연스러운 손 클로즈업 컷 close-up of hand and wrist only. fingers naturally spread and relaxed, palm facing down or slightly angled. bracelet sitting on wrist above the hand. background is outfit fabric, blurred. bracelet centered in upper portion of frame. candid, unstaged hand mood." onclick="selectPose(this)" type="button"><span class="pose-code">FA</span><strong>손가락 살짝 벌린 자연스러운 손 클로즈업 컷</strong><small>Close-up of hand and wrist only. Fingers naturally spread and relaxed, palm facing down or slightly angled. Bracelet sitting on wrist above the hand. Background is outfit fabric, blurred. Bracelet centered in upper portion of frame. Candid, unstaged hand mood.</small></button><button class="pose-card" data-label="FB — 팔 옆구리에 붙인 타이트 컷" data-prompt="Shot from waist to wrist. Bracelet arm resting naturally against her side, close to her body. Outfit fabric fills most of the background. Wrist and bracelet at the lower center of frame, pressed lightly against hip or thigh. Intimate, pressed-against-body mood." data-search="fb 팔 옆구리에 붙인 타이트 컷 shot from waist to wrist. bracelet arm resting naturally against her side, close to her body. outfit fabric fills most of the background. wrist and bracelet at the lower center of frame, pressed lightly against hip or thigh. intimate, pressed-against-body mood." onclick="selectPose(this)" type="button"><span class="pose-code">FB</span><strong>팔 옆구리에 붙인 타이트 컷</strong><small>Shot from waist to wrist. Bracelet arm resting naturally against her side, close to her body. Outfit fabric fills most of the background. Wrist and bracelet at the lower center of frame, pressed lightly against hip or thigh. Intimate, pressed-against-body mood.</small></button><button class="pose-card" data-label="FC — 팔목 위쪽에서 내려다보는 컷" data-prompt="Shot from directly above the wrist at close range. Bracelet lying flat across the wrist, all beads visible from above. Skin and bracelet filling the frame. Tiny sliver of outfit visible at the very edge. Flat-lay style but on a live wrist. Graphic, clean composition." data-search="fc 팔목 위쪽에서 내려다보는 컷 shot from directly above the wrist at close range. bracelet lying flat across the wrist, all beads visible from above. skin and bracelet filling the frame. tiny sliver of outfit visible at the very edge. flat-lay style but on a live wrist. graphic, clean composition." onclick="selectPose(this)" type="button"><span class="pose-code">FC</span><strong>팔목 위쪽에서 내려다보는 컷</strong><small>Shot from directly above the wrist at close range. Bracelet lying flat across the wrist, all beads visible from above. Skin and bracelet filling the frame. Tiny sliver of outfit visible at the very edge. Flat-lay style but on a live wrist. Graphic, clean composition.</small></button><button class="pose-card" data-label="FD — 손 펼쳐 옆으로 자연스럽게 내린 컷" data-prompt="Shot from waist to fingertips, slight side angle. Bracelet arm hanging naturally at her side, fingers relaxed and slightly spread open. Wrist facing slightly outward. Outfit fabric and silhouette in background, blurred. Bracelet visible on wrist in center-lower frame. Effortless, candid mood." data-search="fd 손 펼쳐 옆으로 자연스럽게 내린 컷 shot from waist to fingertips, slight side angle. bracelet arm hanging naturally at her side, fingers relaxed and slightly spread open. wrist facing slightly outward. outfit fabric and silhouette in background, blurred. bracelet visible on wrist in center-lower frame. effortless, candid mood." onclick="selectPose(this)" type="button"><span class="pose-code">FD</span><strong>손 펼쳐 옆으로 자연스럽게 내린 컷</strong><small>Shot from waist to fingertips, slight side angle. Bracelet arm hanging naturally at her side, fingers relaxed and slightly spread open. Wrist facing slightly outward. Outfit fabric and silhouette in background, blurred. Bracelet visible on wrist in center-lower frame. Effortless, candid mood.</small></button><button class="pose-card" data-label="FE — 손목 앞으로 살짝 내밀어 옷에 살짝 닿는 컷" data-prompt="Close-up from chest to wrist. She brings her bracelet wrist loosely in front of her body, wrist resting lightly against her outfit fabric. Bracelet centered prominently in frame. Outfit texture fills background. Natural, unstaged contact between wrist and clothing." data-search="fe 손목 앞으로 살짝 내밀어 옷에 살짝 닿는 컷 close-up from chest to wrist. she brings her bracelet wrist loosely in front of her body, wrist resting lightly against her outfit fabric. bracelet centered prominently in frame. outfit texture fills background. natural, unstaged contact between wrist and clothing." onclick="selectPose(this)" type="button"><span class="pose-code">FE</span><strong>손목 앞으로 살짝 내밀어 옷에 살짝 닿는 컷</strong><small>Close-up from chest to wrist. She brings her bracelet wrist loosely in front of her body, wrist resting lightly against her outfit fabric. Bracelet centered prominently in frame. Outfit texture fills background. Natural, unstaged contact between wrist and clothing.</small></button><button class="pose-card" data-label="FF — 팔꿈치 구부려 손목 허리 높이에 둔 컷" data-prompt="Shot from chest to hip. She bends her bracelet elbow slightly, forearm angled so wrist sits at waist level in front of her body. Wrist and bracelet occupy the center of the frame. Outfit fabric visible above and below. Bracelet at natural eye-catching height." data-search="ff 팔꿈치 구부려 손목 허리 높이에 둔 컷 shot from chest to hip. she bends her bracelet elbow slightly, forearm angled so wrist sits at waist level in front of her body. wrist and bracelet occupy the center of the frame. outfit fabric visible above and below. bracelet at natural eye-catching height." onclick="selectPose(this)" type="button"><span class="pose-code">FF</span><strong>팔꿈치 구부려 손목 허리 높이에 둔 컷</strong><small>Shot from chest to hip. She bends her bracelet elbow slightly, forearm angled so wrist sits at waist level in front of her body. Wrist and bracelet occupy the center of the frame. Outfit fabric visible above and below. Bracelet at natural eye-catching height.</small></button><button class="pose-card" data-label="FG — 손 청바지 벨트루프 잡은 클로즈업 컷" data-prompt="Close-up from wrist to mid-thigh. She hooks her bracelet thumb or fingers loosely into a belt loop. Wrist naturally angled, bracelet sitting prominently above the denim waistband. Denim texture fills background. Bracelet centered in frame. Casual, street-style close-up mood." data-search="fg 손 청바지 벨트루프 잡은 클로즈업 컷 close-up from wrist to mid-thigh. she hooks her bracelet thumb or fingers loosely into a belt loop. wrist naturally angled, bracelet sitting prominently above the denim waistband. denim texture fills background. bracelet centered in frame. casual, street-style close-up mood." onclick="selectPose(this)" type="button"><span class="pose-code">FG</span><strong>손 청바지 벨트루프 잡은 클로즈업 컷</strong><small>Close-up from wrist to mid-thigh. She hooks her bracelet thumb or fingers loosely into a belt loop. Wrist naturally angled, bracelet sitting prominently above the denim waistband. Denim texture fills background. Bracelet centered in frame. Casual, street-style close-up mood.</small></button><button class="pose-card" data-label="FH — 팔 뒤로 살짝 젖혀 손목 보이는 컷" data-prompt="Shot from chest to hip, slight side angle. She lets her bracelet arm drift slightly behind her body or to the side, wrist gently angled outward. Bracelet visible from a fresh angle. Outfit silhouette in background. Candid, in-between-moment mood." data-search="fh 팔 뒤로 살짝 젖혀 손목 보이는 컷 shot from chest to hip, slight side angle. she lets her bracelet arm drift slightly behind her body or to the side, wrist gently angled outward. bracelet visible from a fresh angle. outfit silhouette in background. candid, in-between-moment mood." onclick="selectPose(this)" type="button"><span class="pose-code">FH</span><strong>팔 뒤로 살짝 젖혀 손목 보이는 컷</strong><small>Shot from chest to hip, slight side angle. She lets her bracelet arm drift slightly behind her body or to the side, wrist gently angled outward. Bracelet visible from a fresh angle. Outfit silhouette in background. Candid, in-between-moment mood.</small></button><button class="pose-card" data-label="FI — 소매 사이로 팔찌 보이는 컷" data-prompt="Close-up from elbow to wrist. She wears a slightly loose sleeve that falls softly around the wrist area, bracelet peeking out from under the fabric edge. Bracelet partially framed by the sleeve hem above it. Layered, textural mood — fabric and gemstone together." data-search="fi 소매 사이로 팔찌 보이는 컷 close-up from elbow to wrist. she wears a slightly loose sleeve that falls softly around the wrist area, bracelet peeking out from under the fabric edge. bracelet partially framed by the sleeve hem above it. layered, textural mood — fabric and gemstone together." onclick="selectPose(this)" type="button"><span class="pose-code">FI</span><strong>소매 사이로 팔찌 보이는 컷</strong><small>Close-up from elbow to wrist. She wears a slightly loose sleeve that falls softly around the wrist area, bracelet peeking out from under the fabric edge. Bracelet partially framed by the sleeve hem above it. Layered, textural mood — fabric and gemstone together.</small></button><button class="pose-card" data-label="FJ — 손 무릎 옆에 내려놓은 타이트 시티드 컷" data-prompt="Close-up from wrist to knee. She is seated, bracelet hand resting beside her knee on the seat or thigh. Wrist turned naturally so bracelet faces camera. Outfit fabric and leg visible in frame. Bracelet prominent in center. Relaxed seated close-up mood." data-search="fj 손 무릎 옆에 내려놓은 타이트 시티드 컷 close-up from wrist to knee. she is seated, bracelet hand resting beside her knee on the seat or thigh. wrist turned naturally so bracelet faces camera. outfit fabric and leg visible in frame. bracelet prominent in center. relaxed seated close-up mood." onclick="selectPose(this)" type="button"><span class="pose-code">FJ</span><strong>손 무릎 옆에 내려놓은 타이트 시티드 컷</strong><small>Close-up from wrist to knee. She is seated, bracelet hand resting beside her knee on the seat or thigh. Wrist turned naturally so bracelet faces camera. Outfit fabric and leg visible in frame. Bracelet prominent in center. Relaxed seated close-up mood.</small></button><button class="pose-card" data-label="FK — 팔 뻗어 벽 짚는 클로즈업 컷" data-prompt="Close-up from forearm to fingertips. She extends her bracelet arm toward a wall or surface, fingertips lightly touching it. Wrist mid-frame, bracelet sitting naturally. Wall or surface texture visible in background. Bracelet centered in mid-frame. Minimal, graphic mood." data-search="fk 팔 뻗어 벽 짚는 클로즈업 컷 close-up from forearm to fingertips. she extends her bracelet arm toward a wall or surface, fingertips lightly touching it. wrist mid-frame, bracelet sitting naturally. wall or surface texture visible in background. bracelet centered in mid-frame. minimal, graphic mood." onclick="selectPose(this)" type="button"><span class="pose-code">FK</span><strong>팔 뻗어 벽 짚는 클로즈업 컷</strong><small>Close-up from forearm to fingertips. She extends her bracelet arm toward a wall or surface, fingertips lightly touching it. Wrist mid-frame, bracelet sitting naturally. Wall or surface texture visible in background. Bracelet centered in mid-frame. Minimal, graphic mood.</small></button><button class="pose-card" data-label="FL — 팔 들어 햇빛에 비추는 컷" data-prompt="Close-up from forearm to wrist. She raises her bracelet arm slightly toward natural light, wrist angled so light catches the bead surface. Bracelet glowing softly in the light. Blurred bright background suggesting outdoor or window light. Bracelet centered and luminous in frame." data-search="fl 팔 들어 햇빛에 비추는 컷 close-up from forearm to wrist. she raises her bracelet arm slightly toward natural light, wrist angled so light catches the bead surface. bracelet glowing softly in the light. blurred bright background suggesting outdoor or window light. bracelet centered and luminous in frame." onclick="selectPose(this)" type="button"><span class="pose-code">FL</span><strong>팔 들어 햇빛에 비추는 컷</strong><small>Close-up from forearm to wrist. She raises her bracelet arm slightly toward natural light, wrist angled so light catches the bead surface. Bracelet glowing softly in the light. Blurred bright background suggesting outdoor or window light. Bracelet centered and luminous in frame.</small></button><button class="pose-card" data-label="FM — 손가락으로 팔찌 살짝 내려다보는 컷" data-prompt="Close-up from chin to wrist. She glances downward at her bracelet, face partially visible at top of frame, softly out of focus. Bracelet arm raised slightly toward her eyeline. Bracelet sharp and centered in mid-frame. Intimate, self-admiring mood." data-search="fm 손가락으로 팔찌 살짝 내려다보는 컷 close-up from chin to wrist. she glances downward at her bracelet, face partially visible at top of frame, softly out of focus. bracelet arm raised slightly toward her eyeline. bracelet sharp and centered in mid-frame. intimate, self-admiring mood." onclick="selectPose(this)" type="button"><span class="pose-code">FM</span><strong>손가락으로 팔찌 살짝 내려다보는 컷</strong><small>Close-up from chin to wrist. She glances downward at her bracelet, face partially visible at top of frame, softly out of focus. Bracelet arm raised slightly toward her eyeline. Bracelet sharp and centered in mid-frame. Intimate, self-admiring mood.</small></button><button class="pose-card" data-label="FN — 팔 구부려 손목 가슴 앞에 올린 컷" data-prompt="Shot from chest to waist. She bends her bracelet elbow, forearm raised horizontally at chest level in front of her body. Wrist and bracelet centered in frame. Outfit visible above and below, softly blurred. Bracelet prominent at chest height. Clean, direct composition." data-search="fn 팔 구부려 손목 가슴 앞에 올린 컷 shot from chest to waist. she bends her bracelet elbow, forearm raised horizontally at chest level in front of her body. wrist and bracelet centered in frame. outfit visible above and below, softly blurred. bracelet prominent at chest height. clean, direct composition." onclick="selectPose(this)" type="button"><span class="pose-code">FN</span><strong>팔 구부려 손목 가슴 앞에 올린 컷</strong><small>Shot from chest to waist. She bends her bracelet elbow, forearm raised horizontally at chest level in front of her body. Wrist and bracelet centered in frame. Outfit visible above and below, softly blurred. Bracelet prominent at chest height. Clean, direct composition.</small></button><button class="pose-card" data-label="FO — 손 허벅지 바깥에 자연스럽게 얹은 클로즈업 컷" data-prompt="Close-up from wrist to mid-thigh. She is seated, bracelet hand resting loosely on the outside of her thigh. Fingers relaxed, wrist turned naturally so bracelet faces camera. Outfit fabric visible as background. Bracelet centered in upper frame." data-search="fo 손 허벅지 바깥에 자연스럽게 얹은 클로즈업 컷 close-up from wrist to mid-thigh. she is seated, bracelet hand resting loosely on the outside of her thigh. fingers relaxed, wrist turned naturally so bracelet faces camera. outfit fabric visible as background. bracelet centered in upper frame." onclick="selectPose(this)" type="button"><span class="pose-code">FO</span><strong>손 허벅지 바깥에 자연스럽게 얹은 클로즈업 컷</strong><small>Close-up from wrist to mid-thigh. She is seated, bracelet hand resting loosely on the outside of her thigh. Fingers relaxed, wrist turned naturally so bracelet faces camera. Outfit fabric visible as background. Bracelet centered in upper frame.</small></button><button class="pose-card" data-label="FP — 팔목 앞으로 살짝 들어 손 아래로 늘어뜨린 컷" data-prompt="Close-up from elbow to fingertips. She raises her forearm slightly, wrist loose, hand hanging relaxed downward from the wrist. Bracelet sitting at the natural wrist bend, visible from the front. Outfit sleeve softly visible at top. Gravity-relaxed, effortless close-up mood." data-search="fp 팔목 앞으로 살짝 들어 손 아래로 늘어뜨린 컷 close-up from elbow to fingertips. she raises her forearm slightly, wrist loose, hand hanging relaxed downward from the wrist. bracelet sitting at the natural wrist bend, visible from the front. outfit sleeve softly visible at top. gravity-relaxed, effortless close-up mood." onclick="selectPose(this)" type="button"><span class="pose-code">FP</span><strong>팔목 앞으로 살짝 들어 손 아래로 늘어뜨린 컷</strong><small>Close-up from elbow to fingertips. She raises her forearm slightly, wrist loose, hand hanging relaxed downward from the wrist. Bracelet sitting at the natural wrist bend, visible from the front. Outfit sleeve softly visible at top. Gravity-relaxed, effortless close-up mood.</small></button><button class="pose-card" data-label="FQ — 앉아서 한 팔 무릎 위에 쭉 뻗은 클로즈업 컷" data-prompt="Close-up from wrist to knee. She sits with her bracelet arm extended along her thigh, wrist reaching just past the knee. Hand relaxed, fingers loose. Bracelet sitting on wrist in center frame. Denim or fabric of thigh as background texture. Long, linear composition." data-search="fq 앉아서 한 팔 무릎 위에 쭉 뻗은 클로즈업 컷 close-up from wrist to knee. she sits with her bracelet arm extended along her thigh, wrist reaching just past the knee. hand relaxed, fingers loose. bracelet sitting on wrist in center frame. denim or fabric of thigh as background texture. long, linear composition." onclick="selectPose(this)" type="button"><span class="pose-code">FQ</span><strong>앉아서 한 팔 무릎 위에 쭉 뻗은 클로즈업 컷</strong><small>Close-up from wrist to knee. She sits with her bracelet arm extended along her thigh, wrist reaching just past the knee. Hand relaxed, fingers loose. Bracelet sitting on wrist in center frame. Denim or fabric of thigh as background texture. Long, linear composition.</small></button><button class="pose-card" data-label="FR — 팔 뒤로 빼 의자 등받이 짚은 컷" data-prompt="Close-up from elbow to wrist. She reaches her bracelet arm behind her to lightly grip or touch a chair back. Wrist angled from the reaching motion, bracelet visible from a slightly turned angle. Chair edge or fabric softly visible. Dynamic, reaching-back composition." data-search="fr 팔 뒤로 빼 의자 등받이 짚은 컷 close-up from elbow to wrist. she reaches her bracelet arm behind her to lightly grip or touch a chair back. wrist angled from the reaching motion, bracelet visible from a slightly turned angle. chair edge or fabric softly visible. dynamic, reaching-back composition." onclick="selectPose(this)" type="button"><span class="pose-code">FR</span><strong>팔 뒤로 빼 의자 등받이 짚은 컷</strong><small>Close-up from elbow to wrist. She reaches her bracelet arm behind her to lightly grip or touch a chair back. Wrist angled from the reaching motion, bracelet visible from a slightly turned angle. Chair edge or fabric softly visible. Dynamic, reaching-back composition.</small></button><button class="pose-card" data-label="FS — 손 주먹 살짝 쥔 채 내려놓은 컷" data-prompt="Close-up of wrist and hand only. Her hand loosely half-fisted, resting on a surface or her thigh. Bracelet sitting prominently above the curled fingers on the wrist. Surface or outfit fabric as background. Bracelet dominant in frame. Still, composed close-up mood." data-search="fs 손 주먹 살짝 쥔 채 내려놓은 컷 close-up of wrist and hand only. her hand loosely half-fisted, resting on a surface or her thigh. bracelet sitting prominently above the curled fingers on the wrist. surface or outfit fabric as background. bracelet dominant in frame. still, composed close-up mood." onclick="selectPose(this)" type="button"><span class="pose-code">FS</span><strong>손 주먹 살짝 쥔 채 내려놓은 컷</strong><small>Close-up of wrist and hand only. Her hand loosely half-fisted, resting on a surface or her thigh. Bracelet sitting prominently above the curled fingers on the wrist. Surface or outfit fabric as background. Bracelet dominant in frame. Still, composed close-up mood.</small></button><button class="pose-card" data-label="FT — 양 손목 나란히 세로로 늘어뜨린 컷" data-prompt="Shot from chest to waist. Both arms hanging at her sides, captured from the front. Bracelet wrist slightly closer to camera or turned outward. Both wrists visible in lower frame but bracelet wrist clearly dominant. Outfit fills background softly. Symmetrical, editorial composition." data-search="ft 양 손목 나란히 세로로 늘어뜨린 컷 shot from chest to waist. both arms hanging at her sides, captured from the front. bracelet wrist slightly closer to camera or turned outward. both wrists visible in lower frame but bracelet wrist clearly dominant. outfit fills background softly. symmetrical, editorial composition." onclick="selectPose(this)" type="button"><span class="pose-code">FT</span><strong>양 손목 나란히 세로로 늘어뜨린 컷</strong><small>Shot from chest to waist. Both arms hanging at her sides, captured from the front. Bracelet wrist slightly closer to camera or turned outward. Both wrists visible in lower frame but bracelet wrist clearly dominant. Outfit fills background softly. Symmetrical, editorial composition.</small></button><button class="pose-card" data-label="FU — 팔 구부려 손목 옆구리에 얹은 컷" data-prompt="Close-up from waist to wrist. She bends her bracelet elbow, resting her wrist lightly against her side at hip level. Wrist and bracelet face outward toward camera. Outfit fabric at side visible as background. Bracelet centered naturally in frame. Relaxed, side-body mood." data-search="fu 팔 구부려 손목 옆구리에 얹은 컷 close-up from waist to wrist. she bends her bracelet elbow, resting her wrist lightly against her side at hip level. wrist and bracelet face outward toward camera. outfit fabric at side visible as background. bracelet centered naturally in frame. relaxed, side-body mood." onclick="selectPose(this)" type="button"><span class="pose-code">FU</span><strong>팔 구부려 손목 옆구리에 얹은 컷</strong><small>Close-up from waist to wrist. She bends her bracelet elbow, resting her wrist lightly against her side at hip level. Wrist and bracelet face outward toward camera. Outfit fabric at side visible as background. Bracelet centered naturally in frame. Relaxed, side-body mood.</small></button><button class="pose-card" data-label="FV — 손 바지 뒷주머니에 살짝 넣은 컷" data-prompt="Shot from waist to mid-thigh, slight side or back angle. She tucks her bracelet hand into a back pocket, wrist visible above the pocket edge from a side angle. Bracelet sitting at pocket level, angled toward camera. Denim texture in background. Casual, candid street mood." data-search="fv 손 바지 뒷주머니에 살짝 넣은 컷 shot from waist to mid-thigh, slight side or back angle. she tucks her bracelet hand into a back pocket, wrist visible above the pocket edge from a side angle. bracelet sitting at pocket level, angled toward camera. denim texture in background. casual, candid street mood." onclick="selectPose(this)" type="button"><span class="pose-code">FV</span><strong>손 바지 뒷주머니에 살짝 넣은 컷</strong><small>Shot from waist to mid-thigh, slight side or back angle. She tucks her bracelet hand into a back pocket, wrist visible above the pocket edge from a side angle. Bracelet sitting at pocket level, angled toward camera. Denim texture in background. Casual, candid street mood.</small></button><button class="pose-card" data-label="FW — 팔 테이블 아래로 늘어뜨린 컷" data-prompt="Close-up from elbow to fingertips. She sits at a table, bracelet arm hanging off the table edge, forearm and wrist dangling loosely below table level. Bracelet visible at natural wrist position, gravity pulling hand downward. Table edge at top of frame. Relaxed, hanging-loose mood." data-search="fw 팔 테이블 아래로 늘어뜨린 컷 close-up from elbow to fingertips. she sits at a table, bracelet arm hanging off the table edge, forearm and wrist dangling loosely below table level. bracelet visible at natural wrist position, gravity pulling hand downward. table edge at top of frame. relaxed, hanging-loose mood." onclick="selectPose(this)" type="button"><span class="pose-code">FW</span><strong>팔 테이블 아래로 늘어뜨린 컷</strong><small>Close-up from elbow to fingertips. She sits at a table, bracelet arm hanging off the table edge, forearm and wrist dangling loosely below table level. Bracelet visible at natural wrist position, gravity pulling hand downward. Table edge at top of frame. Relaxed, hanging-loose mood.</small></button><button class="pose-card" data-label="FX — 손 살짝 들어 빛 반사 강조 컷" data-prompt="Close-up of wrist only. Bracelet arm raised so natural light hits the bead surfaces directly, creating soft reflection and depth on each gemstone bead. Bracelet fills most of the frame. Background completely blurred. Hero shot of bead texture and light interaction." data-search="fx 손 살짝 들어 빛 반사 강조 컷 close-up of wrist only. bracelet arm raised so natural light hits the bead surfaces directly, creating soft reflection and depth on each gemstone bead. bracelet fills most of the frame. background completely blurred. hero shot of bead texture and light interaction." onclick="selectPose(this)" type="button"><span class="pose-code">FX</span><strong>손 살짝 들어 빛 반사 강조 컷</strong><small>Close-up of wrist only. Bracelet arm raised so natural light hits the bead surfaces directly, creating soft reflection and depth on each gemstone bead. Bracelet fills most of the frame. Background completely blurred. Hero shot of bead texture and light interaction.</small></button><button class="pose-card" data-label="FY — 팔꿈치 굽혀 손목 어깨 높이로 올린 옆면 컷" data-prompt="Shot from chest to waist, from the side. She bends her bracelet elbow up so her wrist is near shoulder height, arm angled outward. Bracelet visible from a fresh high side angle. Outfit visible in background softly blurred. Dynamic, elevated arm composition." data-search="fy 팔꿈치 굽혀 손목 어깨 높이로 올린 옆면 컷 shot from chest to waist, from the side. she bends her bracelet elbow up so her wrist is near shoulder height, arm angled outward. bracelet visible from a fresh high side angle. outfit visible in background softly blurred. dynamic, elevated arm composition." onclick="selectPose(this)" type="button"><span class="pose-code">FY</span><strong>팔꿈치 굽혀 손목 어깨 높이로 올린 옆면 컷</strong><small>Shot from chest to waist, from the side. She bends her bracelet elbow up so her wrist is near shoulder height, arm angled outward. Bracelet visible from a fresh high side angle. Outfit visible in background softly blurred. Dynamic, elevated arm composition.</small></button><button class="pose-card" data-label="FZ — 손 앞으로 자연스럽게 늘어뜨린 걷는 컷" data-prompt="Close-up from wrist to mid-thigh, captured mid-stride. Bracelet arm swinging naturally forward during a step, wrist at hip level. Bracelet visible on the wrist in the forward swing position. Slight motion blur on background suggesting movement. In-motion candid mood." data-search="fz 손 앞으로 자연스럽게 늘어뜨린 걷는 컷 close-up from wrist to mid-thigh, captured mid-stride. bracelet arm swinging naturally forward during a step, wrist at hip level. bracelet visible on the wrist in the forward swing position. slight motion blur on background suggesting movement. in-motion candid mood." onclick="selectPose(this)" type="button"><span class="pose-code">FZ</span><strong>손 앞으로 자연스럽게 늘어뜨린 걷는 컷</strong><small>Close-up from wrist to mid-thigh, captured mid-stride. Bracelet arm swinging naturally forward during a step, wrist at hip level. Bracelet visible on the wrist in the forward swing position. Slight motion blur on background suggesting movement. In-motion candid mood.</small></button><button class="pose-card" data-label="GA — 손목 안쪽 살짝 보이는 컷" data-prompt="Close-up of wrist from a slightly below angle. Camera looks slightly upward at the underside of the wrist, bracelet visible wrapping around from below. Inner wrist skin visible alongside the bracelet. Intimate, unusual angle showing the bracelet from underneath. Soft outfit background." data-search="ga 손목 안쪽 살짝 보이는 컷 close-up of wrist from a slightly below angle. camera looks slightly upward at the underside of the wrist, bracelet visible wrapping around from below. inner wrist skin visible alongside the bracelet. intimate, unusual angle showing the bracelet from underneath. soft outfit background." onclick="selectPose(this)" type="button"><span class="pose-code">GA</span><strong>손목 안쪽 살짝 보이는 컷</strong><small>Close-up of wrist from a slightly below angle. Camera looks slightly upward at the underside of the wrist, bracelet visible wrapping around from below. Inner wrist skin visible alongside the bracelet. Intimate, unusual angle showing the bracelet from underneath. Soft outfit background.</small></button><button class="pose-card" data-label="GB — 팔 교차해 반대 팔뚝 위에 얹은 컷" data-prompt="Close-up from chest to waist. Both arms loosely crossed at chest level, bracelet arm resting on top. Wrist facing outward toward camera, bracelet sitting prominently in center of frame. Non-bracelet arm visible below as supporting layer. Cozy, layered composition." data-search="gb 팔 교차해 반대 팔뚝 위에 얹은 컷 close-up from chest to waist. both arms loosely crossed at chest level, bracelet arm resting on top. wrist facing outward toward camera, bracelet sitting prominently in center of frame. non-bracelet arm visible below as supporting layer. cozy, layered composition." onclick="selectPose(this)" type="button"><span class="pose-code">GB</span><strong>팔 교차해 반대 팔뚝 위에 얹은 컷</strong><small>Close-up from chest to waist. Both arms loosely crossed at chest level, bracelet arm resting on top. Wrist facing outward toward camera, bracelet sitting prominently in center of frame. Non-bracelet arm visible below as supporting layer. Cozy, layered composition.</small></button><button class="pose-card" data-label="GC — 손 벽에 대고 기댄 사이드 컷" data-prompt="Close-up from elbow to wrist. She leans against a wall, bracelet arm pressed lightly against the wall surface from the side. Wrist visible from a side angle, bracelet wrapping around the wrist edge. Wall texture in background. Bracelet visible in profile view along the wrist." data-search="gc 손 벽에 대고 기댄 사이드 컷 close-up from elbow to wrist. she leans against a wall, bracelet arm pressed lightly against the wall surface from the side. wrist visible from a side angle, bracelet wrapping around the wrist edge. wall texture in background. bracelet visible in profile view along the wrist." onclick="selectPose(this)" type="button"><span class="pose-code">GC</span><strong>손 벽에 대고 기댄 사이드 컷</strong><small>Close-up from elbow to wrist. She leans against a wall, bracelet arm pressed lightly against the wall surface from the side. Wrist visible from a side angle, bracelet wrapping around the wrist edge. Wall texture in background. Bracelet visible in profile view along the wrist.</small></button><button class="pose-card" data-label="GD — 앉아서 팔 무릎 사이로 내린 컷" data-prompt="Shot from waist down. She sits leaning slightly forward, both forearms resting on thighs, bracelet arm between her knees angling downward. Wrist visible in center-lower frame, bracelet draping naturally. Outfit and thigh fabric as background. Candid, forward-leaning seated mood." data-search="gd 앉아서 팔 무릎 사이로 내린 컷 shot from waist down. she sits leaning slightly forward, both forearms resting on thighs, bracelet arm between her knees angling downward. wrist visible in center-lower frame, bracelet draping naturally. outfit and thigh fabric as background. candid, forward-leaning seated mood." onclick="selectPose(this)" type="button"><span class="pose-code">GD</span><strong>앉아서 팔 무릎 사이로 내린 컷</strong><small>Shot from waist down. She sits leaning slightly forward, both forearms resting on thighs, bracelet arm between her knees angling downward. Wrist visible in center-lower frame, bracelet draping naturally. Outfit and thigh fabric as background. Candid, forward-leaning seated mood.</small></button><button class="pose-card" data-label="GE — 손 살짝 올려 옷깃 잡는 컷" data-prompt="Close-up from chest to waist. She brings her bracelet hand up to lightly hold or touch her collar or shirt lapel. Wrist at chest level, bracelet sitting visibly on the wrist in center frame. Outfit fabric fills the background completely. Bracelet prominent at chest height. Styled, tactile mood." data-search="ge 손 살짝 올려 옷깃 잡는 컷 close-up from chest to waist. she brings her bracelet hand up to lightly hold or touch her collar or shirt lapel. wrist at chest level, bracelet sitting visibly on the wrist in center frame. outfit fabric fills the background completely. bracelet prominent at chest height. styled, tactile mood." onclick="selectPose(this)" type="button"><span class="pose-code">GE</span><strong>손 살짝 올려 옷깃 잡는 컷</strong><small>Close-up from chest to waist. She brings her bracelet hand up to lightly hold or touch her collar or shirt lapel. Wrist at chest level, bracelet sitting visibly on the wrist in center frame. Outfit fabric fills the background completely. Bracelet prominent at chest height. Styled, tactile mood.</small></button><button class="pose-card" data-label="GF — 손가락 펼쳐 무릎 위에 올린 클로즈업 컷" data-prompt="Close-up from wrist to knee. She rests her bracelet hand flat on her knee, fingers spread naturally. Bracelet sitting on wrist above the spread hand. Knee and outfit fabric as background. Bracelet centered in upper portion of frame. Clean, graphic hand composition." data-search="gf 손가락 펼쳐 무릎 위에 올린 클로즈업 컷 close-up from wrist to knee. she rests her bracelet hand flat on her knee, fingers spread naturally. bracelet sitting on wrist above the spread hand. knee and outfit fabric as background. bracelet centered in upper portion of frame. clean, graphic hand composition." onclick="selectPose(this)" type="button"><span class="pose-code">GF</span><strong>손가락 펼쳐 무릎 위에 올린 클로즈업 컷</strong><small>Close-up from wrist to knee. She rests her bracelet hand flat on her knee, fingers spread naturally. Bracelet sitting on wrist above the spread hand. Knee and outfit fabric as background. Bracelet centered in upper portion of frame. Clean, graphic hand composition.</small></button><button class="pose-card" data-label="GG — 팔 뒤로 살짝 젖혀 손목 드러나는 컷" data-prompt="Shot from chest to hip, slight front angle. She lets her bracelet arm drift casually behind her hip, wrist bent slightly outward. Bracelet catches the light from this angled position, visible in lower-side frame. Outfit silhouette in foreground. Candid, off-guard mood." data-search="gg 팔 뒤로 살짝 젖혀 손목 드러나는 컷 shot from chest to hip, slight front angle. she lets her bracelet arm drift casually behind her hip, wrist bent slightly outward. bracelet catches the light from this angled position, visible in lower-side frame. outfit silhouette in foreground. candid, off-guard mood." onclick="selectPose(this)" type="button"><span class="pose-code">GG</span><strong>팔 뒤로 살짝 젖혀 손목 드러나는 컷</strong><small>Shot from chest to hip, slight front angle. She lets her bracelet arm drift casually behind her hip, wrist bent slightly outward. Bracelet catches the light from this angled position, visible in lower-side frame. Outfit silhouette in foreground. Candid, off-guard mood.</small></button><button class="pose-card" data-label="GH — 손 살짝 들어 귀걸이 만지는 컷" data-prompt="Close-up from chest up. She raises her bracelet hand toward her ear, lightly touching an earring. Wrist at face level, bracelet sitting prominently mid-frame. Face softly visible and out of focus above. Bracelet is the sharpest element in frame. Feminine, candid portrait mood." data-search="gh 손 살짝 들어 귀걸이 만지는 컷 close-up from chest up. she raises her bracelet hand toward her ear, lightly touching an earring. wrist at face level, bracelet sitting prominently mid-frame. face softly visible and out of focus above. bracelet is the sharpest element in frame. feminine, candid portrait mood." onclick="selectPose(this)" type="button"><span class="pose-code">GH</span><strong>손 살짝 들어 귀걸이 만지는 컷</strong><small>Close-up from chest up. She raises her bracelet hand toward her ear, lightly touching an earring. Wrist at face level, bracelet sitting prominently mid-frame. Face softly visible and out of focus above. Bracelet is the sharpest element in frame. Feminine, candid portrait mood.</small></button><button class="pose-card" data-label="GI — 팔 앞으로 내밀어 소매 끝 정돈하는 컷" data-prompt="Close-up from elbow to wrist. She uses her non-bracelet hand to lightly adjust or smooth the sleeve of her bracelet arm, revealing and framing the bracelet in the process. Bracelet centered in frame as sleeve pulls back slightly. Natural, authentic styling gesture." data-search="gi 팔 앞으로 내밀어 소매 끝 정돈하는 컷 close-up from elbow to wrist. she uses her non-bracelet hand to lightly adjust or smooth the sleeve of her bracelet arm, revealing and framing the bracelet in the process. bracelet centered in frame as sleeve pulls back slightly. natural, authentic styling gesture." onclick="selectPose(this)" type="button"><span class="pose-code">GI</span><strong>팔 앞으로 내밀어 소매 끝 정돈하는 컷</strong><small>Close-up from elbow to wrist. She uses her non-bracelet hand to lightly adjust or smooth the sleeve of her bracelet arm, revealing and framing the bracelet in the process. Bracelet centered in frame as sleeve pulls back slightly. Natural, authentic styling gesture.</small></button><button class="pose-card" data-label="GJ — 손 무릎 모서리에 걸친 클로즈업 컷" data-prompt="Close-up from wrist to knee. She is seated, bracelet hand draped over the edge of her knee, wrist hanging off the side. Bracelet visible from above-front angle on the wrist edge. Knee and outfit fabric visible below. Bracelet prominent in upper-center frame. Relaxed, draping composition." data-search="gj 손 무릎 모서리에 걸친 클로즈업 컷 close-up from wrist to knee. she is seated, bracelet hand draped over the edge of her knee, wrist hanging off the side. bracelet visible from above-front angle on the wrist edge. knee and outfit fabric visible below. bracelet prominent in upper-center frame. relaxed, draping composition." onclick="selectPose(this)" type="button"><span class="pose-code">GJ</span><strong>손 무릎 모서리에 걸친 클로즈업 컷</strong><small>Close-up from wrist to knee. She is seated, bracelet hand draped over the edge of her knee, wrist hanging off the side. Bracelet visible from above-front angle on the wrist edge. Knee and outfit fabric visible below. Bracelet prominent in upper-center frame. Relaxed, draping composition.</small></button></div>
-<div class="selected-pose" id="selectedPose">아직 선택된 포즈가 없습니다.</div>
-</article>
-<article class="card" id="builder">
-<div class="step-badge">착용컷 STEP 3</div>
-<h3>최종 프롬프트 조합기</h3><div class="jump-actions"><a href="#finalPrompt">생성된 최종 프롬프트로 이동</a></div>
-<p>Claude 출력 결과를 붙여넣고 포즈를 선택하면 최종 착용컷 프롬프트가 자동으로 만들어집니다.</p>
-<div class="tip"><b>자동 조합 순서</b><br>팔찌 기본 규칙 + Claude 원석 설명 + 선택한 포즈 + 추가 수정사항</div>
-<div class="pendant-mode" style="margin-top:14px">
-<b style="display:block;margin-bottom:8px">펜던트 생성 방식 선택</b>
-<div class="mode-row" style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-<button class="mode-choice active" id="modePendant" onclick="setPendantMode('pendant')" type="button"><b>펜던트 포함</b><small>공식 DELIXIR 로고 각인 태그까지 생성</small></button>
-<button class="mode-choice" id="modePlain" onclick="setPendantMode('plain')" type="button"><b>펜던트 없이</b><small>원석 비즈 팔찌만 생성</small></button>
-</div>
-<p style="font-size:12px;color:#64748b;line-height:1.6;margin:8px 0 0">펜던트가 계속 틀어지거나 누락되면 먼저 ‘펜던트 없이’로 안정적인 착용컷을 만든 뒤 별도 합성에 사용하세요.</p>
-</div>
-<div class="field" style="margin-top:14px">
-<label for="extra">추가 수정사항 · 선택</label>
-<textarea id="extra" placeholder="예: 손목 위주 클로즈업, 원석 크기 5% 작게 등"></textarea>
-</div>
-<div class="actions">
-<button class="primary-btn" onclick="buildPrompt()" type="button">최종 프롬프트 생성</button>
-<button class="secondary-btn" onclick="resetBuilder()" type="button">입력 초기화</button>
-</div>
-<div class="prompt-wrap">
-<textarea class="prompt tall prompt-focus" id="finalPrompt" placeholder="위의 '최종 프롬프트 생성' 버튼을 누르면 여기에 완성본이 나옵니다."></textarea>
-<button class="copy-btn" data-copy-final="true" type="button">📋 최종본 복사</button>
-</div><div class="jump-actions"><a class="alt" href="#builder">↑ 단계 안내로 돌아가기</a></div>
-</article>
-</section>
-</main>
-<div class="toast" id="toast">복사되었습니다.</div>
-<div class="image-modal" id="imageModal" onclick="closeZoom(event)">
-<button onclick="closeZoom(event)" type="button">×</button>
-<img alt="확대 이미지" id="modalImg">
-</div>
-<script>
 let selectedPosePrompt = "";
 let selectedPoseLabel = "";
-let pendantMode = "pendant";
 
-
-function setPendantMode(mode) {
-  pendantMode=mode;
-  const a=document.getElementById('modePendant');
-  const b=document.getElementById('modePlain');
-  if(a) a.classList.toggle('active',mode==='pendant');
-  if(b) b.classList.toggle('active',mode==='plain');
-  showToast(mode==='pendant'?'펜던트 포함 버전으로 설정했습니다.':'펜던트 없는 버전으로 설정했습니다.');
+function selectPose(card){
+  document.querySelectorAll(".pose-card").forEach(el=>el.classList.remove("selected"));
+  card.classList.add("selected");
+  selectedPosePrompt = card.dataset.prompt || "";
+  selectedPoseLabel = card.dataset.label || "";
+  document.getElementById("selectedPoseText").innerHTML =
+    "<b>선택 포즈:</b> " + selectedPoseLabel;
 }
 
-function randomPose() {
-  const cards=[...document.querySelectorAll('.pose-card')].filter(x=>x.style.display!=='none');
-  if(!cards.length){showToast('검색 결과에 포즈가 없습니다.');return;}
-  const card=cards[Math.floor(Math.random()*cards.length)];
-  selectPose(card);
-  card.scrollIntoView({behavior:'smooth',block:'center'});
-}
-
-function makeNoPendantA(a) {
-  let out=a;
-  out=out.replace('No rings on any fingers. No necklace. No other jewelry except the bracelet AND its attached pendant tag charm on her wrist.','No rings on any fingers. No necklace. No watch. No other jewelry except the gemstone bead bracelet on her wrist.');
-  out=out.replace(/PENDANT ATTACHMENT — DO NOT MODIFY:[\s\S]*?(?=PENDANT — MUST BE CLEARLY VISIBLE AND SHARP, NOT OPTIONAL:)/,'');
-  out=out.replace(/PENDANT — MUST BE CLEARLY VISIBLE AND SHARP, NOT OPTIONAL:[\s\S]*?(?=NON-NEGOTIABLE ACROSS ALL SHOT DISTANCES:)/,'');
-  out=out.replace(/NON-NEGOTIABLE ACROSS ALL SHOT DISTANCES:[\s\S]*$/,'');
-  out=out.replace(/- Beads strung with zero gap[^\n]*/,'- Beads strung with zero gap, every full-size gemstone bead touching the next continuously around the entire wrist.');
-  out=out.replace(/- The pendant tag and its jump ring[^\n]*/,'');
-  return out.trim()+`
-
-NO PENDANT VERSION — ABSOLUTE REQUIREMENT:
-- Generate the gemstone bead bracelet only.
-- No pendant, no tag, no charm, no jump ring, no metal connector, no spacer, no logo, no engraving, and no hanging object anywhere.
-- Do not leave a gap or altered bead where a pendant would normally attach.
-- The entire circumference must consist only of identical full-size gemstone beads touching with zero spacing.`;
-}
-
-function showToast(msg) {
-  const t=document.getElementById('toast');
-  t.textContent=msg; t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),2390);
-}
-
-async function copyText(text, button) {
-  let success = false;
-
-  const ta = document.createElement('textarea');
-  ta.value = text;
-  ta.style.position = 'fixed';
-  ta.style.top = '0';
-  ta.style.left = '0';
-  ta.style.width = '1px';
-  ta.style.height = '1px';
-  ta.style.opacity = '0';
-  ta.style.pointerEvents = 'none';
-  ta.style.fontSize = '16px';
-  document.body.appendChild(ta);
-
-  try {
-    ta.focus({ preventScroll: true });
-    ta.select();
-    ta.setSelectionRange(0, ta.value.length);
-    success = document.execCommand('copy');
-  } catch (e) {
-    success = false;
-  }
-
-  if (!success && navigator.clipboard && window.isSecureContext) {
-    try {
-      await navigator.clipboard.writeText(text);
-      success = true;
-    } catch (e) {
-      success = false;
-    }
-  }
-
-  ta.remove();
-
-  if (success) {
-    if (button) {
-      const original = button.innerHTML;
-      button.innerHTML = '복사 완료 ✔';
-      button.classList.add('copied');
-      setTimeout(() => {
-        button.innerHTML = original;
-        button.classList.remove('copied');
-      }, 1800);
-    }
-    showToast('클립보드에 복사되었습니다.');
-    return;
-  }
-
-  const fallback = document.createElement('div');
-  fallback.className = 'copy-fallback';
-
-  const box = document.createElement('div');
-  box.className = 'copy-fallback-box';
-
-  const head = document.createElement('div');
-  head.className = 'copy-fallback-head';
-  head.innerHTML = '<b>자동 복사가 막혔습니다</b>';
-
-  const close = document.createElement('button');
-  close.type = 'button';
-  close.textContent = '×';
-  close.onclick = () => fallback.remove();
-  head.appendChild(close);
-
-  const guide = document.createElement('p');
-  guide.textContent = '아래 텍스트를 길게 눌러 전체 선택 후 복사하세요.';
-
-  const fallbackTextarea = document.createElement('textarea');
-  fallbackTextarea.readOnly = true;
-  fallbackTextarea.value = text;
-
-  box.appendChild(head);
-  box.appendChild(guide);
-  box.appendChild(fallbackTextarea);
-  fallback.appendChild(box);
-  document.body.appendChild(fallback);
-
-  setTimeout(() => {
-    fallbackTextarea.focus();
-    fallbackTextarea.select();
-    fallbackTextarea.setSelectionRange(0, fallbackTextarea.value.length);
-  }, 50);
-}
-
-function copyBox(id,button,type) {
-  copyText(document.getElementById(id).value,button);
-  if(type==='analysis') markDone(1);
-}
-
-function markDone(n) {
-  const el=document.getElementById('check'+n);
-  if(!el) return;
-  el.classList.add('done');
-  el.querySelector('i').textContent='✓';
-}
-
-function syncProgress() {
-  if(document.getElementById('gemResult').value.trim()) markDone(1);
-}
-
-function filterPoses() {
-  const q=document.getElementById('poseSearch').value.toLowerCase().trim();
-  document.querySelectorAll('.pose-card').forEach(card=>{
-    card.style.display=card.dataset.search.includes(q)?'block':'none';
+function filterPoses(){
+  const keyword = document.getElementById("poseSearch").value.trim().toLowerCase();
+  document.querySelectorAll(".pose-card").forEach(card=>{
+    const haystack = ((card.dataset.search || "") + " " + (card.dataset.label || "")).toLowerCase();
+    card.style.display = haystack.includes(keyword) ? "" : "none";
   });
 }
 
-function clearPoseSearch() {
-  document.getElementById('poseSearch').value='';
+function clearPoseSearch(){
+  document.getElementById("poseSearch").value = "";
   filterPoses();
 }
 
-function selectPose(el) {
-  document.querySelectorAll('.pose-card').forEach(x=>x.classList.remove('selected'));
-  el.classList.add('selected');
-  selectedPosePrompt=el.dataset.prompt;
-  selectedPoseLabel=el.dataset.label;
-  document.getElementById('selectedPose').innerHTML='<b>선택 완료:</b> '+selectedPoseLabel+'<br><span style="font-size:12px">'+selectedPosePrompt+'</span>';
-  markDone(2);
-  showToast(selectedPoseLabel+' 포즈를 선택했습니다.');
+function randomPose(){
+  const visible = [...document.querySelectorAll(".pose-card")].filter(card=>card.style.display !== "none");
+  if(!visible.length) return;
+  selectPose(visible[Math.floor(Math.random()*visible.length)]);
+  visible.find(card=>card.classList.contains("selected"))?.scrollIntoView({behavior:"smooth",block:"nearest"});
 }
 
-
-
-function buildPrompt() {
-  const gem=document.getElementById('gemResult').value.trim();
-  const extra=document.getElementById('extra').value.trim();
-  if(!gem) { showToast('STEP 1의 B 입력칸에 Claude가 출력한 원석 분석 결과를 붙여넣으세요.'); document.getElementById('gemResult').focus(); return; }
-  if(!selectedPosePrompt) { showToast('먼저 포즈를 하나 선택하세요.'); document.getElementById('pose').scrollIntoView(); return; }
-  let a=document.getElementById('promptA').value.trim();
-  if(pendantMode==='plain') a=makeNoPendantA(a);
-  const result=[a, gem, selectedPosePrompt, extra].filter(Boolean).join('\n\n');
-  document.getElementById('finalPrompt').value=result;
-  markDone(3);
-  showToast('최종 프롬프트가 생성되었습니다.');
-}
-
-function copyFinal(button) {
-  const val=document.getElementById('finalPrompt').value.trim();
-  if(!val) { showToast('먼저 최종 프롬프트를 생성하세요.'); return; }
-  copyText(val,button); markDone(3);
-}
-
-function resetBuilder() {
-  document.getElementById('gemResult').value='';
-  document.getElementById('extra').value='';
-  document.getElementById('finalPrompt').value='';
-  selectedPosePrompt=''; selectedPoseLabel='';
-  setPendantMode('pendant');
-  document.querySelectorAll('.pose-card').forEach(x=>x.classList.remove('selected'));
-  document.getElementById('selectedPose').textContent='아직 선택된 포즈가 없습니다.';
-  [1,2,3].forEach(n=>{const e=document.getElementById('check'+n);e.classList.remove('done');e.querySelector('i').textContent='○';});
-  showToast('입력 내용을 초기화했습니다.');
-}
-
-function zoom(img) {
-  document.getElementById('modalImg').src=img.src;
-  document.getElementById('imageModal').classList.add('show');
-}
-function closeZoom(e) {
-  if(e) e.stopPropagation();
-  document.getElementById('imageModal').classList.remove('show');
-}
-
-
-function handleCopyButton(button) {
-  if (button.dataset.copyFinal === 'true') {
-    copyFinal(button);
+function buildFinalPrompt(){
+  if(!selectedPosePrompt){
+    alert("먼저 포즈를 선택하세요.");
+    document.getElementById("pose").scrollIntoView({behavior:"smooth"});
     return;
   }
-  const target = button.dataset.copyTarget;
-  if (target) {
-    copyBox(target, button, button.dataset.copyType || undefined);
+
+  const extra = document.getElementById("extraInstruction").value.trim();
+  const base = prompts.wearing;
+
+  let finalText = base +
+    "\n\nSELECTED POSE — FOLLOW EXACTLY:\n" +
+    selectedPosePrompt +
+    "\n\nPOSE VISIBILITY REQUIREMENTS:\n" +
+    "- The bracelet must remain the primary visual focus.\n" +
+    "- The complete bracelet must be visible and unobstructed.\n" +
+    "- Do not cover the bracelet with clothing, fingers, hair, or props.\n" +
+    "- Preserve the exact bead sequence, bead count, bead size, silver accent positions, and gemstone material from the bracelet reference.\n" +
+    "- Keep all beads touching with zero spacing.\n" +
+    "- Natural wrist anatomy and realistic hand proportions.\n" +
+    "- No watch, rings, necklace, earrings, or additional bracelets.";
+
+  if(extra){
+    finalText += "\n\nADDITIONAL USER REQUEST:\n" + extra;
   }
+
+  document.getElementById("finalPrompt").value = finalText;
+  showToastMessage("최종 프롬프트가 조합되었습니다.");
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('[data-copy-target],[data-copy-final]').forEach(button => {
-    let touchHandled = false;
+async function copyFinalPrompt(){
+  const output = document.getElementById("finalPrompt");
+  if(!output.value.trim()){
+    buildFinalPrompt();
+    if(!output.value.trim()) return;
+  }
+  try{
+    await navigator.clipboard.writeText(output.value);
+  }catch(e){
+    output.focus();
+    output.select();
+    document.execCommand("copy");
+  }
+  showToastMessage("최종 프롬프트 복사 완료");
+}
 
-    button.addEventListener('touchend', event => {
-      event.preventDefault();
-      event.stopPropagation();
-      touchHandled = true;
-      handleCopyButton(button);
-      setTimeout(() => { touchHandled = false; }, 500);
-    }, { passive: false });
+function resetBuilder(){
+  selectedPosePrompt = "";
+  selectedPoseLabel = "";
+  document.querySelectorAll(".pose-card").forEach(el=>el.classList.remove("selected"));
+  document.getElementById("selectedPoseText").textContent = "선택된 포즈가 없습니다.";
+  document.getElementById("extraInstruction").value = "";
+  document.getElementById("finalPrompt").value = "";
+}
 
-    button.addEventListener('click', event => {
-      event.preventDefault();
-      event.stopPropagation();
-      if (!touchHandled) handleCopyButton(button);
-    });
-  });
-});
+function showToastMessage(message){
+  const toast=document.getElementById("toast");
+  toast.textContent=message;
+  toast.classList.add("show");
+  clearTimeout(window.toastTimer);
+  window.toastTimer=setTimeout(()=>{
+    toast.classList.remove("show");
+    toast.textContent="복사 완료";
+  },1600);
+}
 
-const navLinks=[...document.querySelectorAll('nav a')];
-const sections=[...document.querySelectorAll('.section, article[id]')];
-window.addEventListener('scroll',()=>{
-  let current='';
-  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-139) current=s.id;});
-  navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current));
-});
 </script>
 
 
