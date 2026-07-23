@@ -320,7 +320,7 @@ Create a clean e-commerce product image on a pure white #FFFFFF background.</div
   <section class="section" id="detail">
     <div class="section-head">
       <span class="section-number">2</span><h2>디테일컷</h2>
-      <p class="lead">팔찌 전체가 아니라 하단 앞쪽 곡선만 대각선으로 잘라 보여주는 디테일 이미지입니다.</p>
+      <p class="lead">정방형 화면 중앙의 원형 실버 비드를 기준으로 좌우가 대각선 대칭이 되도록 만든 디테일 이미지입니다.</p>
     </div>
     <div class="card-grid">
       <article class="card">
@@ -328,71 +328,81 @@ Create a clean e-commerce product image on a pure white #FFFFFF background.</div
           <div class="icon">🔍</div>
           <div>
             <h3>디테일컷 프롬프트</h3>
-            <p>전체 원형 구도를 버리고 하단 곡선만 비대칭 대각선 크롭으로 생성합니다.</p>
+            <p>1:1 정방형, 중앙 원형 실버 비드 고정, 좌우 V자 대각선 대칭 구도로 생성합니다.</p>
           </div>
         </div>
         <div class="card-actions">
           <button class="copy-btn" onclick="copyPrompt('detail',this)">프롬프트 복사</button>
           <button class="view-btn" onclick="togglePrompt('detail-panel',this)">보기</button>
         </div>
-        <div class="prompt-panel" id="detail-panel">Create a high-resolution close-up detail crop of the bracelet from Reference image 1.
+        <div class="prompt-panel" id="detail-panel">Create a high-resolution square close-up detail image of the bracelet from Reference image 1.
 
 Reference image 1 is the MASTER bracelet.
 Reference image 2 defines only the gemstone material.
 
-IMPORTANT: Reference image 1 may show the entire bracelet.
-Do NOT preserve the full-bracelet framing.
+OUTPUT FORMAT — ABSOLUTE REQUIREMENT
 
-Create a NEW detail crop using the exact composition described below.
+- The final image must be a perfect square.
+- Use a strict 1:1 aspect ratio.
+- Do not create a portrait image.
+- Do not create a landscape image.
+- Do not extend the canvas vertically or horizontally.
 
-TARGET DETAIL COMPOSITION — ABSOLUTE REQUIREMENT
+TARGET COMPOSITION — ABSOLUTE REQUIREMENT
 
-Show only the lower front section of the bracelet.
+Create a new close-up crop showing only the lower front arc of the bracelet.
+
+The large round fluted silver bead must be the visual anchor and exact center of the composition.
+
+Place the center round silver bead at the geometric center of the square canvas.
+
+The bracelet must extend diagonally upward-left and upward-right from the center silver bead.
+
+The left and right bracelet arcs must form a balanced diagonal V-shaped composition.
+
+The composition must be diagonally symmetrical around the center round silver bead.
+
+Use the center silver bead as the symmetry axis:
+- matching gemstone bead count on the left and right
+- matching visible arc length on the left and right
+- matching diagonal angle on the left and right
+- matching spacing and curvature on the left and right
+- matching crop distance from the center on both sides
+
+The two olive-shaped silver beads must appear symmetrically on the left and right sides at matching distances from the center silver bead.
 
 The bracelet must enter from the upper-left edge,
-curve diagonally downward through the left side,
-continue across the lower-middle area,
-and exit toward the lower-right edge.
+descend diagonally toward the center silver bead,
+then rise diagonally toward the upper-right edge.
 
-Use an oblique three-quarter top view,
-not a straight-on frontal view,
-not a centered symmetrical macro view,
-and not a full circular bracelet view.
+The overall shape must resemble a shallow symmetrical V or open chevron.
 
-The composition must resemble a cropped lower arc:
-- only part of the bracelet is visible
-- the upper and rear half of the bracelet is outside the frame
-- the bracelet is intentionally off-center
-- large clean white negative space remains in the upper-right area
-- the lower arc runs diagonally through the frame
-- the center silver bead sits slightly right of center or near the lower-right quadrant
-- one olive-shaped silver bead is visible toward the upper-left side
-- the opposite olive-shaped silver bead may appear near the right edge depending on the crop
+Keep the bracelet intentionally cropped:
+- only the lower front section is visible
+- the upper rear half of the bracelet remains outside the frame
+- both outer bracelet ends continue beyond the upper-left and upper-right edges
 - do not show the complete bracelet circle
-- do not center all three silver beads in a symmetrical horizontal row
+- do not show a full oval bracelet
+- do not place the bracelet as a horizontal straight row
 
-CAMERA AND CROP
+CAMERA AND VIEW
 
-Use a close crop comparable to a product-detail reference photo.
+Use an oblique three-quarter top view.
 
-Crop through the bracelet strand so some gemstone beads continue beyond the image boundaries.
+Do not use a straight overhead full-bracelet view.
+
+Do not use a front-facing horizontal macro view.
+
+Do not create a centered circular product packshot.
 
 Maintain:
-- natural diagonal bracelet flow
-- shallow three-quarter perspective
-- realistic depth
-- off-center asymmetric framing
-- generous white negative space
-- approximately 8 to 14 visible gemstone beads, depending on the crop
-- the visible silver accent bead sequence from Reference image 1
-
-Do NOT create:
-- a complete overhead bracelet
-- a full circular or oval bracelet
-- a centered catalog packshot
-- a perfectly symmetrical front-facing close-up
-- a composition where all three silver beads are aligned across the center
-- excessive zoom that shows only three to five beads
+- square 1:1 framing
+- center round silver bead exactly centered
+- equal diagonal rise on both sides
+- equal visible bracelet length on both sides
+- large clean white negative space in the upper-middle area
+- partial bracelet only
+- approximately 10 to 16 visible gemstone beads in total, balanced left and right
 
 BRACELET GEOMETRY — LOCKED
 
@@ -448,12 +458,18 @@ Focus on:
 
 FINAL COMPOSITION CHECK
 
-The result must be a cropped diagonal detail view of only the lower front arc of the bracelet.
+Before output, verify all of the following:
+- the canvas is perfectly square
+- the center round silver bead is exactly at the center of the image
+- the left and right arcs rise diagonally at matching angles
+- the olive-shaped silver beads are placed symmetrically
+- the visible bead count is balanced left and right
+- the full bracelet is not visible
+- the result is not portrait
+- the result is not landscape
+- the result is not a full circular bracelet
 
-If the complete bracelet is visible,
-if the image becomes a full overhead circle,
-or if the silver beads are centered symmetrically,
-reject the result and recreate the detail crop.</div>
+If any of these conditions fail, reject the result and recreate the composition.</div>
       </article>
     </div>
   </section>
@@ -672,64 +688,74 @@ All beads must remain tightly connected with zero spacing.
 
 Create a clean e-commerce product image on a pure white #FFFFFF background.`,
 
-detail:`Create a high-resolution close-up detail crop of the bracelet from Reference image 1.
+detail:`Create a high-resolution square close-up detail image of the bracelet from Reference image 1.
 
 Reference image 1 is the MASTER bracelet.
 Reference image 2 defines only the gemstone material.
 
-IMPORTANT: Reference image 1 may show the entire bracelet.
-Do NOT preserve the full-bracelet framing.
+OUTPUT FORMAT — ABSOLUTE REQUIREMENT
 
-Create a NEW detail crop using the exact composition described below.
+- The final image must be a perfect square.
+- Use a strict 1:1 aspect ratio.
+- Do not create a portrait image.
+- Do not create a landscape image.
+- Do not extend the canvas vertically or horizontally.
 
-TARGET DETAIL COMPOSITION — ABSOLUTE REQUIREMENT
+TARGET COMPOSITION — ABSOLUTE REQUIREMENT
 
-Show only the lower front section of the bracelet.
+Create a new close-up crop showing only the lower front arc of the bracelet.
+
+The large round fluted silver bead must be the visual anchor and exact center of the composition.
+
+Place the center round silver bead at the geometric center of the square canvas.
+
+The bracelet must extend diagonally upward-left and upward-right from the center silver bead.
+
+The left and right bracelet arcs must form a balanced diagonal V-shaped composition.
+
+The composition must be diagonally symmetrical around the center round silver bead.
+
+Use the center silver bead as the symmetry axis:
+- matching gemstone bead count on the left and right
+- matching visible arc length on the left and right
+- matching diagonal angle on the left and right
+- matching spacing and curvature on the left and right
+- matching crop distance from the center on both sides
+
+The two olive-shaped silver beads must appear symmetrically on the left and right sides at matching distances from the center silver bead.
 
 The bracelet must enter from the upper-left edge,
-curve diagonally downward through the left side,
-continue across the lower-middle area,
-and exit toward the lower-right edge.
+descend diagonally toward the center silver bead,
+then rise diagonally toward the upper-right edge.
 
-Use an oblique three-quarter top view,
-not a straight-on frontal view,
-not a centered symmetrical macro view,
-and not a full circular bracelet view.
+The overall shape must resemble a shallow symmetrical V or open chevron.
 
-The composition must resemble a cropped lower arc:
-- only part of the bracelet is visible
-- the upper and rear half of the bracelet is outside the frame
-- the bracelet is intentionally off-center
-- large clean white negative space remains in the upper-right area
-- the lower arc runs diagonally through the frame
-- the center silver bead sits slightly right of center or near the lower-right quadrant
-- one olive-shaped silver bead is visible toward the upper-left side
-- the opposite olive-shaped silver bead may appear near the right edge depending on the crop
+Keep the bracelet intentionally cropped:
+- only the lower front section is visible
+- the upper rear half of the bracelet remains outside the frame
+- both outer bracelet ends continue beyond the upper-left and upper-right edges
 - do not show the complete bracelet circle
-- do not center all three silver beads in a symmetrical horizontal row
+- do not show a full oval bracelet
+- do not place the bracelet as a horizontal straight row
 
-CAMERA AND CROP
+CAMERA AND VIEW
 
-Use a close crop comparable to a product-detail reference photo.
+Use an oblique three-quarter top view.
 
-Crop through the bracelet strand so some gemstone beads continue beyond the image boundaries.
+Do not use a straight overhead full-bracelet view.
+
+Do not use a front-facing horizontal macro view.
+
+Do not create a centered circular product packshot.
 
 Maintain:
-- natural diagonal bracelet flow
-- shallow three-quarter perspective
-- realistic depth
-- off-center asymmetric framing
-- generous white negative space
-- approximately 8 to 14 visible gemstone beads, depending on the crop
-- the visible silver accent bead sequence from Reference image 1
-
-Do NOT create:
-- a complete overhead bracelet
-- a full circular or oval bracelet
-- a centered catalog packshot
-- a perfectly symmetrical front-facing close-up
-- a composition where all three silver beads are aligned across the center
-- excessive zoom that shows only three to five beads
+- square 1:1 framing
+- center round silver bead exactly centered
+- equal diagonal rise on both sides
+- equal visible bracelet length on both sides
+- large clean white negative space in the upper-middle area
+- partial bracelet only
+- approximately 10 to 16 visible gemstone beads in total, balanced left and right
 
 BRACELET GEOMETRY — LOCKED
 
@@ -785,12 +811,18 @@ Focus on:
 
 FINAL COMPOSITION CHECK
 
-The result must be a cropped diagonal detail view of only the lower front arc of the bracelet.
+Before output, verify all of the following:
+- the canvas is perfectly square
+- the center round silver bead is exactly at the center of the image
+- the left and right arcs rise diagonally at matching angles
+- the olive-shaped silver beads are placed symmetrically
+- the visible bead count is balanced left and right
+- the full bracelet is not visible
+- the result is not portrait
+- the result is not landscape
+- the result is not a full circular bracelet
 
-If the complete bracelet is visible,
-if the image becomes a full overhead circle,
-or if the silver beads are centered symmetrically,
-reject the result and recreate the detail crop.`,
+If any of these conditions fail, reject the result and recreate the composition.`,
 
 wearing:`Create a realistic wrist-wearing image using the bracelet from Reference image 1.
 
@@ -1009,5 +1041,6 @@ function showToastMessage(message){
 }
 
 </script>
+
 
 </body></html>
