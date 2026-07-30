@@ -1,6 +1,8 @@
-<html lang="ko"><head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>DELIXIR AI 프롬프트 복사 가이드</title>
 <style>
 :root{
@@ -192,7 +194,9 @@ h2{display:inline;font-size:27px;letter-spacing:-.03em}
   </div>
   <nav>
     <div class="nav-group">
-      <div class="nav-label">제품 이미지</div>
+      <div class="nav-label">작업 순서</div>
+      <a href="#reference-order">🖼️ 이미지 6장 순서</a>
+      <div class="nav-label" style="margin-top:18px">제품 이미지</div>
       <a href="#product">📦 통합 제품컷</a>
       <a href="#detail">🔍 디테일컷</a>
     </div>
@@ -209,7 +213,7 @@ h2{display:inline;font-size:27px;letter-spacing:-.03em}
     </div>
   </nav>
   <div class="sidebar-help">
-    <b>사용 방법</b><br>
+    <b>사용 방법</b><br/>
     기준 사진과 원석 참고 사진을 AI 채팅에 첨부한 뒤 필요한 프롬프트를 복사해 붙여넣으세요.
   </div>
 </aside>
@@ -217,11 +221,12 @@ h2{display:inline;font-size:27px;letter-spacing:-.03em}
 <main>
   <section class="hero">
     <div class="eyebrow">DELIXIR AI PROMPT COPY</div>
-    <h1>필요한 프롬프트만<br>빠르게 복사하세요.</h1>
+    <h1>필요한 프롬프트만<br/>빠르게 복사하세요.</h1>
     <p>제품컷, 디테일컷, 착용컷에 필요한 핵심 프롬프트 3개만 모은 간단한 제작 가이드입니다.</p>
   </section>
 
   <div class="quick-nav">
+    <a href="#reference-order">6장 순서</a>
     <a href="#product">제품컷</a>
     <a href="#detail" class="sub">디테일컷</a>
     <a href="#wearing" class="sub">착용컷</a>
@@ -233,8 +238,23 @@ h2{display:inline;font-size:27px;letter-spacing:-.03em}
 
   <div class="notice">
     <strong>📌 기본 작업 순서</strong>
-    <p>1번 기준 팔찌 사진 → 2번 원석 참고 사진 → 필요한 프롬프트 복사 → AI 채팅창에 붙여넣기</p>
+    <p><b>1번 손·포즈 사진</b> → <b>2번 제품 정면컷</b> → <b>3번 제품 45도·항공컷</b> → <b>4번 제품 후면·보조 구조컷</b> → <b>5번 원석 참고</b> → <b>6번 모델·의상 레퍼런스</b> 순서로 첨부한 뒤 최종 프롬프트를 사용하세요.</p>
   </div>
+  <section class="section" id="reference-order">
+    <div class="section-head">
+      <span class="section-number">0</span><h2>이미지 6장 첨부 순서</h2>
+      <p class="lead">착용컷을 만들 때 아래 순서를 바꾸지 마세요. 각 이미지는 서로 다른 역할만 담당합니다.</p>
+    </div>
+    <div class="card-grid">
+      <article class="card"><div class="card-top"><div class="icon">✋</div><div><h3>1번 · 손·포즈 기준</h3><p>손 모양, 손목 각도, 팔 위치와 실제 착용 위치를 정하는 기준입니다.</p></div></div></article>
+      <article class="card"><div class="card-top"><div class="icon">⭕</div><div><h3>2번 · 제품 정면컷</h3><p>앞쪽 실버 파츠 배열, 비드 크기, 실버 파츠의 정면 형태와 홈 구조를 고정하는 기준 이미지입니다.</p></div></div></article>
+      <article class="card"><div class="card-top"><div class="icon">◉</div><div><h3>3번 · 제품 45도·항공컷</h3><p>전체 팔찌 원형, 비드 개수, 전체 배열, 실버 파츠 간 거리와 입체적인 배치를 확인하는 구조 이미지입니다.</p></div></div></article>
+      <article class="card"><div class="card-top"><div class="icon">🔍</div><div><h3>4번 · 제품 후면·보조 구조컷</h3><p>뒤쪽 연결 구조, 실버 파츠 사이의 원석 개수, 전체 루프의 연속성과 2·3번에서 가려진 부분을 보완합니다.</p></div></div></article>
+      <article class="card"><div class="card-top"><div class="icon">💎</div><div><h3>5번 · 원석 참고</h3><p>원석의 색상, 투명도, 내포물과 광택만 참고합니다. 형태와 배열은 참고하지 않습니다.</p></div></div></article>
+      <article class="card"><div class="card-top"><div class="icon">👗</div><div><h3>6번 · 모델 레퍼런스</h3><p>모델 분위기, 의상, 배경과 사진 스타일만 참고합니다. 손과 액세서리는 무시합니다.</p></div></div></article>
+    </div>
+  </section>
+
 
   <section class="section" id="product">
     <div class="section-head">
@@ -254,65 +274,7 @@ h2{display:inline;font-size:27px;letter-spacing:-.03em}
           <button class="copy-btn" onclick="copyPrompt('product',this)">프롬프트 복사</button>
           <button class="view-btn" onclick="togglePrompt('product-panel',this)">보기</button>
         </div>
-        <div class="prompt-panel" id="product-panel">THIS IS AN IMAGE EDITING TASK.
-DO NOT GENERATE A NEW BRACELET.
-
-Reference image 1 is the MASTER image.
-Reference image 2 is ONLY the gemstone material reference.
-
-Keep the bracelet geometry from Reference image 1 exactly unchanged:
-- bracelet shape
-- bead count
-- bead positions
-- bead spacing
-- bracelet diameter
-- silver bead positions
-- silver bead size
-- engraved grooves
-- perspective
-- crop
-- lighting
-- reflections
-- shadows
-
-Use Reference image 2 only for:
-- gemstone color
-- translucency
-- opacity
-- mineral inclusions
-- internal pattern
-- polish
-
-Replace only the gemstone bead material.
-Keep every original gemstone bead boundary exactly unchanged.
-
-The bracelet contains exactly three silver accent beads:
-- one large fluted spherical silver bead at the center
-- two smaller olive-shaped fluted silver beads positioned symmetrically on both sides
-
-Keep all three silver beads exactly identical to Reference image 1.
-
-The bracelet contains exactly three silver accent beads.
-One large fluted spherical silver bead is located at the center.
-Two smaller olive-shaped fluted silver beads are positioned symmetrically on both sides.
-
-Never change:
-- quantity
-- position
-- size
-- proportions
-- engraved grooves
-- reflections
-- highlights
-- shadows
-- metal finish
-- rotation
-
-Only the gemstone beads may be changed.
-
-All beads must remain tightly connected with zero spacing.
-
-Create a clean e-commerce product image on a pure white #FFFFFF background.</div>
+        <div class="prompt-panel" id="product-panel"></div>
       </article>
     </div>
   </section>
@@ -335,190 +297,7 @@ Create a clean e-commerce product image on a pure white #FFFFFF background.</div
           <button class="copy-btn" onclick="copyPrompt('detail',this)">프롬프트 복사</button>
           <button class="view-btn" onclick="togglePrompt('detail-panel',this)">보기</button>
         </div>
-        <div class="prompt-panel" id="detail-panel">Create a high-resolution square close-up detail image using Reference image 1.
-
-Reference image 1 is the MASTER bracelet.
-Reference image 2 defines only the gemstone material.
-
-IMPORTANT
-
-This is NOT a bracelet redesign.
-
-This is NOT a new bracelet composition.
-
-Treat Reference image 1 as the original finished photograph.
-
-Create only a higher-resolution close-up crop of the SAME bracelet.
-
-The bracelet design itself must remain absolutely identical.
-
-OUTPUT FORMAT — ABSOLUTE REQUIREMENT
-
-- perfect square
-- strict 1:1 aspect ratio
-- ultra-high resolution
-- do not create a portrait image
-- do not create a landscape image
-
-CAMERA COMPOSITION — CROP ONLY
-
-Create a new square crop only.
-
-The bracelet must enter from the upper-left edge,
-travel downward along the left side,
-then curve naturally toward the lower-right edge.
-
-Large clean white negative space must occupy the upper-middle and upper-right area.
-
-Only one partial curved section of the bracelet is visible.
-
-The complete bracelet must never appear.
-
-The composition must remain asymmetric and off-center.
-
-The large round silver bead must appear near the lower-middle to lower-right area,
-not at the exact geometric center.
-
-The two olive-shaped silver beads must remain at their original relative positions along the same bracelet section.
-
-ABSOLUTE DESIGN LOCK
-
-DO NOT redesign the bracelet.
-
-DO NOT invent a new bead arrangement.
-
-DO NOT redistribute beads.
-
-DO NOT reposition silver beads.
-
-DO NOT change the visible bead sequence.
-
-DO NOT change the number of gemstone beads between silver accent beads.
-
-DO NOT change the local arc around any silver bead.
-
-The visible portion must preserve EXACTLY the bracelet shown in Reference image 1.
-
-Preserve exactly:
-
-- identical bead order
-- identical total bead count
-- identical visible bead count
-- identical gemstone bead diameter
-- identical bead spacing
-- identical bead contact points
-- identical local curvature
-- identical visible crop sequence
-- identical silver bead spacing
-- identical silver bead proportions
-- identical silver bead orientation
-- identical groove pattern
-- identical local geometry around every silver accent bead
-
-The image must look like Reference image 1 was simply cropped closer and rendered at higher optical resolution.
-
-SILVER BEAD LOCK — ABSOLUTE REQUIREMENT
-
-The bracelet contains exactly three silver accent beads:
-
-- one large fluted spherical silver bead
-- two smaller olive-shaped fluted silver beads
-
-Keep all three silver beads exactly identical to Reference image 1.
-
-Never change:
-
-- quantity
-- shape
-- position
-- spacing
-- rotation
-- proportions
-- engraved groove count
-- groove direction
-- metal finish
-- reflections
-- highlights
-- shadows
-
-LOCAL GEOMETRY LOCK — ABSOLUTE REQUIREMENT
-
-The gemstone bead count between every silver bead must remain exactly identical to Reference image 1.
-
-Never insert extra gemstone beads.
-
-Never remove gemstone beads.
-
-Never move a silver bead to a different location in the sequence.
-
-Never convert an olive-shaped silver bead into a round bead.
-
-Never convert the round center silver bead into an olive-shaped bead.
-
-Never enlarge transition beads.
-
-Never shrink transition beads.
-
-Never stretch the bracelet.
-
-Never compress the bracelet.
-
-Never flatten the arc.
-
-Never make the curve more circular or more symmetrical.
-
-Every gemstone bead must remain perfectly spherical.
-
-Every gemstone bead must keep exactly the same diameter.
-
-Every bead must touch its adjacent bead with zero spacing and zero overlap.
-
-Do not allow any silver bead to sink into, intersect, merge with, cover, or deform neighboring gemstone beads.
-
-MATERIAL REPLACEMENT ONLY
-
-Use Reference image 2 only for:
-
-- gemstone color
-- gemstone translucency or opacity
-- natural mineral inclusions
-- internal mineral pattern
-- internal depth
-- polished surface character
-
-Do not copy from Reference image 2:
-
-- bead size
-- bead shape
-- bead count
-- strand layout
-- spacing
-- curvature
-- camera angle
-- crop
-- lighting layout
-- bracelet design
-
-Reference image 1 always wins for every geometric and structural property.
-
-FINAL VALIDATION
-
-Before output, verify all of the following:
-
-- the canvas is a perfect square
-- only a partial bracelet curve is visible
-- the bracelet enters from the upper-left edge
-- the bracelet exits toward the lower-right edge
-- the upper-right area contains large white negative space
-- the full bracelet is not visible
-- the exact silver bead sequence is preserved
-- the exact gemstone bead count between silver beads is preserved
-- no part shape has changed
-- no part position has changed
-- no bead has been added or removed
-- the result looks like the same bracelet, only cropped closer and rendered with higher optical detail
-
-If any bracelet part, bead sequence, silver bead shape, silver bead position, or gemstone count differs from Reference image 1, reject the result and recreate it without redesigning the bracelet.</div>
+        <div class="prompt-panel" id="detail-panel"></div>
       </article>
     </div>
   </section>
@@ -526,7 +305,7 @@ If any bracelet part, bead sequence, silver bead shape, silver bead position, or
   <section class="section" id="wearing">
     <div class="section-head">
       <span class="section-number">3</span><h2>통합 착용컷</h2>
-      <p class="lead">기준 팔찌는 그대로 복사하고, 두 번째 이미지는 포즈와 의상 분위기에만 사용하는 착용컷입니다.</p>
+      <p class="lead">손·제품 3방향·원석·모델 레퍼런스 총 6장을 역할별로 분리해 사용하는 착용컷입니다.</p>
     </div>
     <div class="card-grid">
       <article class="card">
@@ -534,80 +313,14 @@ If any bracelet part, bead sequence, silver bead shape, silver bead position, or
           <div class="icon">🙋</div>
           <div>
             <h3>착용컷 프롬프트</h3>
-            <p>팔찌 구조와 색은 바꾸지 않고 선택한 포즈 설명을 자동으로 결합합니다.</p>
+            <p>1번 손 포즈, 2번 정면, 3번 45도·항공, 4번 후면·보조 구조, 5번 원석, 6번 모델 분위기를 분리해 조합합니다.</p>
           </div>
         </div>
         <div class="card-actions">
           <button class="copy-btn" onclick="copyPrompt('wearing',this)">프롬프트 복사</button>
           <button class="view-btn" onclick="togglePrompt('wearing-panel',this)">보기</button>
         </div>
-        <div class="prompt-panel" id="wearing-panel">Create a realistic wrist-wearing photo.
-
-Reference image 1 = the bracelet.
-This bracelet is already correctly colored and structured.
-
-Copy Reference image 1 exactly.
-
-Do not redesign it.
-Do not recolor it further.
-
-Do not change:
-- bead count
-- bead size
-- bead sequence
-- bead spacing
-- bracelet proportions
-- silver accent bead count
-- silver accent bead shape
-- silver accent bead position
-- silver groove structure
-- gemstone color
-- gemstone transparency
-- gemstone pattern
-- gemstone polish
-
-Reference image 2 = pose and outfit mood only.
-
-Use Reference image 2 only for:
-- body pose
-- wrist angle
-- hand position
-- arm position
-- crop
-- camera framing
-- clothing style
-- clothing fabric
-- clothing color mood
-- overall styling mood
-
-Ignore any bracelet, watch, ring, hand jewelry, necklace, or other accessory shown in Reference image 2.
-
-POSE
-
-[SELECTED POSE DESCRIPTION WILL BE INSERTED HERE]
-
-PHOTO STYLE
-
-- realistic Korean woman in her 20s
-- natural skin texture
-- clean fashion photography
-- soft daylight
-- realistic hand and wrist anatomy
-- bracelet in sharp focus
-- bracelet fully visible
-- bracelet wrapped naturally around the wrist using an elastic string
-- all beads touching with zero spacing
-- no other jewelry
-- no watch
-- no rings
-- no necklace
-- no additional bracelet
-- no extra charm
-- no added metal parts
-
-The bracelet from Reference image 1 must remain the exact same bracelet.
-
-Only the pose, outfit, crop, and photographic setting may follow Reference image 2.</div>
+        <div class="prompt-panel" id="wearing-panel"></div>
       </article>
     </div>
   </section>
@@ -625,7 +338,7 @@ Only the pose, outfit, crop, and photographic setting may follow Reference image
 
     <article class="card">
       <div class="pose-tools">
-        <input id="poseSearch" type="search" placeholder="포즈 검색: 손목 / 주머니 / 앉기 / 클로즈업" oninput="filterPoses()">
+        <input id="poseSearch" type="search" placeholder="포즈 검색: 손목 / 주머니 / 앉기 / 클로즈업" oninput="filterPoses()"/>
         <button class="secondary-btn" type="button" onclick="clearPoseSearch()">초기화</button>
         <button class="secondary-btn" type="button" onclick="randomPose()">랜덤</button>
       </div>
@@ -695,11 +408,11 @@ Only the pose, outfit, crop, and photographic setting may follow Reference image
       <div class="builder-grid">
         <div class="field">
           <label for="extraInstruction">추가 요청사항</label>
-          <textarea id="extraInstruction" placeholder="예: 흰 셔츠 착용, 얼굴 제외, 팔찌 위주 클로즈업"></textarea>
+          <textarea id="extraInstruction" placeholder="예: 6번 모델 레퍼런스의 흰 셔츠와 배경 분위기를 70% 반영, 얼굴 제외"></textarea>
         </div>
         <div class="field">
           <label for="finalPrompt">최종 조합 프롬프트</label>
-          <textarea class="final-output" id="finalPrompt" readonly="" placeholder="포즈를 선택하고 아래의 최종 조합 버튼을 누르세요."></textarea>
+          <textarea class="final-output" id="finalPrompt" readonly placeholder="포즈를 선택하고 아래의 최종 조합 버튼을 누르세요."></textarea>
         </div>
       </div>
 
@@ -963,73 +676,172 @@ Before output, verify all of the following:
 
 If any bracelet part, bead sequence, silver bead shape, silver bead position, or gemstone count differs from Reference image 1, reject the result and recreate it without redesigning the bracelet.`,
 
-wearing:`Create a realistic wrist-wearing photo.
+wearing:`Create a realistic wrist-wearing photo using six reference images.
 
-Reference image 1 = the bracelet.
-This bracelet is already correctly colored and structured.
+REFERENCE IMAGE ORDER — DO NOT REASSIGN
 
-Copy Reference image 1 exactly.
+Reference image 1 = HAND AND POSE MASTER.
+Use it only for:
+- exact hand pose
+- wrist angle
+- finger position
+- arm position
+- bracelet placement on the wrist
+- hand-to-camera orientation
+- crop and framing of the hand and arm
+
+Reference image 2 = PRODUCT FRONT-VIEW MASTER.
+Use it for:
+- exact front silver-part arrangement
+- exact gemstone bead diameter
+- exact silver bead dimensions
+- exact silver bead shapes
+- silver groove direction and structure
+- front-facing proportions
+- spacing and contact between adjacent beads
+
+Reference image 3 = PRODUCT 45-DEGREE / TOP-VIEW MASTER.
+Use it for:
+- exact total bead count
+- complete bracelet circumference
+- complete bead sequence
+- overall bracelet proportions
+- exact positions of all silver accent beads
+- exact distances between silver accent beads
+- three-dimensional loop structure and perspective
+
+Reference image 4 = PRODUCT BACK / SUPPORTING STRUCTURE MASTER.
+Use it for:
+- rear bead sequence
+- rear connection structure
+- exact gemstone bead count between silver accent beads
+- continuity of the full bracelet loop
+- structural details hidden or unclear in References 2 and 3
+- cross-checking the exact same bracelet from another angle
+
+Reference image 5 = GEMSTONE MATERIAL ONLY.
+Use it only for:
+- gemstone color
+- translucency or opacity
+- natural mineral inclusions
+- internal mineral pattern
+- internal depth
+- polished gemstone surface
+
+Ignore all geometry in Reference image 5:
+- do not copy its bead size
+- do not copy its bead shape
+- do not copy its bead count
+- do not copy its strand arrangement
+- do not copy its camera angle or lighting layout
+
+Reference image 6 = MODEL, OUTFIT, AND MOOD ONLY.
+Use it only for:
+- model appearance and styling mood
+- clothing silhouette
+- clothing fabric
+- clothing color mood
+- background mood
+- lighting mood
+- overall fashion-photography atmosphere
+
+Ignore from Reference image 6:
+- hand pose
+- wrist angle
+- bracelet
+- watch
+- rings
+- necklace
+- earrings
+- any other accessory
+
+REFERENCE PRIORITY
+
+For the hand pose and wrist placement, Reference image 1 always wins.
+For bracelet structure and design, References 2, 3, and 4 must be treated as three views of the exact same bracelet and must be cross-checked together.
+For gemstone material, Reference image 5 always wins.
+For model, outfit, background, and mood, Reference image 6 always wins.
+
+Never treat References 2, 3, and 4 as different bracelet designs.
+Do not choose only one of them.
+Cross-check all three views to reconstruct one identical bracelet.
+If a detail is hidden in one view, use the other two views to verify it.
+Never average, invent, or blend conflicting geometry.
+
+BRACELET — ABSOLUTE DESIGN LOCK
+
+References 2, 3, and 4 show the same already-correct bracelet from different angles.
+
+Copy that exact bracelet onto the wrist in Reference image 1.
 
 Do not redesign it.
-Do not recolor it further.
+Do not simplify it.
+Do not beautify it.
+Do not recolor it beyond the gemstone material defined by Reference image 5.
 
 Do not change:
-- bead count
-- bead size
+- total bead count
+- gemstone bead count
+- gemstone bead diameter
 - bead sequence
 - bead spacing
+- bracelet circumference
 - bracelet proportions
 - silver accent bead count
 - silver accent bead shape
+- silver accent bead size
 - silver accent bead position
-- silver groove structure
-- gemstone color
-- gemstone transparency
-- gemstone pattern
-- gemstone polish
+- silver groove count
+- silver groove direction
+- silver surface finish
+- gemstone-to-silver bead count
+- local geometry around every silver bead
 
-Reference image 2 = pose and outfit mood only.
+The bracelet contains exactly the same three silver accent beads shown in References 2, 3, and 4:
+- one large fluted spherical silver bead
+- two smaller olive-shaped fluted silver beads
 
-Use Reference image 2 only for:
-- body pose
-- wrist angle
-- hand position
-- arm position
-- crop
-- camera framing
-- clothing style
-- clothing fabric
-- clothing color mood
-- overall styling mood
-2번째 이미지에서 착장 60%, 배경 60% 만 반영하고 나머지는 알아서 창작해줘.
-Ignore any bracelet, watch, ring, hand jewelry, necklace, or other accessory shown in Reference image 2.
+Keep all three exactly identical.
 
-POSE
+Every bead must touch its neighboring bead with zero visible spacing and zero overlap.
+
+POSE — FOLLOW REFERENCE IMAGE 1
 
 [SELECTED POSE DESCRIPTION WILL BE INSERTED HERE]
+
+Use Reference image 1 as the primary pose source.
+The selected pose description only clarifies the intended pose and must not override the actual hand and wrist geometry visible in Reference image 1.
 
 PHOTO STYLE
 
 - realistic Korean woman in her 20s
 - natural skin texture
-- clean fashion photography
-- soft daylight
 - realistic hand and wrist anatomy
+- clean commercial fashion photography
+- soft natural daylight
 - bracelet in sharp focus
-- bracelet fully visible
+- bracelet fully visible and unobstructed
 - bracelet wrapped naturally around the wrist using an elastic string
-- all beads touching with zero spacing
-- no other jewelry
 - no watch
 - no rings
 - no necklace
-- no additional bracelet
+- no earrings
+- no other bracelet
 - no extra charm
 - no added metal parts
 
-The bracelet from Reference image 1 must remain the exact same bracelet.
+FINAL VALIDATION
 
-Only the pose, outfit, crop, and photographic setting may follow Reference image 2.`,
+Before output, verify:
+- the hand and wrist pose match Reference image 1
+- the complete bracelet structure matches References 2, 3, and 4
+- the gemstone material matches Reference image 5
+- the model, outfit, background, and mood follow Reference image 6
+- no bracelet part from Reference image 6 remains
+- no product geometry was copied from Reference image 5
+- no bead, silver part, or groove has been added, removed, reshaped, or repositioned
+
+If any structural detail differs from References 2, 3, and 4, reject the result and recreate it.`,
 
 material:`Replace only the material appearance of the gemstone beads using Reference image 2.
 
@@ -1214,6 +1026,5 @@ function showToastMessage(message){
 }
 
 </script>
-
-
-</body></html>
+</body>
+</html>
