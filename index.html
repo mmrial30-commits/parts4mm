@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DELIXIR AI 프롬프트 복사 가이드</title>
 <style>
 :root{
@@ -181,6 +179,10 @@ h2{display:inline;font-size:27px;letter-spacing:-.03em}
 .secondary-btn{background:#e2e8f0;color:#334155}
 @media(max-width:700px){.pose-grid,.builder-grid{grid-template-columns:1fr}}
 
+
+.hidden-functional{display:none !important}
+.pose-category{grid-column:1/-1;margin:10px 0 0;padding:10px 12px;border-radius:11px;background:#f8fafc;border:1px solid var(--line);color:#475569;font-size:12px;font-weight:900}
+.pose-card .pose-focus{display:inline-flex;margin-top:7px;padding:4px 7px;border-radius:999px;background:#eef2ff;color:var(--primary);font-size:10px;font-weight:900}
 </style>
 </head>
 <body>
@@ -198,11 +200,9 @@ h2{display:inline;font-size:27px;letter-spacing:-.03em}
       <a href="#reference-order">🖼️ 이미지 6장 순서</a>
       <div class="nav-label" style="margin-top:18px">제품 이미지</div>
       <a href="#product">📦 통합 제품컷</a>
-      <a href="#detail">🔍 디테일컷</a>
     </div>
     <div class="nav-group">
       <div class="nav-label">착용 이미지</div>
-      <a href="#wearing">🙋 통합 착용컷</a>
       <a href="#pose">🧍 포즈 선택</a>
       <a href="#builder">🧩 최종 조합기</a>
     </div>
@@ -213,7 +213,7 @@ h2{display:inline;font-size:27px;letter-spacing:-.03em}
     </div>
   </nav>
   <div class="sidebar-help">
-    <b>사용 방법</b><br/>
+    <b>사용 방법</b><br>
     기준 사진과 원석 참고 사진을 AI 채팅에 첨부한 뒤 필요한 프롬프트를 복사해 붙여넣으세요.
   </div>
 </aside>
@@ -221,15 +221,13 @@ h2{display:inline;font-size:27px;letter-spacing:-.03em}
 <main>
   <section class="hero">
     <div class="eyebrow">DELIXIR AI PROMPT COPY</div>
-    <h1>필요한 프롬프트만<br/>빠르게 복사하세요.</h1>
+    <h1>필요한 프롬프트만<br>빠르게 복사하세요.</h1>
     <p>제품컷, 디테일컷, 착용컷에 필요한 핵심 프롬프트 3개만 모은 간단한 제작 가이드입니다.</p>
   </section>
 
   <div class="quick-nav">
     <a href="#reference-order">6장 순서</a>
     <a href="#product">제품컷</a>
-    <a href="#detail" class="sub">디테일컷</a>
-    <a href="#wearing" class="sub">착용컷</a>
     <a href="#pose" class="sub">포즈</a>
     <a href="#builder" class="sub">최종 조합</a>
     
@@ -238,7 +236,7 @@ h2{display:inline;font-size:27px;letter-spacing:-.03em}
 
   <div class="notice">
     <strong>📌 기본 작업 순서</strong>
-    <p><b>1번 손·포즈 사진</b> → <b>2번 제품 정면컷</b> → <b>3번 제품 45도·항공컷</b> → <b>4번 제품 후면·보조 구조컷</b> → <b>5번 원석 참고</b> → <b>6번 모델·의상 레퍼런스</b> 순서로 첨부한 뒤 최종 프롬프트를 사용하세요.</p>
+    <p><b>1번 손·포즈 사진</b> → <b>2번 제품 항공컷</b> → <b>3번 제품 정면컷</b> → <b>4번 제품 후면컷</b> → <b>5번 교체할 원석 사진</b> → <b>6번 착장 레퍼런스</b> 순서로 첨부한 뒤 최종 프롬프트를 사용하세요.</p>
   </div>
   <section class="section" id="reference-order">
     <div class="section-head">
@@ -247,11 +245,11 @@ h2{display:inline;font-size:27px;letter-spacing:-.03em}
     </div>
     <div class="card-grid">
       <article class="card"><div class="card-top"><div class="icon">✋</div><div><h3>1번 · 손·포즈 기준</h3><p>손 모양, 손목 각도, 팔 위치와 실제 착용 위치를 정하는 기준입니다.</p></div></div></article>
-      <article class="card"><div class="card-top"><div class="icon">⭕</div><div><h3>2번 · 제품 정면컷</h3><p>앞쪽 실버 파츠 배열, 비드 크기, 실버 파츠의 정면 형태와 홈 구조를 고정하는 기준 이미지입니다.</p></div></div></article>
-      <article class="card"><div class="card-top"><div class="icon">◉</div><div><h3>3번 · 제품 45도·항공컷</h3><p>전체 팔찌 원형, 비드 개수, 전체 배열, 실버 파츠 간 거리와 입체적인 배치를 확인하는 구조 이미지입니다.</p></div></div></article>
-      <article class="card"><div class="card-top"><div class="icon">🔍</div><div><h3>4번 · 제품 후면·보조 구조컷</h3><p>뒤쪽 연결 구조, 실버 파츠 사이의 원석 개수, 전체 루프의 연속성과 2·3번에서 가려진 부분을 보완합니다.</p></div></div></article>
-      <article class="card"><div class="card-top"><div class="icon">💎</div><div><h3>5번 · 원석 참고</h3><p>원석의 색상, 투명도, 내포물과 광택만 참고합니다. 형태와 배열은 참고하지 않습니다.</p></div></div></article>
-      <article class="card"><div class="card-top"><div class="icon">👗</div><div><h3>6번 · 모델 레퍼런스</h3><p>모델 분위기, 의상, 배경과 사진 스타일만 참고합니다. 손과 액세서리는 무시합니다.</p></div></div></article>
+      <article class="card"><div class="card-top"><div class="icon">⭕</div><div><h3>2번 · 제품 항공컷</h3><p>전체 팔찌 둘레, 총 비드 개수, 전체 비드 순서, 실버 파츠의 전체 위치와 좌우 간격을 고정합니다.</p></div></div></article>
+      <article class="card"><div class="card-top"><div class="icon">◉</div><div><h3>3번 · 제품 정면컷</h3><p>앞쪽 파츠 배열, 원석 비드 크기, 실버 파츠의 정면 형태·크기·홈 방향과 접점을 고정합니다.</p></div></div></article>
+      <article class="card"><div class="card-top"><div class="icon">🔍</div><div><h3>4번 · 제품 후면컷</h3><p>후면 비드 순서, 뒤쪽 연결 구조, 전체 루프의 연속성과 정면에서 보이지 않는 비드 배열을 보완합니다.</p></div></div></article>
+      <article class="card"><div class="card-top"><div class="icon">💎</div><div><h3>5번 · 교체할 원석 사진</h3><p>바꿀 원석의 색상, 투명도, 내포물, 내부 패턴과 광택만 참고합니다. 비드 크기와 배열은 복사하지 않습니다.</p></div></div></article>
+      <article class="card"><div class="card-top"><div class="icon">👗</div><div><h3>6번 · 착장 레퍼런스</h3><p>의상, 모델 분위기, 배경, 조명과 사진 무드만 참고합니다. 손 포즈와 액세서리는 무시합니다.</p></div></div></article>
     </div>
   </section>
 
@@ -274,12 +272,70 @@ h2{display:inline;font-size:27px;letter-spacing:-.03em}
           <button class="copy-btn" onclick="copyPrompt('product',this)">프롬프트 복사</button>
           <button class="view-btn" onclick="togglePrompt('product-panel',this)">보기</button>
         </div>
-        <div class="prompt-panel" id="product-panel"></div>
+        <div class="prompt-panel" id="product-panel">THIS IS AN IMAGE EDITING TASK.
+DO NOT GENERATE A NEW BRACELET.
+
+Reference image 1 is the MASTER image.
+Reference image 2 is ONLY the gemstone material reference.
+
+Keep the bracelet geometry from Reference image 1 exactly unchanged:
+- bracelet shape
+- bead count
+- bead positions
+- bead spacing
+- bracelet diameter
+- silver bead positions
+- silver bead size
+- engraved grooves
+- perspective
+- crop
+- lighting
+- reflections
+- shadows
+
+Use Reference image 2 only for:
+- gemstone color
+- translucency
+- opacity
+- mineral inclusions
+- internal pattern
+- polish
+
+Replace only the gemstone bead material.
+Keep every original gemstone bead boundary exactly unchanged.
+
+The bracelet contains exactly three silver accent beads:
+- one large fluted spherical silver bead at the center
+- two smaller olive-shaped fluted silver beads positioned symmetrically on both sides
+
+Keep all three silver beads exactly identical to Reference image 1.
+
+The bracelet contains exactly three silver accent beads.
+One large fluted spherical silver bead is located at the center.
+Two smaller olive-shaped fluted silver beads are positioned symmetrically on both sides.
+
+Never change:
+- quantity
+- position
+- size
+- proportions
+- engraved grooves
+- reflections
+- highlights
+- shadows
+- metal finish
+- rotation
+
+Only the gemstone beads may be changed.
+
+All beads must remain tightly connected with zero spacing.
+
+Create a clean e-commerce product image on a pure white #FFFFFF background.</div>
       </article>
     </div>
   </section>
 
-  <section class="section" id="detail">
+  <section class="section hidden-functional" id="detail" aria-hidden="true">
     <div class="section-head">
       <span class="section-number">2</span><h2>디테일컷</h2>
       <p class="lead">정방형 비대칭 대각선 구도는 유지하면서, 기준 팔찌의 파츠 모양·비드 순서·실버 위치를 절대 변경하지 않는 디테일 이미지입니다.</p>
@@ -297,15 +353,198 @@ h2{display:inline;font-size:27px;letter-spacing:-.03em}
           <button class="copy-btn" onclick="copyPrompt('detail',this)">프롬프트 복사</button>
           <button class="view-btn" onclick="togglePrompt('detail-panel',this)">보기</button>
         </div>
-        <div class="prompt-panel" id="detail-panel"></div>
+        <div class="prompt-panel" id="detail-panel">Create a high-resolution square close-up detail image using Reference image 1.
+
+Reference image 1 is the MASTER bracelet.
+Reference image 2 defines only the gemstone material.
+
+IMPORTANT
+
+This is NOT a bracelet redesign.
+
+This is NOT a new bracelet composition.
+
+Treat Reference image 1 as the original finished photograph.
+
+Create only a higher-resolution close-up crop of the SAME bracelet.
+
+The bracelet design itself must remain absolutely identical.
+
+OUTPUT FORMAT — ABSOLUTE REQUIREMENT
+
+- perfect square
+- strict 1:1 aspect ratio
+- ultra-high resolution
+- do not create a portrait image
+- do not create a landscape image
+
+CAMERA COMPOSITION — CROP ONLY
+
+Create a new square crop only.
+
+The bracelet must enter from the upper-left edge,
+travel downward along the left side,
+then curve naturally toward the lower-right edge.
+
+Large clean white negative space must occupy the upper-middle and upper-right area.
+
+Only one partial curved section of the bracelet is visible.
+
+The complete bracelet must never appear.
+
+The composition must remain asymmetric and off-center.
+
+The large round silver bead must appear near the lower-middle to lower-right area,
+not at the exact geometric center.
+
+The two olive-shaped silver beads must remain at their original relative positions along the same bracelet section.
+
+ABSOLUTE DESIGN LOCK
+
+DO NOT redesign the bracelet.
+
+DO NOT invent a new bead arrangement.
+
+DO NOT redistribute beads.
+
+DO NOT reposition silver beads.
+
+DO NOT change the visible bead sequence.
+
+DO NOT change the number of gemstone beads between silver accent beads.
+
+DO NOT change the local arc around any silver bead.
+
+The visible portion must preserve EXACTLY the bracelet shown in Reference image 1.
+
+Preserve exactly:
+
+- identical bead order
+- identical total bead count
+- identical visible bead count
+- identical gemstone bead diameter
+- identical bead spacing
+- identical bead contact points
+- identical local curvature
+- identical visible crop sequence
+- identical silver bead spacing
+- identical silver bead proportions
+- identical silver bead orientation
+- identical groove pattern
+- identical local geometry around every silver accent bead
+
+The image must look like Reference image 1 was simply cropped closer and rendered at higher optical resolution.
+
+SILVER BEAD LOCK — ABSOLUTE REQUIREMENT
+
+The bracelet contains exactly three silver accent beads:
+
+- one large fluted spherical silver bead
+- two smaller olive-shaped fluted silver beads
+
+Keep all three silver beads exactly identical to Reference image 1.
+
+Never change:
+
+- quantity
+- shape
+- position
+- spacing
+- rotation
+- proportions
+- engraved groove count
+- groove direction
+- metal finish
+- reflections
+- highlights
+- shadows
+
+LOCAL GEOMETRY LOCK — ABSOLUTE REQUIREMENT
+
+The gemstone bead count between every silver bead must remain exactly identical to Reference image 1.
+
+Never insert extra gemstone beads.
+
+Never remove gemstone beads.
+
+Never move a silver bead to a different location in the sequence.
+
+Never convert an olive-shaped silver bead into a round bead.
+
+Never convert the round center silver bead into an olive-shaped bead.
+
+Never enlarge transition beads.
+
+Never shrink transition beads.
+
+Never stretch the bracelet.
+
+Never compress the bracelet.
+
+Never flatten the arc.
+
+Never make the curve more circular or more symmetrical.
+
+Every gemstone bead must remain perfectly spherical.
+
+Every gemstone bead must keep exactly the same diameter.
+
+Every bead must touch its adjacent bead with zero spacing and zero overlap.
+
+Do not allow any silver bead to sink into, intersect, merge with, cover, or deform neighboring gemstone beads.
+
+MATERIAL REPLACEMENT ONLY
+
+Use Reference image 2 only for:
+
+- gemstone color
+- gemstone translucency or opacity
+- natural mineral inclusions
+- internal mineral pattern
+- internal depth
+- polished surface character
+
+Do not copy from Reference image 2:
+
+- bead size
+- bead shape
+- bead count
+- strand layout
+- spacing
+- curvature
+- camera angle
+- crop
+- lighting layout
+- bracelet design
+
+Reference image 1 always wins for every geometric and structural property.
+
+FINAL VALIDATION
+
+Before output, verify all of the following:
+
+- the canvas is a perfect square
+- only a partial bracelet curve is visible
+- the bracelet enters from the upper-left edge
+- the bracelet exits toward the lower-right edge
+- the upper-right area contains large white negative space
+- the full bracelet is not visible
+- the exact silver bead sequence is preserved
+- the exact gemstone bead count between silver beads is preserved
+- no part shape has changed
+- no part position has changed
+- no bead has been added or removed
+- the result looks like the same bracelet, only cropped closer and rendered with higher optical detail
+
+If any bracelet part, bead sequence, silver bead shape, silver bead position, or gemstone count differs from Reference image 1, reject the result and recreate it without redesigning the bracelet.</div>
       </article>
     </div>
   </section>
 
-  <section class="section" id="wearing">
+  <section class="section hidden-functional" id="wearing" aria-hidden="true">
     <div class="section-head">
       <span class="section-number">3</span><h2>통합 착용컷</h2>
-      <p class="lead">손·제품 3방향·원석·모델 레퍼런스 총 6장을 역할별로 분리해 사용하는 착용컷입니다.</p>
+      <p class="lead">손 포즈·항공·정면·후면·교체 원석·착장 총 6장을 역할별로 분리하는 파츠형 착용컷입니다.</p>
     </div>
     <div class="card-grid">
       <article class="card">
@@ -313,14 +552,248 @@ h2{display:inline;font-size:27px;letter-spacing:-.03em}
           <div class="icon">🙋</div>
           <div>
             <h3>착용컷 프롬프트</h3>
-            <p>1번 손 포즈, 2번 정면, 3번 45도·항공, 4번 후면·보조 구조, 5번 원석, 6번 모델 분위기를 분리해 조합합니다.</p>
+            <p>1번 손 포즈, 2번 항공, 3번 정면, 4번 후면, 5번 교체 원석, 6번 착장을 분리해 최종 프롬프트로 조합합니다.</p>
           </div>
         </div>
         <div class="card-actions">
           <button class="copy-btn" onclick="copyPrompt('wearing',this)">프롬프트 복사</button>
           <button class="view-btn" onclick="togglePrompt('wearing-panel',this)">보기</button>
         </div>
-        <div class="prompt-panel" id="wearing-panel"></div>
+        <div class="prompt-panel" id="wearing-panel">Create a realistic wrist-wearing photo of a parts-based gemstone bracelet using six reference images.
+
+REFERENCE IMAGE ORDER — DO NOT REASSIGN
+
+Reference image 1 = HAND AND POSE MASTER.
+
+Use Reference image 1 only for:
+- exact hand pose
+- exact wrist angle
+- exact finger position
+- exact arm position
+- bracelet placement on the wrist
+- hand-to-camera orientation
+- crop and framing of the hand and arm
+
+Reference image 2 = PRODUCT TOP-VIEW MASTER.
+
+Use Reference image 2 for:
+- exact total gemstone bead count
+- exact complete bracelet circumference
+- exact full-loop bead sequence
+- exact positions of all metal parts
+- exact distances between metal parts
+- exact left-right placement of the parts around the bracelet
+- overall bracelet proportions
+- complete structural continuity of the bracelet loop
+
+Reference image 3 = PRODUCT FRONT-VIEW MASTER.
+
+Use Reference image 3 for:
+- exact front-facing parts arrangement
+- exact gemstone bead diameter
+- exact metal-part dimensions
+- exact metal-part shapes
+- exact groove direction and groove structure
+- exact front-facing proportions
+- exact contact between adjacent gemstone beads and metal parts
+- exact local geometry around every metal part
+
+Reference image 4 = PRODUCT BACK-VIEW MASTER.
+
+Use Reference image 4 for:
+- exact rear bead sequence
+- exact rear connection structure
+- exact hidden bead arrangement
+- exact full-loop continuity
+- structural details not visible in Reference image 3
+- confirmation that References 2, 3, and 4 show the same bracelet
+
+Reference image 5 = REPLACEMENT GEMSTONE MATERIAL ONLY.
+
+Use Reference image 5 only for:
+- gemstone color
+- gemstone translucency or opacity
+- natural mineral inclusions
+- internal mineral pattern
+- internal depth
+- polished gemstone surface
+- natural bead-to-bead material variation
+
+Do not copy from Reference image 5:
+- bead size
+- bead shape
+- bead count
+- strand layout
+- bead spacing
+- bracelet curvature
+- camera angle
+- crop
+- lighting arrangement
+- metal parts
+- bracelet design
+
+Reference image 6 = OUTFIT, MODEL, AND MOOD ONLY.
+
+Use Reference image 6 only for:
+- clothing silhouette
+- clothing fabric
+- clothing color
+- styling mood
+- model appearance
+- background mood
+- lighting mood
+- overall fashion-photography atmosphere
+
+Ignore from Reference image 6:
+- hand pose
+- wrist angle
+- finger position
+- bracelet
+- watch
+- rings
+- necklace
+- earrings
+- every other accessory
+
+REFERENCE PRIORITY — ABSOLUTE
+
+For hand pose, wrist angle, finger position, arm position, and bracelet placement:
+Reference image 1 always wins.
+
+For bracelet construction, part shapes, part positions, bead count, bead sequence, and proportions:
+References 2, 3, and 4 always win and must be cross-checked together.
+
+For gemstone material only:
+Reference image 5 always wins.
+
+For outfit, model, background, lighting, and mood:
+Reference image 6 always wins.
+
+References 2, 3, and 4 are three views of the exact same bracelet.
+
+Do not treat them as separate designs.
+Do not choose only one product reference.
+Do not average conflicting geometry.
+Use the other views to resolve any hidden or unclear structure.
+Never invent missing parts or bead sequences.
+
+PARTS-BASED BRACELET — ABSOLUTE DESIGN LOCK
+
+The bracelet shown in References 2, 3, and 4 is already correctly designed and assembled.
+
+Copy that exact bracelet onto the wrist in Reference image 1.
+
+Do not redesign it.
+Do not simplify it.
+Do not rearrange it.
+Do not reinterpret the metal parts.
+Do not add decorative parts.
+Do not remove any part.
+Do not recolor the metal parts.
+
+Preserve exactly:
+- total gemstone bead count
+- visible and hidden gemstone bead count
+- gemstone bead diameter
+- gemstone bead shape
+- complete bead sequence
+- bracelet circumference
+- bracelet proportions
+- spacing between all elements
+- number of metal parts
+- shape of every metal part
+- size of every metal part
+- position of every metal part
+- rotation of every metal part
+- groove count
+- groove direction
+- groove depth
+- metal surface finish
+- number of gemstone beads between each metal part
+- local curvature around each metal part
+- contact points between all neighboring elements
+
+All gemstone beads must remain perfectly spherical and equal in diameter.
+
+Every gemstone bead and every metal part must touch its neighboring element with zero visible spacing and zero overlap.
+
+No part may sink into, merge with, cover, distort, or replace an adjacent gemstone bead.
+
+Do not create:
+- extra spacer beads
+- tiny connector beads
+- enlarged transition beads
+- duplicated metal parts
+- missing metal parts
+- simplified metal parts
+- different metal-part shapes
+- redistributed bead spacing
+- stretched bracelet sections
+- compressed bracelet sections
+
+GEMSTONE MATERIAL REPLACEMENT ONLY
+
+Replace only the gemstone material using Reference image 5.
+
+The gemstone material may change in:
+- color
+- translucency
+- opacity
+- mineral inclusions
+- internal pattern
+- internal depth
+- polish
+
+Nothing else may change.
+
+The metal parts, bead geometry, bead count, bead sequence, bracelet proportions, and structural layout must remain exactly as shown in References 2, 3, and 4.
+
+POSE — FOLLOW REFERENCE IMAGE 1
+
+[SELECTED POSE DESCRIPTION WILL BE INSERTED HERE]
+
+Reference image 1 is the primary and final authority for the pose.
+
+The selected pose description only clarifies the intended presentation and must not override the actual hand, wrist, finger, or arm geometry visible in Reference image 1.
+
+PHOTO STYLE
+
+- realistic Korean woman in her 20s
+- natural skin texture
+- realistic hand and wrist anatomy
+- clean commercial fashion photography
+- soft natural daylight
+- bracelet in sharp focus
+- every visible metal part rendered clearly
+- bracelet fully visible and unobstructed
+- bracelet wrapped naturally around the wrist using an elastic string
+- clothing and styling follow Reference image 6
+- no watch
+- no rings
+- no necklace
+- no earrings
+- no additional bracelet
+- no extra charm
+- no added metal parts
+
+FINAL VALIDATION
+
+Before output, verify all of the following:
+
+- the hand pose matches Reference image 1
+- the wrist angle matches Reference image 1
+- the bracelet placement matches Reference image 1
+- the complete bracelet structure matches References 2, 3, and 4
+- the front parts arrangement matches Reference image 3
+- the full-loop bead sequence matches Reference image 2
+- the rear structure matches Reference image 4
+- the gemstone material matches Reference image 5
+- the outfit and mood follow Reference image 6
+- no geometry was copied from Reference image 5
+- no accessory was copied from Reference image 6
+- no bead or metal part was added, removed, resized, reshaped, duplicated, or repositioned
+
+If any structural detail differs from References 2, 3, and 4, reject the result and recreate the same bracelet without redesigning it.</div>
       </article>
     </div>
   </section>
@@ -332,65 +805,142 @@ h2{display:inline;font-size:27px;letter-spacing:-.03em}
   
   <section class="section" id="pose">
     <div class="section-head">
-      <span class="section-number">4</span><h2>착용컷 포즈 선택</h2>
-      <p class="lead">원하는 포즈 카드를 선택하면 최종 조합기에 자동으로 들어갑니다.</p>
+      <span class="section-number">2</span><h2>착용컷 포즈 선택</h2>
+      <p class="lead">팔찌가 잘 보이는 서로 다른 40개 포즈 중 하나를 선택하면 최종 조합기에 자동으로 들어갑니다.</p>
     </div>
 
     <article class="card">
       <div class="pose-tools">
-        <input id="poseSearch" type="search" placeholder="포즈 검색: 손목 / 주머니 / 앉기 / 클로즈업" oninput="filterPoses()"/>
+        <input id="poseSearch" type="search" placeholder="40개 포즈 검색: 손목 / 주머니 / 앉기 / 소매 / 소품" oninput="filterPoses()">
         <button class="secondary-btn" type="button" onclick="clearPoseSearch()">초기화</button>
         <button class="secondary-btn" type="button" onclick="randomPose()">랜덤</button>
       </div>
 
       <div class="pose-grid" id="poseGrid">
-        <button class="pose-card" type="button" data-label="A01 — 허리 옆 자연스러운 손" data-prompt="Waist-to-fingertips crop. Bracelet arm relaxed beside the hip, wrist rotated slightly toward camera, fingers naturally curved. Asymmetrical composition with the bracelet placed off-center." data-search="a01 허리 옆 자연스러운 손 허리 손목" onclick="selectPose(this)">
-          <span class="pose-code">A01</span><strong>허리 옆 자연스러운 손</strong><small>팔을 골반 옆으로 자연스럽게 내리고 손목을 카메라 쪽으로 살짝 돌린 포즈</small>
+        <div class="pose-category">서 있는 전신·허리 포즈</div>
+        <button class="pose-card" type="button" data-label="A01 — 팔을 옆으로 자연스럽게 내리기" data-prompt="Waist-to-fingertips crop. The bracelet arm hangs naturally beside the hip. Rotate the wrist 25 degrees toward the camera so the entire bracelet is unobstructed. Fingers softly curved and separated." data-search="a01 팔을 옆으로 자연스럽게 내리기 허리 옆 서기 자연스러운 손 팔찌 정면 노출" onclick="selectPose(this)">
+          <span class="pose-code">A01</span><strong>팔을 옆으로 자연스럽게 내리기</strong><small>Waist-to-fingertips crop. The bracelet arm hangs naturally beside the hip. Rotate the wrist 25 degrees toward the camera so the entire bracelet is unobstructed. Fingers softly curved and separated.</small><span class="pose-focus">팔찌 정면 노출</span>
         </button>
-        <button class="pose-card" type="button" data-label="A02 — 주머니에 엄지만 걸치기" data-prompt="Three-quarter waist crop. Thumb hooked casually into the front pocket while the other fingers remain outside. Bracelet fully visible above the pocket edge, wrist angled diagonally." data-search="a02 주머니 엄지 청바지 손목" onclick="selectPose(this)">
-          <span class="pose-code">A02</span><strong>주머니에 엄지만 걸치기</strong><small>엄지만 앞주머니에 걸치고 팔찌가 주머니 위로 완전히 보이는 포즈</small>
+        <button class="pose-card" type="button" data-label="A02 — 엄지만 앞주머니에 걸치기" data-prompt="Three-quarter waist crop. Hook only the thumb into the front jeans pocket while all other fingers remain outside. Keep the bracelet fully above the pocket edge and angled toward camera." data-search="a02 엄지만 앞주머니에 걸치기 주머니 엄지 청바지 주머니 위 노출" onclick="selectPose(this)">
+          <span class="pose-code">A02</span><strong>엄지만 앞주머니에 걸치기</strong><small>Three-quarter waist crop. Hook only the thumb into the front jeans pocket while all other fingers remain outside. Keep the bracelet fully above the pocket edge and angled toward camera.</small><span class="pose-focus">주머니 위 노출</span>
         </button>
-        <button class="pose-card" type="button" data-label="A03 — 주머니에 손 반쯤 넣기" data-prompt="Tight waist-to-hand crop. Fingers half inserted into a side pocket, bracelet visible and unobstructed above the pocket, body turned 30 degrees away from camera." data-search="a03 주머니 손 반쯤 청바지" onclick="selectPose(this)">
-          <span class="pose-code">A03</span><strong>주머니에 손 반쯤 넣기</strong><small>손가락 일부만 주머니에 넣고 손목과 팔찌를 노출한 포즈</small>
+        <button class="pose-card" type="button" data-label="A03 — 뒷주머니 가장자리 잡기" data-prompt="Rear three-quarter waist crop. The bracelet hand lightly grips the upper edge of the back pocket. Wrist remains outside the pocket and turned outward so all bracelet beads are visible." data-search="a03 뒷주머니 가장자리 잡기 뒷주머니 뒤태 손목 측면 손목 노출" onclick="selectPose(this)">
+          <span class="pose-code">A03</span><strong>뒷주머니 가장자리 잡기</strong><small>Rear three-quarter waist crop. The bracelet hand lightly grips the upper edge of the back pocket. Wrist remains outside the pocket and turned outward so all bracelet beads are visible.</small><span class="pose-focus">측면 손목 노출</span>
         </button>
-        <button class="pose-card" type="button" data-label="A04 — 손을 허리에 가볍게 얹기" data-prompt="Mid-torso crop. Bracelet hand resting lightly on the side of the waist, elbow pointing outward, wrist facing camera, creating a clear triangular arm shape." data-search="a04 허리 손 얹기 팔꿈치" onclick="selectPose(this)">
-          <span class="pose-code">A04</span><strong>손을 허리에 가볍게 얹기</strong><small>손목을 카메라 쪽으로 보이게 하고 팔꿈치를 바깥으로 둔 포즈</small>
+        <button class="pose-card" type="button" data-label="A04 — 허리선에 손끝만 대기" data-prompt="Mid-torso crop. Only the fingertips touch the waistline while the palm floats away from the body. Elbow opens outward and the bracelet wrist faces the camera." data-search="a04 허리선에 손끝만 대기 허리 손끝 팔꿈치 손목 공간 확보" onclick="selectPose(this)">
+          <span class="pose-code">A04</span><strong>허리선에 손끝만 대기</strong><small>Mid-torso crop. Only the fingertips touch the waistline while the palm floats away from the body. Elbow opens outward and the bracelet wrist faces the camera.</small><span class="pose-focus">손목 공간 확보</span>
         </button>
-        <button class="pose-card" type="button" data-label="A05 — 반대쪽 팔꿈치 잡기" data-prompt="Upper-body crop without face. Bracelet hand gently holding the opposite elbow, wrist close to the center of frame, relaxed fashion-editorial posture." data-search="a05 팔꿈치 잡기 팔짱 상반신" onclick="selectPose(this)">
-          <span class="pose-code">A05</span><strong>반대쪽 팔꿈치 잡기</strong><small>팔찌 착용 손으로 반대쪽 팔꿈치를 가볍게 잡는 포즈</small>
+        <button class="pose-card" type="button" data-label="A05 — 옷 매듭 아래 손 두기" data-prompt="Waist crop with a tied blouse. Place the bracelet hand just below the fabric knot without touching or covering the bracelet. Wrist diagonal, fingers relaxed." data-search="a05 옷 매듭 아래 손 두기 옷 매듭 블라우스 허리 매듭 아래 포인트" onclick="selectPose(this)">
+          <span class="pose-code">A05</span><strong>옷 매듭 아래 손 두기</strong><small>Waist crop with a tied blouse. Place the bracelet hand just below the fabric knot without touching or covering the bracelet. Wrist diagonal, fingers relaxed.</small><span class="pose-focus">매듭 아래 포인트</span>
         </button>
-        <button class="pose-card" type="button" data-label="A06 — 느슨한 팔짱" data-prompt="Loose crossed-arm pose below the chest. Bracelet wrist placed on top and fully visible, hands relaxed, no clenched fingers." data-search="a06 느슨한 팔짱 상반신" onclick="selectPose(this)">
-          <span class="pose-code">A06</span><strong>느슨한 팔짱</strong><small>팔찌 손목을 위쪽에 두어 완전히 보이게 한 느슨한 팔짱</small>
+        <button class="pose-card" type="button" data-label="A06 — 가방 끈을 손끝으로 잡기" data-prompt="Upper-body crop without face. Hold a thin shoulder-bag strap using only fingertips. Keep the strap away from the bracelet and rotate the wrist toward camera." data-search="a06 가방 끈을 손끝으로 잡기 가방 끈 손끝 상반신 스트랩과 분리" onclick="selectPose(this)">
+          <span class="pose-code">A06</span><strong>가방 끈을 손끝으로 잡기</strong><small>Upper-body crop without face. Hold a thin shoulder-bag strap using only fingertips. Keep the strap away from the bracelet and rotate the wrist toward camera.</small><span class="pose-focus">스트랩과 분리</span>
         </button>
-        <button class="pose-card" type="button" data-label="B01 — 앉아서 무릎 위에 손" data-prompt="Seated crop from waist to knees. Bracelet hand resting on one knee, palm down, wrist elongated toward camera. Calm catalog mood." data-search="b01 앉기 무릎 손 카탈로그" onclick="selectPose(this)">
-          <span class="pose-code">B01</span><strong>앉아서 무릎 위에 손</strong><small>손바닥을 아래로 하여 무릎에 가볍게 올린 차분한 포즈</small>
+        <button class="pose-card" type="button" data-label="A07 — 재킷 밑단 가볍게 잡기" data-prompt="Waist-level fashion crop. Lightly pinch the jacket hem with the bracelet hand. Keep the sleeve ending well above the bracelet and the wrist fully visible." data-search="a07 재킷 밑단 가볍게 잡기 재킷 밑단 패션 소매 밖 완전 노출" onclick="selectPose(this)">
+          <span class="pose-code">A07</span><strong>재킷 밑단 가볍게 잡기</strong><small>Waist-level fashion crop. Lightly pinch the jacket hem with the bracelet hand. Keep the sleeve ending well above the bracelet and the wrist fully visible.</small><span class="pose-focus">소매 밖 완전 노출</span>
         </button>
-        <button class="pose-card" type="button" data-label="B02 — 손끝만 무릎에 닿기" data-prompt="Seated side view. Fingertips lightly touching the knee while the wrist floats slightly above it. Bracelet catches the light at a 45-degree angle." data-search="b02 앉기 무릎 손끝 측면" onclick="selectPose(this)">
-          <span class="pose-code">B02</span><strong>손끝만 무릎에 닿기</strong><small>손목은 띄우고 손끝만 무릎에 닿게 한 측면 포즈</small>
+        <button class="pose-card" type="button" data-label="A08 — 반대쪽 팔뚝 아래 받치기" data-prompt="Upper-body crop. The bracelet hand supports the underside of the opposite forearm. The bracelet sits on top of the wrist and remains centered, with no fingers covering it." data-search="a08 반대쪽 팔뚝 아래 받치기 팔뚝 받치기 상반신 팔찌 위쪽 배치" onclick="selectPose(this)">
+          <span class="pose-code">A08</span><strong>반대쪽 팔뚝 아래 받치기</strong><small>Upper-body crop. The bracelet hand supports the underside of the opposite forearm. The bracelet sits on top of the wrist and remains centered, with no fingers covering it.</small><span class="pose-focus">팔찌 위쪽 배치</span>
         </button>
-        <button class="pose-card" type="button" data-label="B03 — 소파 팔걸이에 손목 얹기" data-prompt="Close crop of forearm resting along a sofa armrest. Hand falls naturally over the edge, bracelet centered, soft depth of field." data-search="b03 소파 팔걸이 손목 클로즈업" onclick="selectPose(this)">
-          <span class="pose-code">B03</span><strong>소파 팔걸이에 손목 얹기</strong><small>팔걸이 끝으로 손이 자연스럽게 떨어지고 팔찌가 중앙에 보이는 포즈</small>
+        <div class="pose-category">양손 상호작용 포즈</div>
+        <button class="pose-card" type="button" data-label="B01 — 반대쪽 팔꿈치 가볍게 잡기" data-prompt="Upper-body crop without face. The bracelet hand gently holds the opposite elbow. Place the bracelet wrist at the center of the frame, angled 30 degrees toward camera." data-search="b01 반대쪽 팔꿈치 가볍게 잡기 팔꿈치 잡기 팔짱 중앙 손목" onclick="selectPose(this)">
+          <span class="pose-code">B01</span><strong>반대쪽 팔꿈치 가볍게 잡기</strong><small>Upper-body crop without face. The bracelet hand gently holds the opposite elbow. Place the bracelet wrist at the center of the frame, angled 30 degrees toward camera.</small><span class="pose-focus">중앙 손목</span>
         </button>
-        <button class="pose-card" type="button" data-label="C01 — 양손을 가볍게 포개기" data-prompt="Close-up from forearms to fingertips. Bracelet wrist resting gently over the opposite hand, fingers relaxed and separated, bracelet unobstructed." data-search="c01 양손 포개기 손목 클로즈업" onclick="selectPose(this)">
-          <span class="pose-code">C01</span><strong>양손을 가볍게 포개기</strong><small>팔찌 손목을 반대 손 위에 올리고 손가락을 자연스럽게 펼친 포즈</small>
+        <button class="pose-card" type="button" data-label="B02 — 느슨한 팔짱에서 손목 위로" data-prompt="Loose crossed-arm pose below the chest. Put the bracelet wrist on top of the opposite forearm. Fingers relaxed, bracelet fully visible and not pressed into clothing." data-search="b02 느슨한 팔짱에서 손목 위로 느슨한 팔짱 팔찌 상단 배치" onclick="selectPose(this)">
+          <span class="pose-code">B02</span><strong>느슨한 팔짱에서 손목 위로</strong><small>Loose crossed-arm pose below the chest. Put the bracelet wrist on top of the opposite forearm. Fingers relaxed, bracelet fully visible and not pressed into clothing.</small><span class="pose-focus">팔찌 상단 배치</span>
         </button>
-        <button class="pose-card" type="button" data-label="C02 — 반대 손으로 손목 아래 받치기" data-prompt="Tight wrist close-up. The opposite hand lightly supports the underside of the bracelet wrist without covering any beads. Fingers elegant and relaxed." data-search="c02 손목 받치기 클로즈업 손" onclick="selectPose(this)">
-          <span class="pose-code">C02</span><strong>반대 손으로 손목 아래 받치기</strong><small>비드를 가리지 않도록 손목 아래만 가볍게 받치는 포즈</small>
+        <button class="pose-card" type="button" data-label="B03 — 한 손으로 다른 손목 받치기" data-prompt="Tight forearm close-up. The non-bracelet hand supports the underside of the bracelet wrist without touching the beads. Keep a small air gap beneath the bracelet." data-search="b03 한 손으로 다른 손목 받치기 손목 받치기 클로즈업 비드 비접촉" onclick="selectPose(this)">
+          <span class="pose-code">B03</span><strong>한 손으로 다른 손목 받치기</strong><small>Tight forearm close-up. The non-bracelet hand supports the underside of the bracelet wrist without touching the beads. Keep a small air gap beneath the bracelet.</small><span class="pose-focus">비드 비접촉</span>
         </button>
-        <button class="pose-card" type="button" data-label="C03 — 손목을 세로로 들어 올리기" data-prompt="Vertical wrist close-up. Forearm raised gently, wrist angled toward camera, fingers softly bent, bracelet centered and fully visible." data-search="c03 손목 세로 들기 클로즈업" onclick="selectPose(this)">
-          <span class="pose-code">C03</span><strong>손목을 세로로 들어 올리기</strong><small>팔뚝을 세우고 손가락을 부드럽게 굽힌 팔찌 중심 포즈</small>
+        <button class="pose-card" type="button" data-label="B04 — 양손을 배 앞에서 포개기" data-prompt="Mid-torso crop. Stack both hands loosely in front of the lower abdomen, with the bracelet wrist on top. Keep fingers separated and bracelet unobstructed." data-search="b04 양손을 배 앞에서 포개기 양손 포개기 배 앞 팔찌 손 위" onclick="selectPose(this)">
+          <span class="pose-code">B04</span><strong>양손을 배 앞에서 포개기</strong><small>Mid-torso crop. Stack both hands loosely in front of the lower abdomen, with the bracelet wrist on top. Keep fingers separated and bracelet unobstructed.</small><span class="pose-focus">팔찌 손 위</span>
         </button>
-        <button class="pose-card" type="button" data-label="C04 — 손등이 카메라를 향하는 포즈" data-prompt="Close-up of the back of the hand and wrist. Wrist slightly bent, fingers long and relaxed, bracelet positioned at the visual center." data-search="c04 손등 카메라 손목 클로즈업" onclick="selectPose(this)">
-          <span class="pose-code">C04</span><strong>손등이 카메라를 향하는 포즈</strong><small>손등과 손목이 정면으로 보이고 팔찌가 중앙에 배치되는 포즈</small>
+        <button class="pose-card" type="button" data-label="B05 — 한 손으로 손가락 끝 잡기" data-prompt="Close crop of both hands. The non-bracelet hand gently holds only the fingertips of the bracelet hand. Keep the bracelet wrist straight and fully isolated in the frame." data-search="b05 한 손으로 손가락 끝 잡기 손가락 끝 잡기 양손 손목 직선" onclick="selectPose(this)">
+          <span class="pose-code">B05</span><strong>한 손으로 손가락 끝 잡기</strong><small>Close crop of both hands. The non-bracelet hand gently holds only the fingertips of the bracelet hand. Keep the bracelet wrist straight and fully isolated in the frame.</small><span class="pose-focus">손목 직선</span>
         </button>
-        <button class="pose-card" type="button" data-label="D01 — 테이블 위 손목" data-prompt="Minimal tabletop close-up. Forearm resting diagonally on a clean white table, hand relaxed, bracelet in sharp focus, no props." data-search="d01 테이블 손목 항공 미니멀" onclick="selectPose(this)">
-          <span class="pose-code">D01</span><strong>테이블 위 손목</strong><small>깨끗한 테이블 위에 팔을 대각선으로 둔 미니멀 클로즈업</small>
+        <button class="pose-card" type="button" data-label="B06 — 손바닥끼리 느슨하게 마주보기" data-prompt="Chest-to-waist crop. Hold both palms loosely facing each other with a small gap. Bracelet wrist turned outward toward camera, fingers naturally bent." data-search="b06 손바닥끼리 느슨하게 마주보기 양손 마주보기 외측 손목" onclick="selectPose(this)">
+          <span class="pose-code">B06</span><strong>손바닥끼리 느슨하게 마주보기</strong><small>Chest-to-waist crop. Hold both palms loosely facing each other with a small gap. Bracelet wrist turned outward toward camera, fingers naturally bent.</small><span class="pose-focus">외측 손목</span>
         </button>
-        <button class="pose-card" type="button" data-label="D02 — 손바닥을 위로 편 포즈" data-prompt="Close-up with palm facing upward. Wrist gently extended, fingers naturally open, bracelet fully visible around the wrist with no bead obstruction." data-search="d02 손바닥 위로 손목 클로즈업" onclick="selectPose(this)">
-          <span class="pose-code">D02</span><strong>손바닥을 위로 편 포즈</strong><small>손바닥을 위로 향하고 손목을 길게 편 포즈</small>
+        <button class="pose-card" type="button" data-label="B07 — 반대 손을 손등 위에 얹기" data-prompt="Close-up of both hands. Rest the non-bracelet hand lightly across the back of the bracelet hand, below the knuckles, never covering the wrist or bracelet." data-search="b07 반대 손을 손등 위에 얹기 손등 위 손 포개기 손목 분리" onclick="selectPose(this)">
+          <span class="pose-code">B07</span><strong>반대 손을 손등 위에 얹기</strong><small>Close-up of both hands. Rest the non-bracelet hand lightly across the back of the bracelet hand, below the knuckles, never covering the wrist or bracelet.</small><span class="pose-focus">손목 분리</span>
         </button>
-        <button class="pose-card" type="button" data-label="D03 — 셔츠 소매 끝을 잡기" data-prompt="Fashion close-up. Bracelet hand lightly pinching the edge of a clean white shirt cuff, bracelet fully outside the sleeve and unobstructed." data-search="d03 셔츠 소매 잡기 패션 손목" onclick="selectPose(this)">
-          <span class="pose-code">D03</span><strong>셔츠 소매 끝을 잡기</strong><small>팔찌를 소매 밖에 완전히 노출하고 소매 끝을 살짝 잡는 포즈</small>
+        <button class="pose-card" type="button" data-label="B08 — 한 손으로 소매 끝 정리하기" data-prompt="Fashion close-up. The bracelet hand gently adjusts the opposite sleeve cuff. Keep the bracelet arm sleeve rolled above the wrist and all beads visible." data-search="b08 한 손으로 소매 끝 정리하기 소매 정리 패션 롤업 손목" onclick="selectPose(this)">
+          <span class="pose-code">B08</span><strong>한 손으로 소매 끝 정리하기</strong><small>Fashion close-up. The bracelet hand gently adjusts the opposite sleeve cuff. Keep the bracelet arm sleeve rolled above the wrist and all beads visible.</small><span class="pose-focus">롤업 손목</span>
+        </button>
+        <div class="pose-category">앉은 자세 포즈</div>
+        <button class="pose-card" type="button" data-label="C01 — 앉아서 무릎 위에 손바닥 아래로" data-prompt="Seated crop from waist to knees. Rest the bracelet hand palm-down on one knee. Extend the wrist slightly toward camera and keep the bracelet centered." data-search="c01 앉아서 무릎 위에 손바닥 아래로 앉기 무릎 손바닥 아래 무릎 위 정면" onclick="selectPose(this)">
+          <span class="pose-code">C01</span><strong>앉아서 무릎 위에 손바닥 아래로</strong><small>Seated crop from waist to knees. Rest the bracelet hand palm-down on one knee. Extend the wrist slightly toward camera and keep the bracelet centered.</small><span class="pose-focus">무릎 위 정면</span>
+        </button>
+        <button class="pose-card" type="button" data-label="C02 — 앉아서 손끝만 무릎에 닿기" data-prompt="Seated side crop. Only the fingertips touch the knee while the wrist floats above it. Angle the bracelet at 45 degrees toward the lens." data-search="c02 앉아서 손끝만 무릎에 닿기 앉기 손끝 무릎 측면 45도 손목" onclick="selectPose(this)">
+          <span class="pose-code">C02</span><strong>앉아서 손끝만 무릎에 닿기</strong><small>Seated side crop. Only the fingertips touch the knee while the wrist floats above it. Angle the bracelet at 45 degrees toward the lens.</small><span class="pose-focus">45도 손목</span>
+        </button>
+        <button class="pose-card" type="button" data-label="C03 — 다리 꼰 상태에서 위쪽 무릎 잡기" data-prompt="Seated crossed-leg crop. The bracelet hand rests lightly on the upper knee, fingers following the knee curve. Bracelet remains at the front edge of the wrist." data-search="c03 다리 꼰 상태에서 위쪽 무릎 잡기 다리 꼬기 무릎 앞쪽 손목" onclick="selectPose(this)">
+          <span class="pose-code">C03</span><strong>다리 꼰 상태에서 위쪽 무릎 잡기</strong><small>Seated crossed-leg crop. The bracelet hand rests lightly on the upper knee, fingers following the knee curve. Bracelet remains at the front edge of the wrist.</small><span class="pose-focus">앞쪽 손목</span>
+        </button>
+        <button class="pose-card" type="button" data-label="C04 — 의자 옆으로 손 자연스럽게 내리기" data-prompt="Seated three-quarter crop. Let the bracelet arm hang naturally beside the chair. Wrist rotated outward, fingers relaxed, bracelet isolated against a clean background." data-search="c04 의자 옆으로 손 자연스럽게 내리기 의자 옆 손 내리기 배경 분리" onclick="selectPose(this)">
+          <span class="pose-code">C04</span><strong>의자 옆으로 손 자연스럽게 내리기</strong><small>Seated three-quarter crop. Let the bracelet arm hang naturally beside the chair. Wrist rotated outward, fingers relaxed, bracelet isolated against a clean background.</small><span class="pose-focus">배경 분리</span>
+        </button>
+        <button class="pose-card" type="button" data-label="C05 — 의자 팔걸이에 손목 얹기" data-prompt="Close crop of the forearm along a chair armrest. Hand falls slightly over the edge. Position the bracelet at the top of the wrist in sharp focus." data-search="c05 의자 팔걸이에 손목 얹기 의자 팔걸이 상단 팔찌" onclick="selectPose(this)">
+          <span class="pose-code">C05</span><strong>의자 팔걸이에 손목 얹기</strong><small>Close crop of the forearm along a chair armrest. Hand falls slightly over the edge. Position the bracelet at the top of the wrist in sharp focus.</small><span class="pose-focus">상단 팔찌</span>
+        </button>
+        <button class="pose-card" type="button" data-label="C06 — 소파 팔걸이 끝에서 손 떨어뜨리기" data-prompt="Lifestyle close-up. Forearm rests on a sofa arm while the hand drops naturally beyond the edge. Bracelet centered between sleeve and hand, no fabric contact." data-search="c06 소파 팔걸이 끝에서 손 떨어뜨리기 소파 팔걸이 손 떨어뜨리기 공중 손목" onclick="selectPose(this)">
+          <span class="pose-code">C06</span><strong>소파 팔걸이 끝에서 손 떨어뜨리기</strong><small>Lifestyle close-up. Forearm rests on a sofa arm while the hand drops naturally beyond the edge. Bracelet centered between sleeve and hand, no fabric contact.</small><span class="pose-focus">공중 손목</span>
+        </button>
+        <button class="pose-card" type="button" data-label="C07 — 앉아서 허벅지 옆면에 손 대기" data-prompt="Seated side view. Place the bracelet hand against the outer thigh with palm lightly touching fabric. Turn the wrist toward camera and keep the bracelet above the contact point." data-search="c07 앉아서 허벅지 옆면에 손 대기 앉기 허벅지 옆 측면 팔찌" onclick="selectPose(this)">
+          <span class="pose-code">C07</span><strong>앉아서 허벅지 옆면에 손 대기</strong><small>Seated side view. Place the bracelet hand against the outer thigh with palm lightly touching fabric. Turn the wrist toward camera and keep the bracelet above the contact point.</small><span class="pose-focus">측면 팔찌</span>
+        </button>
+        <button class="pose-card" type="button" data-label="C08 — 바닥에 앉아 세운 무릎 감싸기" data-prompt="Floor-seated crop. The bracelet hand rests around the side of a raised knee without gripping tightly. Keep wrist elongated and bracelet visible on the outer curve." data-search="c08 바닥에 앉아 세운 무릎 감싸기 바닥 앉기 세운 무릎 외곽 손목" onclick="selectPose(this)">
+          <span class="pose-code">C08</span><strong>바닥에 앉아 세운 무릎 감싸기</strong><small>Floor-seated crop. The bracelet hand rests around the side of a raised knee without gripping tightly. Keep wrist elongated and bracelet visible on the outer curve.</small><span class="pose-focus">외곽 손목</span>
+        </button>
+        <div class="pose-category">손목 클로즈업 포즈</div>
+        <button class="pose-card" type="button" data-label="D01 — 테이블 위 팔 대각선 놓기" data-prompt="Minimal tabletop close-up. Rest the forearm diagonally on a clean white table. Hand relaxed, palm down, bracelet in sharp focus with no props touching it." data-search="d01 테이블 위 팔 대각선 놓기 테이블 대각선 미니멀 제품형 클로즈업" onclick="selectPose(this)">
+          <span class="pose-code">D01</span><strong>테이블 위 팔 대각선 놓기</strong><small>Minimal tabletop close-up. Rest the forearm diagonally on a clean white table. Hand relaxed, palm down, bracelet in sharp focus with no props touching it.</small><span class="pose-focus">제품형 클로즈업</span>
+        </button>
+        <button class="pose-card" type="button" data-label="D02 — 테이블 끝에 손목만 걸치기" data-prompt="Close-up at a table edge. Forearm remains on the table while the wrist and hand extend just beyond the edge. Bracelet sits exactly over the edge line and remains fully visible." data-search="d02 테이블 끝에 손목만 걸치기 테이블 끝 손목 에지 강조" onclick="selectPose(this)">
+          <span class="pose-code">D02</span><strong>테이블 끝에 손목만 걸치기</strong><small>Close-up at a table edge. Forearm remains on the table while the wrist and hand extend just beyond the edge. Bracelet sits exactly over the edge line and remains fully visible.</small><span class="pose-focus">에지 강조</span>
+        </button>
+        <button class="pose-card" type="button" data-label="D03 — 손바닥을 위로 펴기" data-prompt="Tight wrist close-up with palm facing upward. Gently extend the wrist, fingers open naturally, and show the inner wrist with the complete bracelet circumference visible." data-search="d03 손바닥을 위로 펴기 손바닥 위로 내측 손목" onclick="selectPose(this)">
+          <span class="pose-code">D03</span><strong>손바닥을 위로 펴기</strong><small>Tight wrist close-up with palm facing upward. Gently extend the wrist, fingers open naturally, and show the inner wrist with the complete bracelet circumference visible.</small><span class="pose-focus">내측 손목</span>
+        </button>
+        <button class="pose-card" type="button" data-label="D04 — 손등이 카메라를 향하게 하기" data-prompt="Close-up of the back of the hand and wrist. Slight wrist bend, long relaxed fingers, bracelet centered and fully separated from the sleeve." data-search="d04 손등이 카메라를 향하게 하기 손등 카메라 외측 손목" onclick="selectPose(this)">
+          <span class="pose-code">D04</span><strong>손등이 카메라를 향하게 하기</strong><small>Close-up of the back of the hand and wrist. Slight wrist bend, long relaxed fingers, bracelet centered and fully separated from the sleeve.</small><span class="pose-focus">외측 손목</span>
+        </button>
+        <button class="pose-card" type="button" data-label="D05 — 손목을 세로로 들어 올리기" data-prompt="Vertical wrist close-up. Raise the forearm gently with fingers softly bent. Rotate the bracelet's silver-accent segment toward the camera." data-search="d05 손목을 세로로 들어 올리기 손목 세로 들기 실버 파츠 정면" onclick="selectPose(this)">
+          <span class="pose-code">D05</span><strong>손목을 세로로 들어 올리기</strong><small>Vertical wrist close-up. Raise the forearm gently with fingers softly bent. Rotate the bracelet's silver-accent segment toward the camera.</small><span class="pose-focus">실버 파츠 정면</span>
+        </button>
+        <button class="pose-card" type="button" data-label="D06 — 손목을 수평으로 뻗기" data-prompt="Horizontal forearm close-up. Extend the arm across the frame from left to right, palm neutral. Keep the bracelet near the center and all beads sharp." data-search="d06 손목을 수평으로 뻗기 손목 수평 뻗기 가로 제품 강조" onclick="selectPose(this)">
+          <span class="pose-code">D06</span><strong>손목을 수평으로 뻗기</strong><small>Horizontal forearm close-up. Extend the arm across the frame from left to right, palm neutral. Keep the bracelet near the center and all beads sharp.</small><span class="pose-focus">가로 제품 강조</span>
+        </button>
+        <button class="pose-card" type="button" data-label="D07 — 손목을 45도로 비틀기" data-prompt="Macro wrist crop. Rotate the wrist precisely 45 degrees between palm-up and back-of-hand views so the bracelet shows depth and complete bead contact." data-search="d07 손목을 45도로 비틀기 손목 45도 비틀기 입체 비드" onclick="selectPose(this)">
+          <span class="pose-code">D07</span><strong>손목을 45도로 비틀기</strong><small>Macro wrist crop. Rotate the wrist precisely 45 degrees between palm-up and back-of-hand views so the bracelet shows depth and complete bead contact.</small><span class="pose-focus">입체 비드</span>
+        </button>
+        <button class="pose-card" type="button" data-label="D08 — 주먹을 아주 느슨하게 쥐기" data-prompt="Close-up with a very loose fist. Keep knuckles soft and wrist straight. The bracelet must not compress or slide toward the hand." data-search="d08 주먹을 아주 느슨하게 쥐기 느슨한 주먹 팔찌 형태 유지" onclick="selectPose(this)">
+          <span class="pose-code">D08</span><strong>주먹을 아주 느슨하게 쥐기</strong><small>Close-up with a very loose fist. Keep knuckles soft and wrist straight. The bracelet must not compress or slide toward the hand.</small><span class="pose-focus">팔찌 형태 유지</span>
+        </button>
+        <div class="pose-category">의상·소품 활용 포즈</div>
+        <button class="pose-card" type="button" data-label="E01 — 셔츠 소매 끝을 손끝으로 잡기" data-prompt="Fashion close-up. The bracelet hand lightly pinches the edge of a clean shirt cuff on the opposite arm. Bracelet sleeve ends above wrist and never touches the beads." data-search="e01 셔츠 소매 끝을 손끝으로 잡기 셔츠 소매 잡기 소매와 분리" onclick="selectPose(this)">
+          <span class="pose-code">E01</span><strong>셔츠 소매 끝을 손끝으로 잡기</strong><small>Fashion close-up. The bracelet hand lightly pinches the edge of a clean shirt cuff on the opposite arm. Bracelet sleeve ends above wrist and never touches the beads.</small><span class="pose-focus">소매와 분리</span>
+        </button>
+        <button class="pose-card" type="button" data-label="E02 — 니트 소매를 살짝 끌어올리기" data-prompt="Close crop. The non-bracelet hand gently pulls the bracelet-side knit sleeve upward, stopping well above the bracelet. Bracelet wrist faces camera." data-search="e02 니트 소매를 살짝 끌어올리기 니트 소매 올리기 팔찌 완전 노출" onclick="selectPose(this)">
+          <span class="pose-code">E02</span><strong>니트 소매를 살짝 끌어올리기</strong><small>Close crop. The non-bracelet hand gently pulls the bracelet-side knit sleeve upward, stopping well above the bracelet. Bracelet wrist faces camera.</small><span class="pose-focus">팔찌 완전 노출</span>
+        </button>
+        <button class="pose-card" type="button" data-label="E03 — 머리카락을 귀 뒤로 넘기기" data-prompt="Upper-body crop with face mostly excluded. Bracelet hand rises toward the side of the head to tuck hair behind the ear. Keep hair away from wrist and bracelet fully visible." data-search="e03 머리카락을 귀 뒤로 넘기기 머리카락 귀 뒤 상향 손목" onclick="selectPose(this)">
+          <span class="pose-code">E03</span><strong>머리카락을 귀 뒤로 넘기기</strong><small>Upper-body crop with face mostly excluded. Bracelet hand rises toward the side of the head to tuck hair behind the ear. Keep hair away from wrist and bracelet fully visible.</small><span class="pose-focus">상향 손목</span>
+        </button>
+        <button class="pose-card" type="button" data-label="E04 — 목 뒤 머리카락 정리하기" data-prompt="Back three-quarter upper-body crop. Bracelet hand reaches behind the neck to adjust hair. Wrist faces outward and bracelet remains clear against the shoulder area." data-search="e04 목 뒤 머리카락 정리하기 목 뒤 머리 정리 후면 손목" onclick="selectPose(this)">
+          <span class="pose-code">E04</span><strong>목 뒤 머리카락 정리하기</strong><small>Back three-quarter upper-body crop. Bracelet hand reaches behind the neck to adjust hair. Wrist faces outward and bracelet remains clear against the shoulder area.</small><span class="pose-focus">후면 손목</span>
+        </button>
+        <button class="pose-card" type="button" data-label="E05 — 선글라스 다리만 가볍게 잡기" data-prompt="Chest-up crop without full face. Hold one temple arm of sunglasses using fingertips. Keep the object above the hand and away from the bracelet." data-search="e05 선글라스 다리만 가볍게 잡기 선글라스 손끝 소품 비접촉" onclick="selectPose(this)">
+          <span class="pose-code">E05</span><strong>선글라스 다리만 가볍게 잡기</strong><small>Chest-up crop without full face. Hold one temple arm of sunglasses using fingertips. Keep the object above the hand and away from the bracelet.</small><span class="pose-focus">소품 비접촉</span>
+        </button>
+        <button class="pose-card" type="button" data-label="E06 — 책 모서리를 아래에서 받치기" data-prompt="Lifestyle close-up. Support the lower corner of a closed book with the bracelet hand. The book touches the palm only, leaving the wrist and bracelet unobstructed." data-search="e06 책 모서리를 아래에서 받치기 책 받치기 손목 아래 여백" onclick="selectPose(this)">
+          <span class="pose-code">E06</span><strong>책 모서리를 아래에서 받치기</strong><small>Lifestyle close-up. Support the lower corner of a closed book with the bracelet hand. The book touches the palm only, leaving the wrist and bracelet unobstructed.</small><span class="pose-focus">손목 아래 여백</span>
+        </button>
+        <button class="pose-card" type="button" data-label="E07 — 커피잔 손잡이를 두 손가락으로 잡기" data-prompt="Table lifestyle crop. Hold a cup handle using thumb and index finger only. Keep the cup several centimeters away from the bracelet and rotate wrist toward camera." data-search="e07 커피잔 손잡이를 두 손가락으로 잡기 커피잔 손잡이 소품과 거리" onclick="selectPose(this)">
+          <span class="pose-code">E07</span><strong>커피잔 손잡이를 두 손가락으로 잡기</strong><small>Table lifestyle crop. Hold a cup handle using thumb and index finger only. Keep the cup several centimeters away from the bracelet and rotate wrist toward camera.</small><span class="pose-focus">소품과 거리</span>
+        </button>
+        <button class="pose-card" type="button" data-label="E08 — 휴대폰 아래쪽 모서리를 받치기" data-prompt="Modern lifestyle close-up. Support the bottom corner of a phone with relaxed fingers. The phone stays in the palm area and does not overlap the bracelet." data-search="e08 휴대폰 아래쪽 모서리를 받치기 휴대폰 모서리 팔찌 비가림" onclick="selectPose(this)">
+          <span class="pose-code">E08</span><strong>휴대폰 아래쪽 모서리를 받치기</strong><small>Modern lifestyle close-up. Support the bottom corner of a phone with relaxed fingers. The phone stays in the palm area and does not overlap the bracelet.</small><span class="pose-focus">팔찌 비가림</span>
         </button>
       </div>
 
@@ -400,7 +950,7 @@ h2{display:inline;font-size:27px;letter-spacing:-.03em}
 
   <section class="section" id="builder">
     <div class="section-head">
-      <span class="section-number">5</span><h2>최종 착용컷 조합기</h2>
+      <span class="section-number">3</span><h2>최종 착용컷 조합기</h2>
       <p class="lead">착용컷 기본 프롬프트와 선택한 포즈를 합쳐 최종 프롬프트를 만듭니다.</p>
     </div>
 
@@ -408,11 +958,11 @@ h2{display:inline;font-size:27px;letter-spacing:-.03em}
       <div class="builder-grid">
         <div class="field">
           <label for="extraInstruction">추가 요청사항</label>
-          <textarea id="extraInstruction" placeholder="예: 6번 모델 레퍼런스의 흰 셔츠와 배경 분위기를 70% 반영, 얼굴 제외"></textarea>
+          <textarea id="extraInstruction" placeholder="예: 6번 착장의 흰 셔츠와 배경 무드를 반영하고 얼굴은 제외"></textarea>
         </div>
         <div class="field">
           <label for="finalPrompt">최종 조합 프롬프트</label>
-          <textarea class="final-output" id="finalPrompt" readonly placeholder="포즈를 선택하고 아래의 최종 조합 버튼을 누르세요."></textarea>
+          <textarea class="final-output" id="finalPrompt" readonly="" placeholder="포즈를 선택하고 아래의 최종 조합 버튼을 누르세요."></textarea>
         </div>
       </div>
 
@@ -676,71 +1226,87 @@ Before output, verify all of the following:
 
 If any bracelet part, bead sequence, silver bead shape, silver bead position, or gemstone count differs from Reference image 1, reject the result and recreate it without redesigning the bracelet.`,
 
-wearing:`Create a realistic wrist-wearing photo using six reference images.
+wearing:`Create a realistic wrist-wearing photo of a parts-based gemstone bracelet using six reference images.
 
 REFERENCE IMAGE ORDER — DO NOT REASSIGN
 
 Reference image 1 = HAND AND POSE MASTER.
-Use it only for:
+
+Use Reference image 1 only for:
 - exact hand pose
-- wrist angle
-- finger position
-- arm position
+- exact wrist angle
+- exact finger position
+- exact arm position
 - bracelet placement on the wrist
 - hand-to-camera orientation
 - crop and framing of the hand and arm
 
-Reference image 2 = PRODUCT FRONT-VIEW MASTER.
-Use it for:
-- exact front silver-part arrangement
-- exact gemstone bead diameter
-- exact silver bead dimensions
-- exact silver bead shapes
-- silver groove direction and structure
-- front-facing proportions
-- spacing and contact between adjacent beads
+Reference image 2 = PRODUCT TOP-VIEW MASTER.
 
-Reference image 3 = PRODUCT 45-DEGREE / TOP-VIEW MASTER.
-Use it for:
-- exact total bead count
-- complete bracelet circumference
-- complete bead sequence
+Use Reference image 2 for:
+- exact total gemstone bead count
+- exact complete bracelet circumference
+- exact full-loop bead sequence
+- exact positions of all metal parts
+- exact distances between metal parts
+- exact left-right placement of the parts around the bracelet
 - overall bracelet proportions
-- exact positions of all silver accent beads
-- exact distances between silver accent beads
-- three-dimensional loop structure and perspective
+- complete structural continuity of the bracelet loop
 
-Reference image 4 = PRODUCT BACK / SUPPORTING STRUCTURE MASTER.
-Use it for:
-- rear bead sequence
-- rear connection structure
-- exact gemstone bead count between silver accent beads
-- continuity of the full bracelet loop
-- structural details hidden or unclear in References 2 and 3
-- cross-checking the exact same bracelet from another angle
+Reference image 3 = PRODUCT FRONT-VIEW MASTER.
 
-Reference image 5 = GEMSTONE MATERIAL ONLY.
-Use it only for:
+Use Reference image 3 for:
+- exact front-facing parts arrangement
+- exact gemstone bead diameter
+- exact metal-part dimensions
+- exact metal-part shapes
+- exact groove direction and groove structure
+- exact front-facing proportions
+- exact contact between adjacent gemstone beads and metal parts
+- exact local geometry around every metal part
+
+Reference image 4 = PRODUCT BACK-VIEW MASTER.
+
+Use Reference image 4 for:
+- exact rear bead sequence
+- exact rear connection structure
+- exact hidden bead arrangement
+- exact full-loop continuity
+- structural details not visible in Reference image 3
+- confirmation that References 2, 3, and 4 show the same bracelet
+
+Reference image 5 = REPLACEMENT GEMSTONE MATERIAL ONLY.
+
+Use Reference image 5 only for:
 - gemstone color
-- translucency or opacity
+- gemstone translucency or opacity
 - natural mineral inclusions
 - internal mineral pattern
 - internal depth
 - polished gemstone surface
+- natural bead-to-bead material variation
 
-Ignore all geometry in Reference image 5:
-- do not copy its bead size
-- do not copy its bead shape
-- do not copy its bead count
-- do not copy its strand arrangement
-- do not copy its camera angle or lighting layout
+Do not copy from Reference image 5:
+- bead size
+- bead shape
+- bead count
+- strand layout
+- bead spacing
+- bracelet curvature
+- camera angle
+- crop
+- lighting arrangement
+- metal parts
+- bracelet design
 
-Reference image 6 = MODEL, OUTFIT, AND MOOD ONLY.
-Use it only for:
-- model appearance and styling mood
+Reference image 6 = OUTFIT, MODEL, AND MOOD ONLY.
+
+Use Reference image 6 only for:
 - clothing silhouette
 - clothing fabric
-- clothing color mood
+- clothing color
+- styling mood
+- model appearance
 - background mood
 - lighting mood
 - overall fashion-photography atmosphere
@@ -748,69 +1314,114 @@ Use it only for:
 Ignore from Reference image 6:
 - hand pose
 - wrist angle
+- finger position
 - bracelet
 - watch
 - rings
 - necklace
 - earrings
-- any other accessory
+- every other accessory
 
-REFERENCE PRIORITY
+REFERENCE PRIORITY — ABSOLUTE
 
-For the hand pose and wrist placement, Reference image 1 always wins.
-For bracelet structure and design, References 2, 3, and 4 must be treated as three views of the exact same bracelet and must be cross-checked together.
-For gemstone material, Reference image 5 always wins.
-For model, outfit, background, and mood, Reference image 6 always wins.
+For hand pose, wrist angle, finger position, arm position, and bracelet placement:
+Reference image 1 always wins.
 
-Never treat References 2, 3, and 4 as different bracelet designs.
-Do not choose only one of them.
-Cross-check all three views to reconstruct one identical bracelet.
-If a detail is hidden in one view, use the other two views to verify it.
-Never average, invent, or blend conflicting geometry.
+For bracelet construction, part shapes, part positions, bead count, bead sequence, and proportions:
+References 2, 3, and 4 always win and must be cross-checked together.
 
-BRACELET — ABSOLUTE DESIGN LOCK
+For gemstone material only:
+Reference image 5 always wins.
 
-References 2, 3, and 4 show the same already-correct bracelet from different angles.
+For outfit, model, background, lighting, and mood:
+Reference image 6 always wins.
+
+References 2, 3, and 4 are three views of the exact same bracelet.
+
+Do not treat them as separate designs.
+Do not choose only one product reference.
+Do not average conflicting geometry.
+Use the other views to resolve any hidden or unclear structure.
+Never invent missing parts or bead sequences.
+
+PARTS-BASED BRACELET — ABSOLUTE DESIGN LOCK
+
+The bracelet shown in References 2, 3, and 4 is already correctly designed and assembled.
 
 Copy that exact bracelet onto the wrist in Reference image 1.
 
 Do not redesign it.
 Do not simplify it.
-Do not beautify it.
-Do not recolor it beyond the gemstone material defined by Reference image 5.
+Do not rearrange it.
+Do not reinterpret the metal parts.
+Do not add decorative parts.
+Do not remove any part.
+Do not recolor the metal parts.
 
-Do not change:
-- total bead count
-- gemstone bead count
+Preserve exactly:
+- total gemstone bead count
+- visible and hidden gemstone bead count
 - gemstone bead diameter
-- bead sequence
-- bead spacing
+- gemstone bead shape
+- complete bead sequence
 - bracelet circumference
 - bracelet proportions
-- silver accent bead count
-- silver accent bead shape
-- silver accent bead size
-- silver accent bead position
-- silver groove count
-- silver groove direction
-- silver surface finish
-- gemstone-to-silver bead count
-- local geometry around every silver bead
+- spacing between all elements
+- number of metal parts
+- shape of every metal part
+- size of every metal part
+- position of every metal part
+- rotation of every metal part
+- groove count
+- groove direction
+- groove depth
+- metal surface finish
+- number of gemstone beads between each metal part
+- local curvature around each metal part
+- contact points between all neighboring elements
 
-The bracelet contains exactly the same three silver accent beads shown in References 2, 3, and 4:
-- one large fluted spherical silver bead
-- two smaller olive-shaped fluted silver beads
+All gemstone beads must remain perfectly spherical and equal in diameter.
 
-Keep all three exactly identical.
+Every gemstone bead and every metal part must touch its neighboring element with zero visible spacing and zero overlap.
 
-Every bead must touch its neighboring bead with zero visible spacing and zero overlap.
+No part may sink into, merge with, cover, distort, or replace an adjacent gemstone bead.
+
+Do not create:
+- extra spacer beads
+- tiny connector beads
+- enlarged transition beads
+- duplicated metal parts
+- missing metal parts
+- simplified metal parts
+- different metal-part shapes
+- redistributed bead spacing
+- stretched bracelet sections
+- compressed bracelet sections
+
+GEMSTONE MATERIAL REPLACEMENT ONLY
+
+Replace only the gemstone material using Reference image 5.
+
+The gemstone material may change in:
+- color
+- translucency
+- opacity
+- mineral inclusions
+- internal pattern
+- internal depth
+- polish
+
+Nothing else may change.
+
+The metal parts, bead geometry, bead count, bead sequence, bracelet proportions, and structural layout must remain exactly as shown in References 2, 3, and 4.
 
 POSE — FOLLOW REFERENCE IMAGE 1
 
 [SELECTED POSE DESCRIPTION WILL BE INSERTED HERE]
 
-Use Reference image 1 as the primary pose source.
-The selected pose description only clarifies the intended pose and must not override the actual hand and wrist geometry visible in Reference image 1.
+Reference image 1 is the primary and final authority for the pose.
+
+The selected pose description only clarifies the intended presentation and must not override the actual hand, wrist, finger, or arm geometry visible in Reference image 1.
 
 PHOTO STYLE
 
@@ -820,28 +1431,36 @@ PHOTO STYLE
 - clean commercial fashion photography
 - soft natural daylight
 - bracelet in sharp focus
+- every visible metal part rendered clearly
 - bracelet fully visible and unobstructed
 - bracelet wrapped naturally around the wrist using an elastic string
+- clothing and styling follow Reference image 6
 - no watch
 - no rings
 - no necklace
 - no earrings
-- no other bracelet
+- no additional bracelet
 - no extra charm
 - no added metal parts
 
 FINAL VALIDATION
 
-Before output, verify:
-- the hand and wrist pose match Reference image 1
-- the complete bracelet structure matches References 2, 3, and 4
-- the gemstone material matches Reference image 5
-- the model, outfit, background, and mood follow Reference image 6
-- no bracelet part from Reference image 6 remains
-- no product geometry was copied from Reference image 5
-- no bead, silver part, or groove has been added, removed, reshaped, or repositioned
+Before output, verify all of the following:
 
-If any structural detail differs from References 2, 3, and 4, reject the result and recreate it.`,
+- the hand pose matches Reference image 1
+- the wrist angle matches Reference image 1
+- the bracelet placement matches Reference image 1
+- the complete bracelet structure matches References 2, 3, and 4
+- the front parts arrangement matches Reference image 3
+- the full-loop bead sequence matches Reference image 2
+- the rear structure matches Reference image 4
+- the gemstone material matches Reference image 5
+- the outfit and mood follow Reference image 6
+- no geometry was copied from Reference image 5
+- no accessory was copied from Reference image 6
+- no bead or metal part was added, removed, resized, reshaped, duplicated, or repositioned
+
+If any structural detail differs from References 2, 3, and 4, reject the result and recreate the same bracelet without redesigning it.`,
 
 material:`Replace only the material appearance of the gemstone beads using Reference image 2.
 
@@ -1026,5 +1645,6 @@ function showToastMessage(message){
 }
 
 </script>
-</body>
-</html>
+
+
+</body></html>
